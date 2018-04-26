@@ -94,13 +94,17 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="Copy, Assign, and DestroyThe Copy ConstructorDefinition :The first parameter is a reference to the class type and any additional parameters have default values. ps. The first parameter is almost alway">
+<meta property="og:type" content="article">
 <meta property="og:title" content="LALALALALA">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/04/26/Copy_Control/index.html">
 <meta property="og:site_name" content="LALALALALA">
+<meta property="og:description" content="Copy, Assign, and DestroyThe Copy ConstructorDefinition :The first parameter is a reference to the class type and any additional parameters have default values. ps. The first parameter is almost alway">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-26T03:05:01.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LALALALALA">
+<meta name="twitter:description" content="Copy, Assign, and DestroyThe Copy ConstructorDefinition :The first parameter is a reference to the class type and any additional parameters have default values. ps. The first parameter is almost alway">
 
 
 
@@ -129,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/26/Copy_Control/"/>
 
 
 
 
 
-  <title>LALALALALA</title>
+  <title> | LALALALALA</title>
   
 
 
@@ -160,9 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,9 +247,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -277,9 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/26/Copy_Control/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -329,9 +329,7 @@
       
 
       
-        
-          
-            <h1 id="Copy-Assign-and-Destroy"><a href="#Copy-Assign-and-Destroy" class="headerlink" title="Copy, Assign, and Destroy"></a>Copy, Assign, and Destroy</h1><h2 id="The-Copy-Constructor"><a href="#The-Copy-Constructor" class="headerlink" title="The Copy Constructor"></a>The Copy Constructor</h2><p><strong>Definition</strong> :<br>The first parameter is a reference to the class type and any additional parameters have default values.</p>
+        <h1 id="Copy-Assign-and-Destroy"><a href="#Copy-Assign-and-Destroy" class="headerlink" title="Copy, Assign, and Destroy"></a>Copy, Assign, and Destroy</h1><h2 id="The-Copy-Constructor"><a href="#The-Copy-Constructor" class="headerlink" title="The Copy Constructor"></a>The Copy Constructor</h2><p><strong>Definition</strong> :<br>The first parameter is a reference to the class type and any additional parameters have default values.</p>
 <p>ps. The first parameter is almost always a reference to const.</p>
 <p><strong>Note</strong> :<br>The compile can bypass the copy constructor.</p>
 <h3 id="Synthesized-Copy-Constructor"><a href="#Synthesized-Copy-Constructor" class="headerlink" title="Synthesized Copy Constructor"></a>Synthesized Copy Constructor</h3><p><strong>Usage</strong> :<br>Members of class type are copied by the copy constructor for that class while members of build-in type are copied directly.</p>
@@ -380,8 +378,6 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Test&#123;</span><br><span class="line">    Test() = default;</span><br><span class="line">    ~Test() = delete;</span><br><span class="line">&#125;;</span><br><span class="line">Test test1; // error</span><br><span class="line">Test *p_test = new Test(); // ok</span><br><span class="line">delete p_test; // error</span><br></pre></td></tr></table></figure>
 <h1 id="Swap"><a href="#Swap" class="headerlink" title="Swap"></a>Swap</h1>
-          
-        
       
     </div>
     
@@ -398,12 +394,12 @@
       
 
       
+      
+      
 
       
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -413,10 +409,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -424,6 +421,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -444,8 +445,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -489,6 +499,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Copy-Assign-and-Destroy"><span class="nav-number">1.</span> <span class="nav-text">Copy, Assign, and Destroy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Copy-Constructor"><span class="nav-number">1.1.</span> <span class="nav-text">The Copy Constructor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Synthesized-Copy-Constructor"><span class="nav-number">1.1.1.</span> <span class="nav-text">Synthesized Copy Constructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Copy-Initialization"><span class="nav-number">1.1.2.</span> <span class="nav-text">Copy Initialization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Copy-Assignment-Operator"><span class="nav-number">1.2.</span> <span class="nav-text">Copy-Assignment Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Destructor-析构器"><span class="nav-number">1.3.</span> <span class="nav-text">Destructor 析构器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-default-and-delete"><span class="nav-number">1.4.</span> <span class="nav-text">Using = default and = delete</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Swap"><span class="nav-number">2.</span> <span class="nav-text">Swap</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -602,10 +628,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
