@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="FunctionBasicsCalling a functionLike f(1,2), we can use call operator () to call a function, where f is a name and 1,1 is an argument list. Usage of a function call :   Initialize the function’s param">
+<meta name="description" content="Inheritance 继承Example123456789101112131415// base classclass A&amp;#123;    int a()&amp;#123;        return 1;    &amp;#125;    virtual int b();    virtual ~A() = default;&amp;#125;// derived classclass B : public A&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Function">
-<meta property="og:url" content="http://yoursite.com/2018/04/26/Function/index.html">
+<meta property="og:title" content="OOP-first">
+<meta property="og:url" content="http://yoursite.com/2018/04/26/OOP-first/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="FunctionBasicsCalling a functionLike f(1,2), we can use call operator () to call a function, where f is a name and 1,1 is an argument list. Usage of a function call :   Initialize the function’s param">
+<meta property="og:description" content="Inheritance 继承Example123456789101112131415// base classclass A&amp;#123;    int a()&amp;#123;        return 1;    &amp;#125;    virtual int b();    virtual ~A() = default;&amp;#125;// derived classclass B : public A&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-02T07:53:06.976Z">
+<meta property="og:updated_time" content="2018-05-02T07:52:36.992Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Function">
-<meta name="twitter:description" content="FunctionBasicsCalling a functionLike f(1,2), we can use call operator () to call a function, where f is a name and 1,1 is an argument list. Usage of a function call :   Initialize the function’s param">
+<meta name="twitter:title" content="OOP-first">
+<meta name="twitter:description" content="Inheritance 继承Example123456789101112131415// base classclass A&amp;#123;    int a()&amp;#123;        return 1;    &amp;#125;    virtual int b();    virtual ~A() = default;&amp;#125;// derived classclass B : public A&amp;">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/26/Function/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/26/OOP-first/"/>
 
 
 
 
 
-  <title>Function | LALALALALA</title>
+  <title>OOP-first | LALALALALA</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/Function/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/OOP-first/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HongZicong">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Function</h1>
+          <h1 class="post-title" itemprop="name headline">OOP-first</h1>
         
 
         <div class="post-meta">
@@ -329,43 +329,16 @@
       
 
       
-        <h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><h3 id="Calling-a-function"><a href="#Calling-a-function" class="headerlink" title="Calling a function"></a>Calling a function</h3><p>Like <code>f(1,2)</code>, we can use call operator <code>()</code> to call a function, where <code>f</code> is a name and <code>1,1</code> is an argument list.</p>
-<p><strong>Usage</strong> of a <em>function call</em> : </p>
-<ol>
-<li>Initialize the function’s parameters from the corresponding argument</li>
-<li>Transfer control to <em>called function</em> from <em>calling function</em></li>
-</ol>
-<p><strong>Usage</strong> of a <em>return statement</em> : </p>
-<ol>
-<li>Return the value in the return</li>
-<li>Transfer control to <em>calling function</em> from <em>called function</em></li>
+        <h1 id="Inheritance-继承"><a href="#Inheritance-继承" class="headerlink" title="Inheritance 继承"></a>Inheritance 继承</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// base class</span><br><span class="line">class A&#123;</span><br><span class="line">    int a()&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    virtual int b();</span><br><span class="line">    virtual ~A() = default;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// derived class</span><br><span class="line">class B : public A&#123;</span><br><span class="line">    int b() override&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><ol>
+<li>基类将自己的方法分成两类：一类是希望子类保持不变，另外一类是希望子类能改写成适合自己的版本，后者被声明为<code>virtual</code>。</li>
+<li><code>virtual</code> 需要在父类中就被实现（和Java中的 <code>abstract</code> 不一样）。</li>
+<li>任何除构造函数外的非 <code>static</code> 方法，都可以被声明为 <code>virtual</code>。</li>
+<li>作为继承关系中根节点的类通常都会定义一个虚析构函数。</li>
 </ol>
 <a id="more"></a>
-<h3 id="Argument-and-Parameter"><a href="#Argument-and-Parameter" class="headerlink" title="Argument and Parameter"></a>Argument and Parameter</h3><p><strong>Relation</strong>:<br>Arguments are the initiallizer for a function’s parameters.</p>
-<p><strong>Key Point</strong>:<br>The order in which arguments are evaluated is not guaranteed.</p>
-<h3 id="Local-Objects"><a href="#Local-Objects" class="headerlink" title="Local Objects"></a>Local Objects</h3><h4 id="Local-variable"><a href="#Local-variable" class="headerlink" title="Local variable"></a>Local variable</h4><p>Parameters and variables defined inside a function body.</p>
-<h4 id="Automatic-objects"><a href="#Automatic-objects" class="headerlink" title="Automatic objects"></a>Automatic objects</h4><ol>
-<li><strong>Definition</strong>: Objects that exist only while a block is executing.</li>
-<li><strong>Usage</strong>: Automatic objects corresponding to local variables are initialized if they has an explicit initializer, otherwise they are <em>default initialized</em> (build-in type is unintialized and object is initialized according to the definition of class).</li>
-</ol>
-<h4 id="Local-static-object"><a href="#Local-static-object" class="headerlink" title="Local static object"></a>Local static object</h4><p><strong>Usage</strong>: If it has no explicit initializer, it is <em>value initialized</em> (build-in type are initialized to zero).</p>
-<hr>
-<h2 id="Argument-Passing"><a href="#Argument-Passing" class="headerlink" title="Argument Passing"></a>Argument Passing</h2><h3 id="Passing-by-Value"><a href="#Passing-by-Value" class="headerlink" title="Passing by Value"></a>Passing by Value</h3><p><strong>Example</strong>:<br>pointer or ordinary type.</p>
-<h3 id="Passing-by-Reference"><a href="#Passing-by-Reference" class="headerlink" title="Passing by Reference"></a>Passing by Reference</h3><p><strong>Usage</strong>:</p>
-<ol>
-<li>Allow a function to change the value of one or more of its arguments.</li>
-<li>Avoid copies of objects.</li>
-<li>Return additional information via reference parameter.</li>
-</ol>
-<h3 id="Const-Parameters-and-Arguments"><a href="#Const-Parameters-and-Arguments" class="headerlink" title="Const Parameters and Arguments"></a>Const Parameters and Arguments</h3><p><strong>Usage</strong>:<br>Top level const on parameters are ignored. We can pass either a const or a nonconst object to a parameter that has a top-level const.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// We can call func passing it either a const int or a plain int, so we call the const is ignored.</span><br><span class="line">void func(const int i)&#123;// func ca nread but not write to i&#125;</span><br></pre></td></tr></table></figure>
-<p>Hence we can’t distinguish between <code>void func(const int i)</code> and <code>void func(int i)</code> which means we can’t define both two functions at the same time.</p>
-<p><strong>Key Point</strong>:<br>Use reference to const as possible as we can. Doing so we can forbit function’s caller to change its argument’s value. Moreover, using a reference instead of a reference to const unduly limits the type of arguments that can be used with the function.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// bad design: the first parameter should be a const string&amp;</span><br><span class="line">string::size_type find_char(string &amp;s, char c, string::size_type &amp;occurs);</span><br></pre></td></tr></table></figure>
-<p>In the case, we can’t call <code>find_char(&quot;Hello World&quot;, &#39;o&#39;, ctr)</code>.</p>
-<h3 id="Array-Parameter"><a href="#Array-Parameter" class="headerlink" title="Array Parameter"></a>Array Parameter</h3><p><strong>Key Point</strong>:<br>Array parameter will be converted to a pointer.</p>
-<p><strong>Array Reference Parameters</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f(int &amp;arr[10])     // arr is an array of references </span><br><span class="line">f(int (&amp;arr)[10])   // arr is a reference to an array</span><br></pre></td></tr></table></figure></p>
-<p>Note: We need to define the size of the array like above example, so contrary to plain array parameter, it will check the size of array when passing the parameter.</p>
+<h1 id="Dynamic-Binding-动态绑定"><a href="#Dynamic-Binding-动态绑定" class="headerlink" title="Dynamic Binding 动态绑定"></a>Dynamic Binding 动态绑定</h1><p>##Definition</p>
+<p>在运行的时候，会对 <code>virtual</code> 函数进行动态绑定</p>
 
       
     </div>
@@ -390,8 +363,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/26/OOP-first/" rel="next" title="OOP-first">
-                <i class="fa fa-chevron-left"></i> OOP-first
+              <a href="/2018/04/26/Copy-Control/" rel="next" title="Copy Control">
+                <i class="fa fa-chevron-left"></i> Copy Control
               </a>
             
           </div>
@@ -400,8 +373,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/02/python_1/" rel="prev" title="Python 语法糖">
-                Python 语法糖 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/26/Function/" rel="prev" title="Function">
+                Function <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -518,7 +491,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">1.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basics"><span class="nav-number">1.1.</span> <span class="nav-text">Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Calling-a-function"><span class="nav-number">1.1.1.</span> <span class="nav-text">Calling a function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Argument-and-Parameter"><span class="nav-number">1.1.2.</span> <span class="nav-text">Argument and Parameter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-Objects"><span class="nav-number">1.1.3.</span> <span class="nav-text">Local Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-variable"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Local variable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Automatic-objects"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Automatic objects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-static-object"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Local static object</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Argument-Passing"><span class="nav-number">1.2.</span> <span class="nav-text">Argument Passing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Passing-by-Value"><span class="nav-number">1.2.1.</span> <span class="nav-text">Passing by Value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Passing-by-Reference"><span class="nav-number">1.2.2.</span> <span class="nav-text">Passing by Reference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Const-Parameters-and-Arguments"><span class="nav-number">1.2.3.</span> <span class="nav-text">Const Parameters and Arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-Parameter"><span class="nav-number">1.2.4.</span> <span class="nav-text">Array Parameter</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Inheritance-继承"><span class="nav-number">1.</span> <span class="nav-text">Inheritance 继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">1.2.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dynamic-Binding-动态绑定"><span class="nav-number">2.</span> <span class="nav-text">Dynamic Binding 动态绑定</span></a></li></ol></div>
             
 
           </div>
