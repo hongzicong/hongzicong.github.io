@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -95,13 +95,14 @@
 
 
 <meta name="description" content="Inheritance 继承Example12345678910111213141516171819202122232425262728293031323334353637// base classclass A&amp;#123;private:    int s;public:    A():s(0)&amp;#123; &amp;#125;    A(int i):s(i)&amp;#123; &amp;#125;    int">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OOP-first">
 <meta property="og:url" content="http://yoursite.com/2018/04/26/OOP-first/index.html">
 <meta property="og:site_name" content="LALALALALA">
 <meta property="og:description" content="Inheritance 继承Example12345678910111213141516171819202122232425262728293031323334353637// base classclass A&amp;#123;private:    int s;public:    A():s(0)&amp;#123; &amp;#125;    A(int i):s(i)&amp;#123; &amp;#125;    int">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-03T03:13:48.932Z">
+<meta property="og:updated_time" content="2018-05-03T04:30:41.942Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OOP-first">
 <meta name="twitter:description" content="Inheritance 继承Example12345678910111213141516171819202122232425262728293031323334353637// base classclass A&amp;#123;private:    int s;public:    A():s(0)&amp;#123; &amp;#125;    A(int i):s(i)&amp;#123; &amp;#125;    int">
@@ -257,7 +258,7 @@
   
   
 
-  <article class="post post-type-C++" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -302,6 +303,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -329,7 +352,7 @@
       
 
       
-        <h1 id="Inheritance-继承"><a href="#Inheritance-继承" class="headerlink" title="Inheritance 继承"></a>Inheritance 继承</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// base class</span><br><span class="line">class A&#123;</span><br><span class="line">private:</span><br><span class="line">    int s;</span><br><span class="line">public:</span><br><span class="line">    A():s(0)&#123; &#125;</span><br><span class="line"></span><br><span class="line">    A(int i):s(i)&#123; &#125;</span><br><span class="line"></span><br><span class="line">    int a()&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 纯虚函数，所以类A是抽象基类</span><br><span class="line">    virtual int b() = 0;</span><br><span class="line">    </span><br><span class="line">    virtual ~A() = default;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// derived class</span><br><span class="line">class B : public A&#123;     // public 代表能直接将这个对象绑定到基类的引用或者指针上</span><br><span class="line">public:</span><br><span class="line">    B(int i):A(i)&#123; &#125;    // 这样才能制定使用某个基类的构造函数</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">    c++ 11 中使用override来显式注明覆盖继承的virtual函数</span><br><span class="line">    如果派生类中某个函数名字和虚函数一样，但形参不同，并没有覆盖掉基类的版本</span><br><span class="line">    如果使用override可以防止看错，让编译器给我们报错</span><br><span class="line">*/</span><br><span class="line">    int b() override&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 不能被继承的类</span><br><span class="line">class C final : public A&#123;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h1 id="Inheritance-继承"><a href="#Inheritance-继承" class="headerlink" title="Inheritance 继承"></a>Inheritance 继承</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// base class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> s;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A():s(<span class="number">0</span>)&#123; &#125;</span><br><span class="line"></span><br><span class="line">    A(<span class="keyword">int</span> i):s(i)&#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 纯虚函数，所以类A是抽象基类</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">b</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">virtual</span> ~A() = <span class="keyword">default</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// derived class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> :</span> <span class="keyword">public</span> A&#123;     <span class="comment">// public 代表能直接将这个对象绑定到基类的引用或者指针上</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    B(<span class="keyword">int</span> i):A(i)&#123; &#125;    <span class="comment">// 这样才能制定使用某个基类的构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    c++ 11 中使用override来显式注明覆盖继承的virtual函数</span></span><br><span class="line"><span class="comment">    如果派生类中某个函数名字和虚函数一样，但形参不同，并没有覆盖掉基类的版本</span></span><br><span class="line"><span class="comment">    如果使用override可以防止看错，让编译器给我们报错</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">b</span><span class="params">()</span> override</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不能被继承的类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="title">final</span> :</span> <span class="keyword">public</span> A&#123;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="公有、私有和受保护继承"><a href="#公有、私有和受保护继承" class="headerlink" title="公有、私有和受保护继承"></a>公有、私有和受保护继承</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ol>
 <li><p>对基类成员的访问权限只与基类的访问说明符有关，和派生访问说明符没有关系。</p>
 </li>
@@ -367,11 +390,11 @@
 <h2 id="Class-Definition"><a href="#Class-Definition" class="headerlink" title="Class Definition"></a>Class Definition</h2><ol>
 <li>派生类的声明中包含类名但是不包含它的派生类列表。</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class A : public B;     // 错误</span><br><span class="line">class A;                // 正确</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> :</span> <span class="keyword">public</span> B;     <span class="comment">// 错误</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>;</span>                <span class="comment">// 正确</span></span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li>想用某个类为基类时，必须先实现这个类再使用。</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class B : public A&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> :</span> <span class="keyword">public</span> A&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>derived-to-base ：将派生类对象绑定到基类的引用或者指针上（隐式）</p>
 <p>base-to-derived ：通过<code>static_cast</code>（强制）和<code>dynamic_cast</code>（安全）将基类的引用或者指针转换为派生类（显式）</p>
 <p><strong><font color="red">Note :</font></strong></p>
@@ -414,6 +437,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
       
 
       
@@ -520,7 +549,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>

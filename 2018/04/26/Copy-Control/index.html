@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -95,13 +95,14 @@
 
 
 <meta name="description" content="Copy, Assign, and DestroyThe Copy ConstructorDefinition :The first parameter is a reference to the class type and any additional parameters have default values. ps. The first parameter is almost alway">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Copy Control">
 <meta property="og:url" content="http://yoursite.com/2018/04/26/Copy-Control/index.html">
 <meta property="og:site_name" content="LALALALALA">
 <meta property="og:description" content="Copy, Assign, and DestroyThe Copy ConstructorDefinition :The first parameter is a reference to the class type and any additional parameters have default values. ps. The first parameter is almost alway">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-03T01:23:46.056Z">
+<meta property="og:updated_time" content="2018-05-03T04:31:22.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Copy Control">
 <meta name="twitter:description" content="Copy, Assign, and DestroyThe Copy ConstructorDefinition :The first parameter is a reference to the class type and any additional parameters have default values. ps. The first parameter is almost alway">
@@ -257,7 +258,7 @@
   
   
 
-  <article class="post post-type-C++" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -302,6 +303,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -339,7 +362,7 @@
 <li>Even if we define other constructors, a copy constructor is synthesized when we don’t define copy constructors.</li>
 <li>Although we can’t directly copy an array, synthesized copy constructor copies members of array type by coping each element (a deep copy).</li>
 </ol>
-<h3 id="Copy-Initialization"><a href="#Copy-Initialization" class="headerlink" title="Copy Initialization"></a>Copy Initialization</h3><p><strong>Example</strong> :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string dots(10,&apos;.&apos;);            // direct initialization</span><br><span class="line">string str1(dots);              // direct initialization</span><br><span class="line">string str2 = dots;             // copy initialization</span><br><span class="line">string str3 = &quot;123&quot;;            // copy initialization</span><br><span class="line">string nines = string(1000,&apos;9&apos;);// copy initialization</span><br></pre></td></tr></table></figure></p>
+<h3 id="Copy-Initialization"><a href="#Copy-Initialization" class="headerlink" title="Copy Initialization"></a>Copy Initialization</h3><p><strong>Example</strong> :<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">dots</span><span class="params">(<span class="number">10</span>,<span class="string">'.'</span>)</span></span>;            <span class="comment">// direct initialization</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str1</span><span class="params">(dots)</span></span>;              <span class="comment">// direct initialization</span></span><br><span class="line"><span class="built_in">string</span> str2 = dots;             <span class="comment">// copy initialization</span></span><br><span class="line"><span class="built_in">string</span> str3 = <span class="string">"123"</span>;            <span class="comment">// copy initialization</span></span><br><span class="line"><span class="built_in">string</span> nines = <span class="built_in">string</span>(<span class="number">1000</span>,<span class="string">'9'</span>);<span class="comment">// copy initialization</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>Conclusion</strong> : </p>
 <ol>
 <li>Define variables using an =</li>
@@ -355,12 +378,12 @@
 <h2 id="Copy-Assignment-Operator"><a href="#Copy-Assignment-Operator" class="headerlink" title="Copy-Assignment Operator"></a>Copy-Assignment Operator</h2><p><strong>定义</strong> :<br>将一个对象用等号赋值给另外一个对象时所发生的动作。</p>
 <p><strong>区别</strong> :<br>Copy-Assignment operator和Copy constructor的区别在于，前者在赋值时调用，后者在初始化时调用。</p>
 <p><strong>使用</strong> :<br>重载等号 = 操作符的功能</p>
-<p><strong>例子</strong>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Test&#123;</span><br><span class="line">public:</span><br><span class="line">    Test&amp; operator=(const Test&amp;)&#123;</span><br><span class="line">        ...</span><br><span class="line">        return *this;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>例子</strong>:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Test&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Test&amp;)&#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>等号=的left-hand operand绑定在this上，right-hand operand 绑定在参数上</p>
 <p>ps. 之所以要返回一个left-hand operand的引用，是为了和build-in type保持一致，可以实现<code>a = b = 1</code>的这种功能</p>
 <p><strong>Synthesized Copy-Assignment Operator</strong>：<br>与 Synthesized Copy Constructor 类似</p>
 <h2 id="Destructor-析构器"><a href="#Destructor-析构器" class="headerlink" title="Destructor 析构器"></a>Destructor 析构器</h2><p><strong>例子</strong> :</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Test&#123;</span><br><span class="line">    ~Test()&#123;</span><br><span class="line">        // function body</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span>&#123;</span></span><br><span class="line">    ~Test()&#123;</span><br><span class="line">        <span class="comment">// function body</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>功能</strong> :<br>先执行function body中的内容，再以与初始化顺序的相反顺序来回收各个成员变量，在回收时，对于类对象会调用他们的析构器（比如智能指针），而对于内置变量（比如引用和指针），就不会做任何事情，所以指针或引用所指向的内存需要在function body中手动回收。</p>
 <p><strong>Synthesized Destructor</strong> : 相当于是一个空function body的destructor</p>
 <h2 id="Using-default-and-delete"><a href="#Using-default-and-delete" class="headerlink" title="Using = default and = delete"></a>Using = default and = delete</h2><p><strong>功能</strong> : </p>
@@ -371,13 +394,13 @@
 </li>
 </ul>
 <p><strong>例子</strong> : </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Test&#123;</span><br><span class="line">    Test() = default;</span><br><span class="line">    Test(const Test&amp;) = default;</span><br><span class="line">    Test&amp; operator=(const Test &amp;) = default;</span><br><span class="line">    ~Test() = default;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span>&#123;</span></span><br><span class="line">    Test() = <span class="keyword">default</span>;</span><br><span class="line">    Test(<span class="keyword">const</span> Test&amp;) = <span class="keyword">default</span>;</span><br><span class="line">    Test&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Test &amp;) = <span class="keyword">default</span>;</span><br><span class="line">    ~Test() = <span class="keyword">default</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>注意点</strong> :</p>
 <ul>
 <li>不能定义一个destructor <code>= delete</code> 的类</li>
 <li>不能 <code>delete</code> 一个指向destructor <code>= delete</code> 的对象的指针</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Test&#123;</span><br><span class="line">    Test() = default;</span><br><span class="line">    ~Test() = delete;</span><br><span class="line">&#125;;</span><br><span class="line">Test test1; // error</span><br><span class="line">Test *p_test = new Test(); // ok</span><br><span class="line">delete p_test; // error</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span>&#123;</span></span><br><span class="line">    Test() = <span class="keyword">default</span>;</span><br><span class="line">    ~Test() = <span class="keyword">delete</span>;</span><br><span class="line">&#125;;</span><br><span class="line">Test test1; <span class="comment">// error</span></span><br><span class="line">Test *p_test = <span class="keyword">new</span> Test(); <span class="comment">// ok</span></span><br><span class="line"><span class="keyword">delete</span> p_test; <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
 <h1 id="Swap"><a href="#Swap" class="headerlink" title="Swap"></a>Swap</h1>
       
     </div>
@@ -392,6 +415,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
       
 
       
@@ -494,7 +523,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
