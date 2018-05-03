@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="LALALALALA">
 <meta property="og:description" content="FunctionBasicsCalling a functionLike f(1,2), we can use call operator () to call a function, where f is a name and 1,1 is an argument list. Usage of a function call :   Initialize the function’s param">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-02T07:53:06.976Z">
+<meta property="og:updated_time" content="2018-05-03T01:26:45.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Function">
 <meta name="twitter:description" content="FunctionBasicsCalling a functionLike f(1,2), we can use call operator () to call a function, where f is a name and 1,1 is an argument list. Usage of a function call :   Initialize the function’s param">
@@ -257,7 +257,7 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-C++" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -341,31 +341,40 @@
 <li>Transfer control to <em>calling function</em> from <em>called function</em></li>
 </ol>
 <a id="more"></a>
-<h3 id="Argument-and-Parameter"><a href="#Argument-and-Parameter" class="headerlink" title="Argument and Parameter"></a>Argument and Parameter</h3><p><strong>Relation</strong>:<br>Arguments are the initiallizer for a function’s parameters.</p>
-<p><strong>Key Point</strong>:<br>The order in which arguments are evaluated is not guaranteed.</p>
+<h3 id="Argument-and-Parameter"><a href="#Argument-and-Parameter" class="headerlink" title="Argument and Parameter"></a>Argument and Parameter</h3><p><strong>Relation</strong>: </p>
+<p>Arguments are the initiallizer for a function’s parameters.</p>
+<p><strong>Key Point</strong>: </p>
+<p>The order in which arguments are evaluated is not guaranteed.</p>
 <h3 id="Local-Objects"><a href="#Local-Objects" class="headerlink" title="Local Objects"></a>Local Objects</h3><h4 id="Local-variable"><a href="#Local-variable" class="headerlink" title="Local variable"></a>Local variable</h4><p>Parameters and variables defined inside a function body.</p>
 <h4 id="Automatic-objects"><a href="#Automatic-objects" class="headerlink" title="Automatic objects"></a>Automatic objects</h4><ol>
 <li><strong>Definition</strong>: Objects that exist only while a block is executing.</li>
 <li><strong>Usage</strong>: Automatic objects corresponding to local variables are initialized if they has an explicit initializer, otherwise they are <em>default initialized</em> (build-in type is unintialized and object is initialized according to the definition of class).</li>
 </ol>
-<h4 id="Local-static-object"><a href="#Local-static-object" class="headerlink" title="Local static object"></a>Local static object</h4><p><strong>Usage</strong>: If it has no explicit initializer, it is <em>value initialized</em> (build-in type are initialized to zero).</p>
+<h4 id="Local-static-object"><a href="#Local-static-object" class="headerlink" title="Local static object"></a>Local static object</h4><p><strong>Usage</strong>: </p>
+<p>If it has no explicit initializer, it is <em>value initialized</em> (build-in type are initialized to zero).</p>
 <hr>
-<h2 id="Argument-Passing"><a href="#Argument-Passing" class="headerlink" title="Argument Passing"></a>Argument Passing</h2><h3 id="Passing-by-Value"><a href="#Passing-by-Value" class="headerlink" title="Passing by Value"></a>Passing by Value</h3><p><strong>Example</strong>:<br>pointer or ordinary type.</p>
+<h2 id="Argument-Passing"><a href="#Argument-Passing" class="headerlink" title="Argument Passing"></a>Argument Passing</h2><h3 id="Passing-by-Value"><a href="#Passing-by-Value" class="headerlink" title="Passing by Value"></a>Passing by Value</h3><p><strong>Example</strong>:</p>
+<p>pointer or ordinary type.</p>
 <h3 id="Passing-by-Reference"><a href="#Passing-by-Reference" class="headerlink" title="Passing by Reference"></a>Passing by Reference</h3><p><strong>Usage</strong>:</p>
 <ol>
 <li>Allow a function to change the value of one or more of its arguments.</li>
 <li>Avoid copies of objects.</li>
 <li>Return additional information via reference parameter.</li>
 </ol>
-<h3 id="Const-Parameters-and-Arguments"><a href="#Const-Parameters-and-Arguments" class="headerlink" title="Const Parameters and Arguments"></a>Const Parameters and Arguments</h3><p><strong>Usage</strong>:<br>Top level const on parameters are ignored. We can pass either a const or a nonconst object to a parameter that has a top-level const.</p>
+<h3 id="Const-Parameters-and-Arguments"><a href="#Const-Parameters-and-Arguments" class="headerlink" title="Const Parameters and Arguments"></a>Const Parameters and Arguments</h3><p><strong>Usage</strong>:</p>
+<p>Top level const on parameters are ignored. We can pass either a const or a nonconst object to a parameter that has a top-level const.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// We can call func passing it either a const int or a plain int, so we call the const is ignored.</span><br><span class="line">void func(const int i)&#123;// func ca nread but not write to i&#125;</span><br></pre></td></tr></table></figure>
 <p>Hence we can’t distinguish between <code>void func(const int i)</code> and <code>void func(int i)</code> which means we can’t define both two functions at the same time.</p>
-<p><strong>Key Point</strong>:<br>Use reference to const as possible as we can. Doing so we can forbit function’s caller to change its argument’s value. Moreover, using a reference instead of a reference to const unduly limits the type of arguments that can be used with the function.</p>
+<p><strong>Key Point</strong>: </p>
+<p>Use reference to const as possible as we can. Doing so we can forbit function’s caller to change its argument’s value. Moreover, using a reference instead of a reference to const unduly limits the type of arguments that can be used with the function.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// bad design: the first parameter should be a const string&amp;</span><br><span class="line">string::size_type find_char(string &amp;s, char c, string::size_type &amp;occurs);</span><br></pre></td></tr></table></figure>
 <p>In the case, we can’t call <code>find_char(&quot;Hello World&quot;, &#39;o&#39;, ctr)</code>.</p>
-<h3 id="Array-Parameter"><a href="#Array-Parameter" class="headerlink" title="Array Parameter"></a>Array Parameter</h3><p><strong>Key Point</strong>:<br>Array parameter will be converted to a pointer.</p>
-<p><strong>Array Reference Parameters</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f(int &amp;arr[10])     // arr is an array of references </span><br><span class="line">f(int (&amp;arr)[10])   // arr is a reference to an array</span><br></pre></td></tr></table></figure></p>
-<p>Note: We need to define the size of the array like above example, so contrary to plain array parameter, it will check the size of array when passing the parameter.</p>
+<h3 id="Array-Parameter"><a href="#Array-Parameter" class="headerlink" title="Array Parameter"></a>Array Parameter</h3><p><strong>Key Point</strong>: </p>
+<p>Array parameter will be converted to a pointer.</p>
+<p><strong>Array Reference Parameters</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f(int &amp;arr[10])     // arr is an array of references </span><br><span class="line">f(int (&amp;arr)[10])   // arr is a reference to an array</span><br></pre></td></tr></table></figure>
+<p><strong><font color="red">Note :</font></strong></p>
+<p>We need to define the size of the array like above example, so contrary to plain array parameter, it will check the size of array when passing the parameter.</p>
 
       
     </div>

@@ -255,7 +255,7 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-Python" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -330,7 +330,7 @@
 
       
         
-          <h2 id="else-on-loops-and-try-statement"><a href="#else-on-loops-and-try-statement" class="headerlink" title="else on loops and try statement"></a><code>else</code> on loops and <code>try</code> statement</h2><p>A try statement’s else clause runs when no exception occurs, and a loop’s else clause runs when no break occurs.</p>
+          <h1 id="Python-语法糖"><a href="#Python-语法糖" class="headerlink" title="Python 语法糖"></a>Python 语法糖</h1><h2 id="Else-on-Loops-and-try-statement"><a href="#Else-on-Loops-and-try-statement" class="headerlink" title="Else on Loops and try statement"></a>Else on Loops and try statement</h2><p>A try statement’s else clause runs when no exception occurs, and a loop’s else clause runs when no break occurs.</p>
 <p>Example</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for n in range(2, 10):</span><br><span class="line">    for x in range(2, n):</span><br><span class="line">        if n % x == 0:</span><br><span class="line">            print(n, &apos;equals&apos;, x, &apos;*&apos;, n//x)</span><br><span class="line">            break</span><br><span class="line">    else:</span><br><span class="line">        # loop fell through without finding a factor</span><br><span class="line">        print(n, &apos;is a prime number&apos;)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
@@ -381,7 +381,7 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-C++" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -515,7 +515,7 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-C++" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -590,12 +590,20 @@
 
       
         
-          <h1 id="Inheritance-继承"><a href="#Inheritance-继承" class="headerlink" title="Inheritance 继承"></a>Inheritance 继承</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// base class</span><br><span class="line">class A&#123;</span><br><span class="line">    int a()&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    virtual int b();</span><br><span class="line">    virtual ~A() = default;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// derived class</span><br><span class="line">class B : public A&#123;</span><br><span class="line">    int b() override&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><ol>
-<li>基类将自己的方法分成两类：一类是希望子类保持不变，另外一类是希望子类能改写成适合自己的版本，后者被声明为<code>virtual</code>。</li>
-<li><code>virtual</code> 需要在父类中就被实现（和Java中的 <code>abstract</code> 不一样）。</li>
-<li>任何除构造函数外的非 <code>static</code> 方法，都可以被声明为 <code>virtual</code>。</li>
-<li>作为继承关系中根节点的类通常都会定义一个虚析构函数。</li>
+          <h1 id="Inheritance-继承"><a href="#Inheritance-继承" class="headerlink" title="Inheritance 继承"></a>Inheritance 继承</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// base class</span><br><span class="line">class A&#123;</span><br><span class="line">private:</span><br><span class="line">    int s;</span><br><span class="line">public:</span><br><span class="line">    A():s(0)&#123; &#125;</span><br><span class="line"></span><br><span class="line">    A(int i):s(i)&#123; &#125;</span><br><span class="line"></span><br><span class="line">    int a()&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 纯虚函数，所以类A是抽象基类</span><br><span class="line">    virtual int b() = 0;</span><br><span class="line">    </span><br><span class="line">    virtual ~A() = default;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// derived class</span><br><span class="line">class B : public A&#123;     // public 代表能直接将这个对象绑定到基类的引用或者指针上</span><br><span class="line">public:</span><br><span class="line">    B(int i):A(i)&#123; &#125;    // 这样才能制定使用某个基类的构造函数</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">    c++ 11 中使用override来显式注明覆盖继承的virtual函数</span><br><span class="line">    如果派生类中某个函数名字和虚函数一样，但形参不同，并没有覆盖掉基类的版本</span><br><span class="line">    如果使用override可以防止看错，让编译器给我们报错</span><br><span class="line">*/</span><br><span class="line">    int b() override&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 不能被继承的类</span><br><span class="line">class C final : public A&#123;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="公有、私有和受保护继承"><a href="#公有、私有和受保护继承" class="headerlink" title="公有、私有和受保护继承"></a>公有、私有和受保护继承</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ol>
+<li><p>对基类成员的访问权限只与基类的访问说明符有关，和派生访问说明符没有关系。</p>
+</li>
+<li><p>派生访问说明符的作用在于控制<font color="pink">派生类用户</font>（包括派生类的派生类在内）对于基类成员的访问权限。</p>
+<ul>
+<li><p><code>public</code>：派生类用户可以按照基类的访问说明符去访问基类的成员</p>
+</li>
+<li><p><code>protected</code>：派生类用户无法访问任何基类的成员，但是派生类的成员和友元可以访问</p>
+</li>
+<li><p><code>private</code>：派生类用户无法访问任何基类的成员</p>
+</li>
+</ul>
+</li>
 </ol>
           <!--noindex-->
           <div class="post-button text-center">
@@ -645,7 +653,7 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-C++" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -722,7 +730,7 @@
         
           <h1 id="Copy-Assign-and-Destroy"><a href="#Copy-Assign-and-Destroy" class="headerlink" title="Copy, Assign, and Destroy"></a>Copy, Assign, and Destroy</h1><h2 id="The-Copy-Constructor"><a href="#The-Copy-Constructor" class="headerlink" title="The Copy Constructor"></a>The Copy Constructor</h2><p><strong>Definition</strong> :<br>The first parameter is a reference to the class type and any additional parameters have default values.</p>
 <p>ps. The first parameter is almost always a reference to const.</p>
-<p><strong>Note</strong> :<br>The compile can bypass the copy constructor.</p>
+<p><strong><font color="red">Note :</font></strong><br>The compile can bypass the copy constructor.</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/26/Copy-Control/#more" rel="contents">

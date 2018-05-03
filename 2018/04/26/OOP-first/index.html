@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="Inheritance 继承Example123456789101112131415// base classclass A&amp;#123;    int a()&amp;#123;        return 1;    &amp;#125;    virtual int b();    virtual ~A() = default;&amp;#125;// derived classclass B : public A&amp;">
+<meta name="description" content="Inheritance 继承Example12345678910111213141516171819202122232425262728293031323334353637// base classclass A&amp;#123;private:    int s;public:    A():s(0)&amp;#123; &amp;#125;    A(int i):s(i)&amp;#123; &amp;#125;    int">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OOP-first">
 <meta property="og:url" content="http://yoursite.com/2018/04/26/OOP-first/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="Inheritance 继承Example123456789101112131415// base classclass A&amp;#123;    int a()&amp;#123;        return 1;    &amp;#125;    virtual int b();    virtual ~A() = default;&amp;#125;// derived classclass B : public A&amp;">
+<meta property="og:description" content="Inheritance 继承Example12345678910111213141516171819202122232425262728293031323334353637// base classclass A&amp;#123;private:    int s;public:    A():s(0)&amp;#123; &amp;#125;    A(int i):s(i)&amp;#123; &amp;#125;    int">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-02T07:52:36.992Z">
+<meta property="og:updated_time" content="2018-05-03T03:13:48.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OOP-first">
-<meta name="twitter:description" content="Inheritance 继承Example123456789101112131415// base classclass A&amp;#123;    int a()&amp;#123;        return 1;    &amp;#125;    virtual int b();    virtual ~A() = default;&amp;#125;// derived classclass B : public A&amp;">
+<meta name="twitter:description" content="Inheritance 继承Example12345678910111213141516171819202122232425262728293031323334353637// base classclass A&amp;#123;private:    int s;public:    A():s(0)&amp;#123; &amp;#125;    A(int i):s(i)&amp;#123; &amp;#125;    int">
 
 
 
@@ -257,7 +257,7 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-C++" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -329,16 +329,77 @@
       
 
       
-        <h1 id="Inheritance-继承"><a href="#Inheritance-继承" class="headerlink" title="Inheritance 继承"></a>Inheritance 继承</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// base class</span><br><span class="line">class A&#123;</span><br><span class="line">    int a()&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    virtual int b();</span><br><span class="line">    virtual ~A() = default;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// derived class</span><br><span class="line">class B : public A&#123;</span><br><span class="line">    int b() override&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><ol>
-<li>基类将自己的方法分成两类：一类是希望子类保持不变，另外一类是希望子类能改写成适合自己的版本，后者被声明为<code>virtual</code>。</li>
-<li><code>virtual</code> 需要在父类中就被实现（和Java中的 <code>abstract</code> 不一样）。</li>
-<li>任何除构造函数外的非 <code>static</code> 方法，都可以被声明为 <code>virtual</code>。</li>
-<li>作为继承关系中根节点的类通常都会定义一个虚析构函数。</li>
+        <h1 id="Inheritance-继承"><a href="#Inheritance-继承" class="headerlink" title="Inheritance 继承"></a>Inheritance 继承</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// base class</span><br><span class="line">class A&#123;</span><br><span class="line">private:</span><br><span class="line">    int s;</span><br><span class="line">public:</span><br><span class="line">    A():s(0)&#123; &#125;</span><br><span class="line"></span><br><span class="line">    A(int i):s(i)&#123; &#125;</span><br><span class="line"></span><br><span class="line">    int a()&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 纯虚函数，所以类A是抽象基类</span><br><span class="line">    virtual int b() = 0;</span><br><span class="line">    </span><br><span class="line">    virtual ~A() = default;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// derived class</span><br><span class="line">class B : public A&#123;     // public 代表能直接将这个对象绑定到基类的引用或者指针上</span><br><span class="line">public:</span><br><span class="line">    B(int i):A(i)&#123; &#125;    // 这样才能制定使用某个基类的构造函数</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">    c++ 11 中使用override来显式注明覆盖继承的virtual函数</span><br><span class="line">    如果派生类中某个函数名字和虚函数一样，但形参不同，并没有覆盖掉基类的版本</span><br><span class="line">    如果使用override可以防止看错，让编译器给我们报错</span><br><span class="line">*/</span><br><span class="line">    int b() override&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 不能被继承的类</span><br><span class="line">class C final : public A&#123;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="公有、私有和受保护继承"><a href="#公有、私有和受保护继承" class="headerlink" title="公有、私有和受保护继承"></a>公有、私有和受保护继承</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ol>
+<li><p>对基类成员的访问权限只与基类的访问说明符有关，和派生访问说明符没有关系。</p>
+</li>
+<li><p>派生访问说明符的作用在于控制<font color="pink">派生类用户</font>（包括派生类的派生类在内）对于基类成员的访问权限。</p>
+<ul>
+<li><p><code>public</code>：派生类用户可以按照基类的访问说明符去访问基类的成员</p>
+</li>
+<li><p><code>protected</code>：派生类用户无法访问任何基类的成员，但是派生类的成员和友元可以访问</p>
+</li>
+<li><p><code>private</code>：派生类用户无法访问任何基类的成员</p>
+</li>
+</ul>
+</li>
 </ol>
 <a id="more"></a>
-<h1 id="Dynamic-Binding-动态绑定"><a href="#Dynamic-Binding-动态绑定" class="headerlink" title="Dynamic Binding 动态绑定"></a>Dynamic Binding 动态绑定</h1><p>##Definition</p>
-<p>在运行的时候，会对 <code>virtual</code> 函数进行动态绑定</p>
+<h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><ol>
+<li><p>基类将自己的方法分成两类：一类是希望派生类保持不变，另外一类是希望派生类能改写成适合自己的版本，后者被声明为<code>virtual</code>。</p>
+</li>
+<li><p><code>virtual</code> 需要在基类中就被实现（和Java中的 <code>abstract</code> 不一样），除非是纯虚函数。</p>
+</li>
+<li><p>任何除构造函数外的非 <code>static</code> 方法，都可以被声明为 <code>virtual</code>。</p>
+</li>
+<li><p>作为继承关系中根节点的类通常都会定义一个虚析构函数。</p>
+</li>
+<li><p>派生类只能访问基类的 <code>public</code> 和 <code>protected</code> 的成员。</p>
+</li>
+<li><p><code>protected</code> 和 <code>private</code> 成员类似，对于类的用户来说是不可访问的，和 <code>public</code> 成员类似，对于派生类的成员和友元来说是可以访问的，但是也是只能通过派生类对象来访问基类的受保护成员。 </p>
+</li>
+<li><p>每个类控制自己成员初始化的过程，所以派生类不会管理基类成员初始化。</p>
+</li>
+<li><p>友元关系无法继承</p>
+</li>
+</ol>
+<h1 id="Polymorphism-多态"><a href="#Polymorphism-多态" class="headerlink" title="Polymorphism 多态"></a>Polymorphism 多态</h1><h2 id="Dynamic-Binding"><a href="#Dynamic-Binding" class="headerlink" title="Dynamic Binding"></a>Dynamic Binding</h2><p>在运行的时候，会对 <code>virtual</code> 函数进行动态绑定</p>
+<h2 id="Class-Definition"><a href="#Class-Definition" class="headerlink" title="Class Definition"></a>Class Definition</h2><ol>
+<li>派生类的声明中包含类名但是不包含它的派生类列表。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class A : public B;     // 错误</span><br><span class="line">class A;                // 正确</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>想用某个类为基类时，必须先实现这个类再使用。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class B : public A&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>derived-to-base ：将派生类对象绑定到基类的引用或者指针上（隐式）</p>
+<p>base-to-derived ：通过<code>static_cast</code>（强制）和<code>dynamic_cast</code>（安全）将基类的引用或者指针转换为派生类（显式）</p>
+<p><strong><font color="red">Note :</font></strong></p>
+<ol>
+<li><p>转换只对引用或者指针生效</p>
+</li>
+<li><p>derived-to-base 转换过程中会发生 sliced down 的现象，即派生类部分会被忽略，只有基类部分会被拷贝、移动或赋值</p>
+</li>
+<li><p>只有当派生类是公有继承基类时，用户才可以使用derived-to-base，除此之外不能使用该转换</p>
+</li>
+<li><p>无论使用什么方式继承，派生类的成员函数和友元都可以使用derived-to-base</p>
+</li>
+<li><p>只有当派生类是公有或保护继承积累时，派生类的派生类的成员函数和友元才能使用derive-to-base</p>
+</li>
+</ol>
+<h2 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h2><ol>
+<li><p>虚函数一定要被定义，因为只有在运行时才知道调用了哪个版本的虚函数。</p>
+</li>
+<li><p>覆盖虚函数时必须形参列表和返回类型都相匹配（返回类型可以从基类的指针或者引用换成派生类的，但要求派生类到基类的类型转换是可访问的）</p>
+</li>
+<li><p><code>final</code> 和 <code>override</code> 都是放在形参列表和尾置返回类型之后</p>
+</li>
+<li><p>基类和派生类中虚函数的默认参数最好保持一致，否则由本次调用的静态类型决定，而并非是动态类型</p>
+</li>
+<li><p>使用作用域运算符可以强行使用某个版本的虚函数（小心没有用作用域运算符，然后调用的仍是自己的虚函数，导致无限递归的发生）</p>
+</li>
+</ol>
+<h2 id="抽象基类"><a href="#抽象基类" class="headerlink" title="抽象基类"></a>抽象基类</h2><p>含有纯虚函数的类是抽象基类，相当于是接口，不能直接创建抽象基类的对象，但其实仍有创建，只是在派生类的对象生成中隐式创建</p>
 
       
     </div>
@@ -491,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Inheritance-继承"><span class="nav-number">1.</span> <span class="nav-text">Inheritance 继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">1.2.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dynamic-Binding-动态绑定"><span class="nav-number">2.</span> <span class="nav-text">Dynamic Binding 动态绑定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Inheritance-继承"><span class="nav-number">1.</span> <span class="nav-text">Inheritance 继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公有、私有和受保护继承"><span class="nav-number">1.2.</span> <span class="nav-text">公有、私有和受保护继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">1.2.1.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重点"><span class="nav-number">1.3.</span> <span class="nav-text">重点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Polymorphism-多态"><span class="nav-number">2.</span> <span class="nav-text">Polymorphism 多态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Binding"><span class="nav-number">2.1.</span> <span class="nav-text">Dynamic Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-Definition"><span class="nav-number">2.2.</span> <span class="nav-text">Class Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">2.3.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚函数"><span class="nav-number">2.4.</span> <span class="nav-text">虚函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象基类"><span class="nav-number">2.5.</span> <span class="nav-text">抽象基类</span></a></li></ol></li></ol></div>
             
 
           </div>

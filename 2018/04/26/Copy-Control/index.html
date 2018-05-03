@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="LALALALALA">
 <meta property="og:description" content="Copy, Assign, and DestroyThe Copy ConstructorDefinition :The first parameter is a reference to the class type and any additional parameters have default values. ps. The first parameter is almost alway">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-02T07:53:16.439Z">
+<meta property="og:updated_time" content="2018-05-03T01:23:46.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Copy Control">
 <meta name="twitter:description" content="Copy, Assign, and DestroyThe Copy ConstructorDefinition :The first parameter is a reference to the class type and any additional parameters have default values. ps. The first parameter is almost alway">
@@ -257,7 +257,7 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-C++" itemscope itemtype="http://schema.org/Article">
   
   
   
@@ -331,10 +331,10 @@
       
         <h1 id="Copy-Assign-and-Destroy"><a href="#Copy-Assign-and-Destroy" class="headerlink" title="Copy, Assign, and Destroy"></a>Copy, Assign, and Destroy</h1><h2 id="The-Copy-Constructor"><a href="#The-Copy-Constructor" class="headerlink" title="The Copy Constructor"></a>The Copy Constructor</h2><p><strong>Definition</strong> :<br>The first parameter is a reference to the class type and any additional parameters have default values.</p>
 <p>ps. The first parameter is almost always a reference to const.</p>
-<p><strong>Note</strong> :<br>The compile can bypass the copy constructor.</p>
+<p><strong><font color="red">Note :</font></strong><br>The compile can bypass the copy constructor.</p>
 <a id="more"></a>
 <h3 id="Synthesized-Copy-Constructor"><a href="#Synthesized-Copy-Constructor" class="headerlink" title="Synthesized Copy Constructor"></a>Synthesized Copy Constructor</h3><p><strong>Usage</strong> :<br>Members of class type are copied by the copy constructor for that class while members of build-in type are copied directly.</p>
-<p><strong>Note</strong> : </p>
+<p><strong><font color="red">Note :</font></strong></p>
 <ol>
 <li>Even if we define other constructors, a copy constructor is synthesized when we don’t define copy constructors.</li>
 <li>Although we can’t directly copy an array, synthesized copy constructor copies members of array type by coping each element (a deep copy).</li>
@@ -347,7 +347,7 @@
 <li>Return an object from a function that has a nonreference return type</li>
 <li>Brace initialize the elements in an array or the members of an aggregate class</li>
 </ol>
-<p><strong>Note</strong> : </p>
+<p><strong><font color="red">Note :</font></strong></p>
 <ol>
 <li>Copy initialization ordinarily uses the copy constructor. However copy initialization doesn’t equal to copy constructor because sometimes it may use move constructor.</li>
 <li>In some container libraries, <code>insert</code> or <code>push</code> refers to copy initialize and <code>emplace</code> refers to direct initialize.</li>
