@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题3.2 读者-写者问题写者和所有进程都是互斥的，读者只和写者是互斥的  第一读者问题  第二读者问题  读者优先和写者优先问题  Example 1234567891011121314151617181920212223\\ 读者优先例子\\ semaphore mutex">
+<meta name="description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题">
 <meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="进程同步">
 <meta property="og:url" content="http://yoursite.com/2018/05/09/operator_6/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题3.2 读者-写者问题写者和所有进程都是互斥的，读者只和写者是互斥的  第一读者问题  第二读者问题  读者优先和写者优先问题  Example 1234567891011121314151617181920212223\\ 读者优先例子\\ semaphore mutex">
+<meta property="og:description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-09T07:29:07.002Z">
+<meta property="og:updated_time" content="2018-05-11T14:56:50.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程同步">
-<meta name="twitter:description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题3.2 读者-写者问题写者和所有进程都是互斥的，读者只和写者是互斥的  第一读者问题  第二读者问题  读者优先和写者优先问题  Example 1234567891011121314151617181920212223\\ 读者优先例子\\ semaphore mutex">
+<meta name="twitter:description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题">
 
 
 
@@ -355,7 +355,8 @@
         <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>忙等待\自旋等待 </p>
 <p>缺点：浪费CPU时间</p>
 <h2 id="2-信号量"><a href="#2-信号量" class="headerlink" title="2 信号量"></a>2 信号量</h2><p>好处：让等待的进程不占用CPU时间</p>
-<h2 id="3-经典同步问题"><a href="#3-经典同步问题" class="headerlink" title="3 经典同步问题"></a>3 经典同步问题</h2><h3 id="3-1-有限缓冲问题"><a href="#3-1-有限缓冲问题" class="headerlink" title="3.1 有限缓冲问题"></a>3.1 有限缓冲问题</h3><h3 id="3-2-读者-写者问题"><a href="#3-2-读者-写者问题" class="headerlink" title="3.2 读者-写者问题"></a>3.2 读者-写者问题</h3><p>写者和所有进程都是互斥的，读者只和写者是互斥的</p>
+<h2 id="3-经典同步问题"><a href="#3-经典同步问题" class="headerlink" title="3 经典同步问题"></a>3 经典同步问题</h2><h3 id="3-1-有限缓冲问题"><a href="#3-1-有限缓冲问题" class="headerlink" title="3.1 有限缓冲问题"></a>3.1 有限缓冲问题</h3><a id="more"></a>
+<h3 id="3-2-读者-写者问题"><a href="#3-2-读者-写者问题" class="headerlink" title="3.2 读者-写者问题"></a>3.2 读者-写者问题</h3><p>写者和所有进程都是互斥的，读者只和写者是互斥的</p>
 <ol>
 <li><p>第一读者问题</p>
 </li>
