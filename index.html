@@ -260,6 +260,501 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/09/operator_7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HongZicong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LALALALALA">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/09/operator_7/" itemprop="url">死锁</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T15:51:00+08:00">
+                2018-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><h2 id="1-1-目标"><a href="#1-1-目标" class="headerlink" title="1.1 目标"></a>1.1 目标</h2><ol>
+<li><p>To develop a description of deadlocks, which prevent sets of concurrent processes from completing their tasks.</p>
+</li>
+<li><p>To present a number of different methods for preventing or avoiding deadlocks in a computer system.</p>
+</li>
+</ol>
+<h2 id="1-2-初步了解"><a href="#1-2-初步了解" class="headerlink" title="1.2 初步了解"></a>1.2 初步了解</h2><font color="red">死锁发生必要条件</font>
+
+<pre><code>1. 互斥
+
+Multual exclusion: only one process at a time can use a resource.
+
+2. 占有且等待（占有某资源的同时在等待别的资源）
+
+Hold and wait: a process holding at least one resource is waiting to acquire additional resources held by other processes.
+
+3. 非抢占（资源只能在进程完成任务后自动释放，而不能被其他进程抢占）
+
+No preemption: a resource can be released only voluntarily by the process holding it, after that process has completed its task.
+
+4. 循环等待（互相等待对方占有的资源，导致成环的现象出现）
+
+ps.必须四个同时满足才会发生死锁
+</code></pre><h1 id="2-系统模型"><a href="#2-系统模型" class="headerlink" title="2 系统模型"></a>2 系统模型</h1><h2 id="2-1-系统描述"><a href="#2-1-系统描述" class="headerlink" title="2.1 系统描述"></a>2.1 系统描述</h2><ul>
+<li><p>资源类型 $R_1, R_2, \cdots, R_m$</p>
+<ul>
+<li>内存空间</li>
+<li>CPU周期</li>
+<li>文件</li>
+<li>I/O 设备</li>
+</ul>
+</li>
+<li><p>每个资源类型 $R_i$ 有 $W_i$ 个实例</p>
+</li>
+<li><p>使用资源的正常顺序</p>
+<ul>
+<li>request 申请（如果申请不被立即允许，则会陷入等待）</li>
+<li>use 使用</li>
+<li>release 释放</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-2-资源分配图-Resource-Allocation-Graph"><a href="#2-2-资源分配图-Resource-Allocation-Graph" class="headerlink" title="2.2 资源分配图 Resource-Allocation Graph"></a>2.2 资源分配图 Resource-Allocation Graph</h2><p>定义：顶点 Vertex 和 边 Edge 的有向图</p>
+<p>详细：</p>
+<pre><code>1. 顶点分为两类 进程（圆形） 和 资源（矩形），边也分为两类 申请边 和 分配边
+2. 资源（矩形）中每个圆点代表一个实例
+</code></pre><p><strong>注意</strong>：</p>
+<ol>
+<li>环中每一类资源如果只有一个实例时，会发生死锁。</li>
+<li>如果在图中，有进程在使用完资源后可以释放该资源，解开环的话，就不是死锁状态，死锁状态是不能解开的。</li>
+</ol>
+<h1 id="3-死锁处理"><a href="#3-死锁处理" class="headerlink" title="3 死锁处理"></a>3 死锁处理</h1><h2 id="3-1-分类"><a href="#3-1-分类" class="headerlink" title="3.1 分类"></a>3.1 分类</h2><ol>
+<li><p>Ensure that the system will never enter a deadlock state.</p>
+</li>
+<li><p>Allow the system to enter a deadlock state and then recover.</p>
+</li>
+<li><p>Ignore the problem and pretend that deadlocks never occur in the system; used by most operating systems, including UNIX.</p>
+</li>
+</ol>
+<h1 id="4-死锁预防"><a href="#4-死锁预防" class="headerlink" title="4 死锁预防"></a>4 死锁预防</h1><p>从必要条件去解决死锁问题</p>
+<ol>
+<li><p>Mutual Exclusion</p>
+</li>
+<li><p>Hold and Wait</p>
+</li>
+<li><p>No preemption</p>
+</li>
+<li><p>Circular wait</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/09/operator_6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HongZicong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LALALALALA">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/09/operator_6/" itemprop="url">进程同步</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T14:58:00+08:00">
+                2018-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>忙等待\自旋等待 </p>
+<p>缺点：浪费CPU时间</p>
+<h2 id="2-信号量"><a href="#2-信号量" class="headerlink" title="2 信号量"></a>2 信号量</h2><p>好处：让等待的进程不占用CPU时间</p>
+<h2 id="3-经典同步问题"><a href="#3-经典同步问题" class="headerlink" title="3 经典同步问题"></a>3 经典同步问题</h2><h3 id="3-1-有限缓冲问题"><a href="#3-1-有限缓冲问题" class="headerlink" title="3.1 有限缓冲问题"></a>3.1 有限缓冲问题</h3><h3 id="3-2-读者-写者问题"><a href="#3-2-读者-写者问题" class="headerlink" title="3.2 读者-写者问题"></a>3.2 读者-写者问题</h3><p>写者和所有进程都是互斥的，读者只和写者是互斥的</p>
+<ol>
+<li><p>第一读者问题</p>
+</li>
+<li><p>第二读者问题</p>
+</li>
+<li><p>读者优先和写者优先问题</p>
+</li>
+<li><p>Example</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">\\ 读者优先例子</span><br><span class="line">\\ semaphore mutex = <span class="number">1</span>(用来保证readcount++和--的互斥), wrt = <span class="number">1</span>(用来保证写写互斥和读写互斥);</span><br><span class="line">\\ shared data readcount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">\\ Writer Process</span><br><span class="line">wait(wrt);</span><br><span class="line"></span><br><span class="line">... \\ perform writing</span><br><span class="line"></span><br><span class="line">signal(wrt);</span><br><span class="line"></span><br><span class="line">\\ Reader Process</span><br><span class="line">wait(mutex);</span><br><span class="line">readcount ++;</span><br><span class="line"><span class="keyword">if</span>(readcount == <span class="number">1</span>)</span><br><span class="line">    wait(wrt);</span><br><span class="line">signal(mutex);</span><br><span class="line"></span><br><span class="line">wait(mutex);</span><br><span class="line">readcount --;</span><br><span class="line"><span class="keyword">if</span>(readcount == <span class="number">0</span>)</span><br><span class="line">    signal(wrt);</span><br><span class="line">signal(mutex);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="3-3-哲学家吃饭问题"><a href="#3-3-哲学家吃饭问题" class="headerlink" title="3.3 哲学家吃饭问题"></a>3.3 哲学家吃饭问题</h3><p>哲学家争的就是左右两个筷子</p>
+<h2 id="4-管程-Monitor"><a href="#4-管程-Monitor" class="headerlink" title="4 管程 Monitor"></a>4 管程 Monitor</h2><p>将任务交给秘书就管理就好了</p>
+<p>看看ppt了解一下就好</p>
+<h2 id="5-课后题"><a href="#5-课后题" class="headerlink" title="5 课后题"></a>5 课后题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const int n = 50;</span><br><span class="line">int result = 0;</span><br><span class="line">void add()&#123;</span><br><span class="line">    for(int i = 1; i &lt;= n; ++i)&#123;</span><br><span class="line">        result ++；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main()&#123;</span><br><span class="line">    Process(add(), add());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>result的上限为100，下限为2</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/Numerical-Compute/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HongZicong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LALALALALA">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/03/Numerical-Compute/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-03T19:23:16+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="计算（小）矩阵的所有特征值"><a href="#计算（小）矩阵的所有特征值" class="headerlink" title="计算（小）矩阵的所有特征值"></a>计算（小）矩阵的所有特征值</h2><p>特点$A\in R^{n\times n}$</p>
+<h2 id="House-holder-变换"><a href="#House-holder-变换" class="headerlink" title="House holder 变换"></a>House holder 变换</h2><p>$\omega \in R^n,\omega ^T \omega = I$</p>
+<p>$H(\omega) = I - 2 \omega \omega ^T \in R^{n\times n}$</p>
+<p>$$<br>\left[<br>\begin{matrix}<br> \omega_1      \<br> \omega_2      \<br> \vdots        \<br> \omega_n      \<br>\end{matrix}<br>\right]<br>$$</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/02/python_1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -905,7 +1400,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -916,7 +1411,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -927,7 +1422,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

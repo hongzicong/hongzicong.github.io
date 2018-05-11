@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python,小技巧," />
+  <meta name="keywords" content="操作系统," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Python 语法糖Else on Loops and try statementA try statement’s else clause runs when no exception occurs, and a loop’s else clause runs when no break occurs. Example 12345678for n in range(2, 10):    for">
-<meta name="keywords" content="Python,小技巧">
+<meta name="description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题3.2 读者-写者问题写者和所有进程都是互斥的，读者只和写者是互斥的  第一读者问题  第二读者问题  读者优先和写者优先问题  Example 1234567891011121314151617181920212223\\ 读者优先例子\\ semaphore mutex">
+<meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python 语法糖">
-<meta property="og:url" content="http://yoursite.com/2018/05/02/python_1/index.html">
+<meta property="og:title" content="进程同步">
+<meta property="og:url" content="http://yoursite.com/2018/05/09/operator_6/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="Python 语法糖Else on Loops and try statementA try statement’s else clause runs when no exception occurs, and a loop’s else clause runs when no break occurs. Example 12345678for n in range(2, 10):    for">
+<meta property="og:description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题3.2 读者-写者问题写者和所有进程都是互斥的，读者只和写者是互斥的  第一读者问题  第二读者问题  读者优先和写者优先问题  Example 1234567891011121314151617181920212223\\ 读者优先例子\\ semaphore mutex">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-03T04:32:24.691Z">
+<meta property="og:updated_time" content="2018-05-09T07:29:07.002Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python 语法糖">
-<meta name="twitter:description" content="Python 语法糖Else on Loops and try statementA try statement’s else clause runs when no exception occurs, and a loop’s else clause runs when no break occurs. Example 12345678for n in range(2, 10):    for">
+<meta name="twitter:title" content="进程同步">
+<meta name="twitter:description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题3.2 读者-写者问题写者和所有进程都是互斥的，读者只和写者是互斥的  第一读者问题  第二读者问题  读者优先和写者优先问题  Example 1234567891011121314151617181920212223\\ 读者优先例子\\ semaphore mutex">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/02/python_1/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/09/operator_6/"/>
 
 
 
 
 
-  <title>Python 语法糖 | LALALALALA</title>
+  <title>进程同步 | LALALALALA</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/02/python_1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/09/operator_6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HongZicong">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python 语法糖</h1>
+          <h1 class="post-title" itemprop="name headline">进程同步</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-02T14:30:41+08:00">
-                2018-05-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T14:58:00+08:00">
+                2018-05-09
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
                   </a>
                 </span>
 
@@ -352,12 +352,27 @@
       
 
       
-        <h1 id="Python-语法糖"><a href="#Python-语法糖" class="headerlink" title="Python 语法糖"></a>Python 语法糖</h1><h2 id="Else-on-Loops-and-try-statement"><a href="#Else-on-Loops-and-try-statement" class="headerlink" title="Else on Loops and try statement"></a>Else on Loops and try statement</h2><p>A try statement’s else clause runs when no exception occurs, and a loop’s else clause runs when no break occurs.</p>
-<p>Example</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">2</span>, n):</span><br><span class="line">        <span class="keyword">if</span> n % x == <span class="number">0</span>:</span><br><span class="line">            print(n, <span class="string">'equals'</span>, x, <span class="string">'*'</span>, n//x)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># loop fell through without finding a factor</span></span><br><span class="line">        print(n, <span class="string">'is a prime number'</span>)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="range-combines-with-len"><a href="#range-combines-with-len" class="headerlink" title="range() combines with len()"></a>range() combines with len()</h2><p>Example</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="string">'Mary'</span>, <span class="string">'had'</span>, <span class="string">'a'</span>, <span class="string">'little'</span>, <span class="string">'lamb'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">    print(i, a[i])</span><br></pre></td></tr></table></figure>
+        <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>忙等待\自旋等待 </p>
+<p>缺点：浪费CPU时间</p>
+<h2 id="2-信号量"><a href="#2-信号量" class="headerlink" title="2 信号量"></a>2 信号量</h2><p>好处：让等待的进程不占用CPU时间</p>
+<h2 id="3-经典同步问题"><a href="#3-经典同步问题" class="headerlink" title="3 经典同步问题"></a>3 经典同步问题</h2><h3 id="3-1-有限缓冲问题"><a href="#3-1-有限缓冲问题" class="headerlink" title="3.1 有限缓冲问题"></a>3.1 有限缓冲问题</h3><h3 id="3-2-读者-写者问题"><a href="#3-2-读者-写者问题" class="headerlink" title="3.2 读者-写者问题"></a>3.2 读者-写者问题</h3><p>写者和所有进程都是互斥的，读者只和写者是互斥的</p>
+<ol>
+<li><p>第一读者问题</p>
+</li>
+<li><p>第二读者问题</p>
+</li>
+<li><p>读者优先和写者优先问题</p>
+</li>
+<li><p>Example</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">\\ 读者优先例子</span><br><span class="line">\\ semaphore mutex = <span class="number">1</span>(用来保证readcount++和--的互斥), wrt = <span class="number">1</span>(用来保证写写互斥和读写互斥);</span><br><span class="line">\\ shared data readcount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">\\ Writer Process</span><br><span class="line">wait(wrt);</span><br><span class="line"></span><br><span class="line">... \\ perform writing</span><br><span class="line"></span><br><span class="line">signal(wrt);</span><br><span class="line"></span><br><span class="line">\\ Reader Process</span><br><span class="line">wait(mutex);</span><br><span class="line">readcount ++;</span><br><span class="line"><span class="keyword">if</span>(readcount == <span class="number">1</span>)</span><br><span class="line">    wait(wrt);</span><br><span class="line">signal(mutex);</span><br><span class="line"></span><br><span class="line">wait(mutex);</span><br><span class="line">readcount --;</span><br><span class="line"><span class="keyword">if</span>(readcount == <span class="number">0</span>)</span><br><span class="line">    signal(wrt);</span><br><span class="line">signal(mutex);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="3-3-哲学家吃饭问题"><a href="#3-3-哲学家吃饭问题" class="headerlink" title="3.3 哲学家吃饭问题"></a>3.3 哲学家吃饭问题</h3><p>哲学家争的就是左右两个筷子</p>
+<h2 id="4-管程-Monitor"><a href="#4-管程-Monitor" class="headerlink" title="4 管程 Monitor"></a>4 管程 Monitor</h2><p>将任务交给秘书就管理就好了</p>
+<p>看看ppt了解一下就好</p>
+<h2 id="5-课后题"><a href="#5-课后题" class="headerlink" title="5 课后题"></a>5 课后题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const int n = 50;</span><br><span class="line">int result = 0;</span><br><span class="line">void add()&#123;</span><br><span class="line">    for(int i = 1; i &lt;= n; ++i)&#123;</span><br><span class="line">        result ++；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main()&#123;</span><br><span class="line">    Process(add(), add());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>result的上限为100，下限为2</p>
+
       
     </div>
     
@@ -374,9 +389,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
-            <a href="/tags/小技巧/" rel="tag"># 小技巧</a>
+            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
           
         </div>
       
@@ -389,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/26/Function/" rel="next" title="Function">
-                <i class="fa fa-chevron-left"></i> Function
+              <a href="/2018/05/03/Numerical-Compute/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -399,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/03/Numerical-Compute/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/09/operator_7/" rel="prev" title="死锁">
+                死锁 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -535,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-语法糖"><span class="nav-number">1.</span> <span class="nav-text">Python 语法糖</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Else-on-Loops-and-try-statement"><span class="nav-number">1.1.</span> <span class="nav-text">Else on Loops and try statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#range-combines-with-len"><span class="nav-number">1.2.</span> <span class="nav-text">range() combines with len()</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-信号量"><span class="nav-number">2.</span> <span class="nav-text">2 信号量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-经典同步问题"><span class="nav-number">3.</span> <span class="nav-text">3 经典同步问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-有限缓冲问题"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 有限缓冲问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-读者-写者问题"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 读者-写者问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-哲学家吃饭问题"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 哲学家吃饭问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-管程-Monitor"><span class="nav-number">4.</span> <span class="nav-text">4 管程 Monitor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-课后题"><span class="nav-number">5.</span> <span class="nav-text">5 课后题</span></a></li></ol></div>
             
 
           </div>
