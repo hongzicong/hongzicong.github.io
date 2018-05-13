@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题">
+<meta name="description" content="1 背景使用 count 去解决生产者消费者问题时，如果生产者进程和消费者进程并发执行，则有可能无法保持数据一致性。因为两个程序都有自己的局部寄存器，当要改变 count 时，他们会取出 count 到各自的寄存器中，然后修改，再存进内存中，这样会使数据和与其不同。 定义：以上现象定义为竞争条件 race condition，即多个进程并发访问和操作同一数据且执行结果与访问发生的特定顺序有关。 2">
 <meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="进程同步">
 <meta property="og:url" content="http://yoursite.com/2018/05/09/operator_6/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题">
+<meta property="og:description" content="1 背景使用 count 去解决生产者消费者问题时，如果生产者进程和消费者进程并发执行，则有可能无法保持数据一致性。因为两个程序都有自己的局部寄存器，当要改变 count 时，他们会取出 count 到各自的寄存器中，然后修改，再存进内存中，这样会使数据和与其不同。 定义：以上现象定义为竞争条件 race condition，即多个进程并发访问和操作同一数据且执行结果与访问发生的特定顺序有关。 2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-11T14:56:50.808Z">
+<meta property="og:updated_time" content="2018-05-13T05:41:33.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程同步">
-<meta name="twitter:description" content="1忙等待\自旋等待  缺点：浪费CPU时间 2 信号量好处：让等待的进程不占用CPU时间 3 经典同步问题3.1 有限缓冲问题">
+<meta name="twitter:description" content="1 背景使用 count 去解决生产者消费者问题时，如果生产者进程和消费者进程并发执行，则有可能无法保持数据一致性。因为两个程序都有自己的局部寄存器，当要改变 count 时，他们会取出 count 到各自的寄存器中，然后修改，再存进内存中，这样会使数据和与其不同。 定义：以上现象定义为竞争条件 race condition，即多个进程并发访问和操作同一数据且执行结果与访问发生的特定顺序有关。 2">
 
 
 
@@ -352,11 +352,69 @@
       
 
       
-        <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>忙等待\自旋等待 </p>
-<p>缺点：浪费CPU时间</p>
-<h2 id="2-信号量"><a href="#2-信号量" class="headerlink" title="2 信号量"></a>2 信号量</h2><p>好处：让等待的进程不占用CPU时间</p>
-<h2 id="3-经典同步问题"><a href="#3-经典同步问题" class="headerlink" title="3 经典同步问题"></a>3 经典同步问题</h2><h3 id="3-1-有限缓冲问题"><a href="#3-1-有限缓冲问题" class="headerlink" title="3.1 有限缓冲问题"></a>3.1 有限缓冲问题</h3><a id="more"></a>
-<h3 id="3-2-读者-写者问题"><a href="#3-2-读者-写者问题" class="headerlink" title="3.2 读者-写者问题"></a>3.2 读者-写者问题</h3><p>写者和所有进程都是互斥的，读者只和写者是互斥的</p>
+        <h1 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h1><p>使用 <code>count</code> 去解决生产者消费者问题时，如果生产者进程和消费者进程并发执行，则有可能无法保持数据一致性。因为两个程序都有自己的局部寄存器，当要改变 <code>count</code> 时，他们会取出 <code>count</code> 到各自的寄存器中，然后修改，再存进内存中，这样会使数据和与其不同。</p>
+<p>定义：以上现象定义为竞争条件 race condition，即多个进程并发访问和操作同一数据且执行结果与访问发生的特定顺序有关。</p>
+<h1 id="2-临界区问题"><a href="#2-临界区问题" class="headerlink" title="2 临界区问题"></a>2 临界区问题</h1><ol>
+<li><p>定义：设计一个以便进程协作的协议</p>
+<ul>
+<li>进入区 entry section：请求允许进入其临界区</li>
+<li>临界区 critical section：可能改变共同变量、更新一个表、写一个文件</li>
+<li>退出区 exit section：退出临界区要执行的代码</li>
+<li>剩余区 remainder section</li>
+</ul>
+</li>
+<li><p>要求：</p>
+<ul>
+<li>互斥 Mutual Exclusion：只有一个进程可以在临界区执行</li>
+<li>前进 Progress：没有进程在临界区时，应允许一个需要进入临界区的进程进入</li>
+<li>有限等待 Bounded Waiting：不允许需要进入临界区的进程被无限延迟</li>
+</ul>
+</li>
+<li><p>处理操作系统中的临界区问题：</p>
+<ul>
+<li>抢占内核：允许处于内核模式的进程被抢占</li>
+<li>非抢占内核：处于内核模式的进程会一直运行，直到退出内核模式、阻塞才会轮到别的进程。</li>
+</ul>
+</li>
+</ol>
+<a id="more"></a>
+<h1 id="3-Peterson-算法"><a href="#3-Peterson-算法" class="headerlink" title="3 Peterson 算法"></a>3 Peterson 算法</h1><ol>
+<li><p>假设：</p>
+<ul>
+<li><code>LOAD</code> 和 <code>STORE</code> 都是原子性 atomic 的，即无法被打断的</li>
+</ul>
+</li>
+<li><p>适用场景：两个进程之间的切换进行</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// process i</span><br><span class="line">do&#123;</span><br><span class="line"></span><br><span class="line">    flag[i] = True;     // process i is ready</span><br><span class="line">    turn = j;           // turn indicates that it is j&apos;s turn j to enter the critical sectionsection</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * if process j don&apos;t want to enter the critical section</span><br><span class="line">     * or process j don&apos;t have the access to the critical section</span><br><span class="line">     * process i can go to the critical section</span><br><span class="line">     */</span><br><span class="line">    while(flag[j] &amp;&amp; turn == j) </span><br><span class="line">        ;</span><br><span class="line"></span><br><span class="line">    // 临界区</span><br><span class="line"></span><br><span class="line">    flag[i] = False     // exit section</span><br><span class="line"></span><br><span class="line">    // 剩余区</span><br><span class="line"></span><br><span class="line">&#125;while(True);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>结论：该方法满足临界区的三个要求</li>
+</ol>
+<h1 id="4-硬件同步"><a href="#4-硬件同步" class="headerlink" title="4 硬件同步"></a>4 硬件同步</h1><ol>
+<li><p>对于单处理器环境，只要在修改共享变量时禁止中断出现便可，但对于多处理器环境，禁止中断会很耗时，降低系统效率，所以许多现代计算机系统提供了特殊硬件指令以允许原子性检查不可中断指令的进行。</p>
+</li>
+<li><p>抽象出来的代码：</p>
+<ul>
+<li>TestAndSet：设置一个全局变量 lock ，当一个进程进入 critical section 时，将 lock 锁住，当进入 exit section 时，将 lock 解开</li>
+<li>Swap：设置一个全局变量 bolt ，当一个进程进入 critical section 时，将 bolt 中的 0 和 进程的 key = 1 交换，因为全局只有一个 0，所以可以保护共享内存区</li>
+</ul>
+</li>
+<li><p>局限：以上算法并没有解决有限等待的问题</p>
+</li>
+<li><p>改进：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">boolean waiting[n];</span><br><span class="line">boolean lock;</span><br><span class="line"></span><br><span class="line">do&#123;</span><br><span class="line"></span><br><span class="line">    flag[i] = True;     // process i is ready</span><br><span class="line">    turn = j;           // turn indicates that it is j&apos;s turn j to enter the critical sectionsection</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * if process j don&apos;t want to enter the critical section</span><br><span class="line">     * or process j don&apos;t have the access to the critical section</span><br><span class="line">     * process i can go to the critical section</span><br><span class="line">     */</span><br><span class="line">    while(flag[j] &amp;&amp; turn == j) </span><br><span class="line">        ;</span><br><span class="line"></span><br><span class="line">    // 临界区</span><br><span class="line"></span><br><span class="line">    flag[i] = False     // exit section</span><br><span class="line"></span><br><span class="line">    // 剩余区</span><br><span class="line"></span><br><span class="line">&#125;while(True);</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li><p>忙等待 \ 自旋等待现象 </p>
+</li>
+<li><p>缺点：浪费CPU时间</p>
+</li>
+</ol>
+<h1 id="5-信号量"><a href="#5-信号量" class="headerlink" title="5 信号量"></a>5 信号量</h1><p>好处：让等待的进程不占用CPU时间</p>
+<h1 id="6-经典同步问题"><a href="#6-经典同步问题" class="headerlink" title="6 经典同步问题"></a>6 经典同步问题</h1><h2 id="6-1-有限缓冲问题"><a href="#6-1-有限缓冲问题" class="headerlink" title="6.1 有限缓冲问题"></a>6.1 有限缓冲问题</h2><!---more--->
+<h2 id="6-2-读者-写者问题"><a href="#6-2-读者-写者问题" class="headerlink" title="6.2 读者-写者问题"></a>6.2 读者-写者问题</h2><p>写者和所有进程都是互斥的，读者只和写者是互斥的</p>
 <ol>
 <li><p>第一读者问题</p>
 </li>
@@ -368,10 +426,10 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">\\ 读者优先例子</span><br><span class="line">\\ semaphore mutex = <span class="number">1</span>(用来保证readcount++和--的互斥), wrt = <span class="number">1</span>(用来保证写写互斥和读写互斥);</span><br><span class="line">\\ shared data readcount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">\\ Writer Process</span><br><span class="line">wait(wrt);</span><br><span class="line"></span><br><span class="line">... \\ perform writing</span><br><span class="line"></span><br><span class="line">signal(wrt);</span><br><span class="line"></span><br><span class="line">\\ Reader Process</span><br><span class="line">wait(mutex);</span><br><span class="line">readcount ++;</span><br><span class="line"><span class="keyword">if</span>(readcount == <span class="number">1</span>)</span><br><span class="line">    wait(wrt);</span><br><span class="line">signal(mutex);</span><br><span class="line"></span><br><span class="line">wait(mutex);</span><br><span class="line">readcount --;</span><br><span class="line"><span class="keyword">if</span>(readcount == <span class="number">0</span>)</span><br><span class="line">    signal(wrt);</span><br><span class="line">signal(mutex);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="3-3-哲学家吃饭问题"><a href="#3-3-哲学家吃饭问题" class="headerlink" title="3.3 哲学家吃饭问题"></a>3.3 哲学家吃饭问题</h3><p>哲学家争的就是左右两个筷子</p>
-<h2 id="4-管程-Monitor"><a href="#4-管程-Monitor" class="headerlink" title="4 管程 Monitor"></a>4 管程 Monitor</h2><p>将任务交给秘书就管理就好了</p>
+<h2 id="6-3-哲学家吃饭问题"><a href="#6-3-哲学家吃饭问题" class="headerlink" title="6.3 哲学家吃饭问题"></a>6.3 哲学家吃饭问题</h2><p>哲学家争的就是左右两个筷子</p>
+<h1 id="7-管程-Monitor"><a href="#7-管程-Monitor" class="headerlink" title="7 管程 Monitor"></a>7 管程 Monitor</h1><p>将任务交给秘书就管理就好了</p>
 <p>看看ppt了解一下就好</p>
-<h2 id="5-课后题"><a href="#5-课后题" class="headerlink" title="5 课后题"></a>5 课后题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const int n = 50;</span><br><span class="line">int result = 0;</span><br><span class="line">void add()&#123;</span><br><span class="line">    for(int i = 1; i &lt;= n; ++i)&#123;</span><br><span class="line">        result ++；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main()&#123;</span><br><span class="line">    Process(add(), add());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="8-课后题"><a href="#8-课后题" class="headerlink" title="8 课后题"></a>8 课后题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const int n = 50;</span><br><span class="line">int result = 0;</span><br><span class="line">void add()&#123;</span><br><span class="line">    for(int i = 1; i &lt;= n; ++i)&#123;</span><br><span class="line">        result ++；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main()&#123;</span><br><span class="line">    Process(add(), add());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>result的上限为100，下限为2</p>
 
       
@@ -403,8 +461,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/03/Numerical-Compute/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/05/02/python_1/" rel="next" title="Python 语法糖">
+                <i class="fa fa-chevron-left"></i> Python 语法糖
               </a>
             
           </div>
@@ -549,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-信号量"><span class="nav-number">2.</span> <span class="nav-text">2 信号量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-经典同步问题"><span class="nav-number">3.</span> <span class="nav-text">3 经典同步问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-有限缓冲问题"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 有限缓冲问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-读者-写者问题"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 读者-写者问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-哲学家吃饭问题"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 哲学家吃饭问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-管程-Monitor"><span class="nav-number">4.</span> <span class="nav-text">4 管程 Monitor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-课后题"><span class="nav-number">5.</span> <span class="nav-text">5 课后题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-背景"><span class="nav-number">1.</span> <span class="nav-text">1 背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-临界区问题"><span class="nav-number">2.</span> <span class="nav-text">2 临界区问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Peterson-算法"><span class="nav-number">3.</span> <span class="nav-text">3 Peterson 算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-硬件同步"><span class="nav-number">4.</span> <span class="nav-text">4 硬件同步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-信号量"><span class="nav-number">5.</span> <span class="nav-text">5 信号量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-经典同步问题"><span class="nav-number">6.</span> <span class="nav-text">6 经典同步问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-有限缓冲问题"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 有限缓冲问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-读者-写者问题"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 读者-写者问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-哲学家吃饭问题"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 哲学家吃饭问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-管程-Monitor"><span class="nav-number">7.</span> <span class="nav-text">7 管程 Monitor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-课后题"><span class="nav-number">8.</span> <span class="nav-text">8 课后题</span></a></li></ol></div>
             
 
           </div>
