@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="LALALALALA">
 <meta property="og:description" content="1 前言1.1 目标 To develop a description of deadlocks, which prevent sets of concurrent processes from completing their tasks.  To present a number of different methods for preventing or avoiding deadlocks">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-16T06:44:21.250Z">
+<meta property="og:updated_time" content="2018-05-20T12:49:18.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="死锁">
 <meta name="twitter:description" content="1 前言1.1 目标 To develop a description of deadlocks, which prevent sets of concurrent processes from completing their tasks.  To present a number of different methods for preventing or avoiding deadlocks">
@@ -441,7 +441,7 @@ ps.必须四个同时满足才会发生死锁
 <li><p>Circular wait：impose a total ordering of all resource types, and require that each process requests resources in an increasing order of enumeration</p>
 </li>
 </ol>
-<h1 id="5-死锁避免"><a href="#5-死锁避免" class="headerlink" title="5 死锁避免"></a>5 死锁避免</h1><ol>
+<h1 id="5-死锁避免-Deadlock-Avoidance"><a href="#5-死锁避免-Deadlock-Avoidance" class="headerlink" title="5 死锁避免 Deadlock Avoidance"></a>5 死锁避免 Deadlock Avoidance</h1><ol>
 <li><p>定义：根据每个进程可能的申请每种资源类型实例的最大需求的事先信息，构造出一个算法以确保不会进入死锁状态</p>
 </li>
 <li><p>资源分配状态 Resource-allocation state 是由可用资源 the numebr of available resources 和已分配资源 the number of allocated resources，及进程最大需求 the maximum demands of the processes 所决定</p>
@@ -698,7 +698,7 @@ ps.必须四个同时满足才会发生死锁
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-前言"><span class="nav-number">1.</span> <span class="nav-text">1 前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-目标"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-初步了解"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 初步了解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-系统模型"><span class="nav-number">2.</span> <span class="nav-text">2 系统模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-系统描述"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 系统描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-资源分配图-Resource-Allocation-Graph"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 资源分配图 Resource-Allocation Graph</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-死锁处理"><span class="nav-number">3.</span> <span class="nav-text">3 死锁处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-分类"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-死锁预防-Deadlock-Prevention"><span class="nav-number">4.</span> <span class="nav-text">4 死锁预防 Deadlock Prevention</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-死锁避免"><span class="nav-number">5.</span> <span class="nav-text">5 死锁避免</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-安全状态"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 安全状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-资源分配图算法"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 资源分配图算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-银行家算法"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 银行家算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-死锁检测"><span class="nav-number">6.</span> <span class="nav-text">6 死锁检测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-单实例情况"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 单实例情况</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-前言"><span class="nav-number">1.</span> <span class="nav-text">1 前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-目标"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-初步了解"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 初步了解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-系统模型"><span class="nav-number">2.</span> <span class="nav-text">2 系统模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-系统描述"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 系统描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-资源分配图-Resource-Allocation-Graph"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 资源分配图 Resource-Allocation Graph</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-死锁处理"><span class="nav-number">3.</span> <span class="nav-text">3 死锁处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-分类"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-死锁预防-Deadlock-Prevention"><span class="nav-number">4.</span> <span class="nav-text">4 死锁预防 Deadlock Prevention</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-死锁避免-Deadlock-Avoidance"><span class="nav-number">5.</span> <span class="nav-text">5 死锁避免 Deadlock Avoidance</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-安全状态"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 安全状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-资源分配图算法"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 资源分配图算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-银行家算法"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 银行家算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-死锁检测"><span class="nav-number">6.</span> <span class="nav-text">6 死锁检测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-单实例情况"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 单实例情况</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -775,10 +775,9 @@ ps.必须四个同时满足才会发生死锁
   
 
 
+  
 
 
-  
-  
 
 
 
@@ -807,10 +806,7 @@ ps.必须四个同时满足才会发生死锁
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
   
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
