@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="FunctionBasicsCalling a functionLike f(1,2), we can use call operator () to call a function, where f is a name and 1,1 is an argument list. Usage of a function call :   Initialize the function’s param">
+<meta name="description" content="背景 异常处理用来分离问题的检查与解决过程 命名空间用来防止名字冲突提供">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Function">
-<meta property="og:url" content="http://yoursite.com/2018/04/26/Function/index.html">
+<meta property="og:title" content="用于大型程序的工具">
+<meta property="og:url" content="http://yoursite.com/2018/05/24/CPP_18/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="FunctionBasicsCalling a functionLike f(1,2), we can use call operator () to call a function, where f is a name and 1,1 is an argument list. Usage of a function call :   Initialize the function’s param">
+<meta property="og:description" content="背景 异常处理用来分离问题的检查与解决过程 命名空间用来防止名字冲突提供">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-03T04:30:56.421Z">
+<meta property="og:updated_time" content="2018-05-24T03:40:56.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Function">
-<meta name="twitter:description" content="FunctionBasicsCalling a functionLike f(1,2), we can use call operator () to call a function, where f is a name and 1,1 is an argument list. Usage of a function call :   Initialize the function’s param">
+<meta name="twitter:title" content="用于大型程序的工具">
+<meta name="twitter:description" content="背景 异常处理用来分离问题的检查与解决过程 命名空间用来防止名字冲突提供">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/26/Function/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/24/CPP_18/"/>
 
 
 
 
 
-  <title>Function | LALALALALA</title>
+  <title>用于大型程序的工具 | LALALALALA</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/Function/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/CPP_18/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HongZicong">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Function</h1>
+          <h1 class="post-title" itemprop="name headline">用于大型程序的工具</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-26T14:30:41+08:00">
-                2018-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T10:00:00+08:00">
+                2018-05-24
               </time>
             
 
@@ -352,53 +352,74 @@
       
 
       
-        <h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><h3 id="Calling-a-function"><a href="#Calling-a-function" class="headerlink" title="Calling a function"></a>Calling a function</h3><p>Like <code>f(1,2)</code>, we can use call operator <code>()</code> to call a function, where <code>f</code> is a name and <code>1,1</code> is an argument list.</p>
-<p><strong>Usage</strong> of a <em>function call</em> : </p>
-<ol>
-<li>Initialize the function’s parameters from the corresponding argument</li>
-<li>Transfer control to <em>called function</em> from <em>calling function</em></li>
-</ol>
-<p><strong>Usage</strong> of a <em>return statement</em> : </p>
-<ol>
-<li>Return the value in the return</li>
-<li>Transfer control to <em>calling function</em> from <em>called function</em></li>
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ol>
+<li>异常处理用来分离问题的检查与解决过程</li>
+<li>命名空间用来防止名字冲突提供</li>
 </ol>
 <a id="more"></a>
-<h3 id="Argument-and-Parameter"><a href="#Argument-and-Parameter" class="headerlink" title="Argument and Parameter"></a>Argument and Parameter</h3><p><strong>Relation</strong>: </p>
-<p>Arguments are the initiallizer for a function’s parameters.</p>
-<p><strong>Key Point</strong>: </p>
-<p>The order in which arguments are evaluated is not guaranteed.</p>
-<h3 id="Local-Objects"><a href="#Local-Objects" class="headerlink" title="Local Objects"></a>Local Objects</h3><h4 id="Local-variable"><a href="#Local-variable" class="headerlink" title="Local variable"></a>Local variable</h4><p>Parameters and variables defined inside a function body.</p>
-<h4 id="Automatic-objects"><a href="#Automatic-objects" class="headerlink" title="Automatic objects"></a>Automatic objects</h4><ol>
-<li><strong>Definition</strong>: Objects that exist only while a block is executing.</li>
-<li><strong>Usage</strong>: Automatic objects corresponding to local variables are initialized if they has an explicit initializer, otherwise they are <em>default initialized</em> (build-in type is unintialized and object is initialized according to the definition of class).</li>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>目的：将问题的检查与解决过程分离开，程序一部分专门负责问题的检测，然后将解决问题的任务传递给另一部分</p>
+<h2 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h2><ol>
+<li><p>简介：<code>C++</code>中使用<code>throw</code>语句抛出异常，程序的执行权转移到与之匹配的<code>catch</code>语句中（可能在同一函数中，也可能在外面）</p>
+</li>
+<li><p>栈展开过程：如果<code>throw</code>在<code>try</code>语句块中，那么会寻找对应的<code>catch</code>语句中，如果匹配不到，则退出该函数，在调用当前函数的外层函数继续寻找，直到主函数，如果一直没有匹配到的话，则调用标准库函数<code>terminate</code>来终止程序进行</p>
+</li>
+<li><p>栈展开过程中局部对象（块里面的对象）被自动销毁，但是如果是动态分配的对象，记得要自己释放内存，否则会出现内存泄漏的情况</p>
+</li>
+<li><p>异常对象：<code>throw</code>对异常对象进行拷贝初始化，故<code>throw</code>语句中的表达式必须拥有<font color="skyblue">完全类型</font>，异常对象处于编译器管理的空间中（和别的对象不一样），当被处理完后，异常对象会被销毁</p>
+</li>
 </ol>
-<h4 id="Local-static-object"><a href="#Local-static-object" class="headerlink" title="Local static object"></a>Local static object</h4><p><strong>Usage</strong>: </p>
-<p>If it has no explicit initializer, it is <em>value initialized</em> (build-in type are initialized to zero).</p>
-<hr>
-<h2 id="Argument-Passing"><a href="#Argument-Passing" class="headerlink" title="Argument Passing"></a>Argument Passing</h2><h3 id="Passing-by-Value"><a href="#Passing-by-Value" class="headerlink" title="Passing by Value"></a>Passing by Value</h3><p><strong>Example</strong>:</p>
-<p>pointer or ordinary type.</p>
-<h3 id="Passing-by-Reference"><a href="#Passing-by-Reference" class="headerlink" title="Passing by Reference"></a>Passing by Reference</h3><p><strong>Usage</strong>:</p>
+<h2 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h2><ol>
+<li><p>性质：</p>
 <ol>
-<li>Allow a function to change the value of one or more of its arguments.</li>
-<li>Avoid copies of objects.</li>
-<li>Return additional information via reference parameter.</li>
+<li>查找第一个匹配的处理代码，所以派生类异常的处理代码应该放在基类异常的处理代码前面，越是专门的处理放在越前的位置</li>
+<li><p>如果在该<code>catch</code>语句块中无法处理完异常，则使用<code>throw;</code>语句重新抛出该异常便可</p>
+<p> ps. 如果在<code>catch</code>语句外使用空的<code>throw;</code>语句，编译器会调用<code>terminate</code></p>
+</li>
+<li>使用<code>catch(...)</code>可以捕捉到所有的异常</li>
 </ol>
-<h3 id="Const-Parameters-and-Arguments"><a href="#Const-Parameters-and-Arguments" class="headerlink" title="Const Parameters and Arguments"></a>Const Parameters and Arguments</h3><p><strong>Usage</strong>:</p>
-<p>Top level const on parameters are ignored. We can pass either a const or a nonconst object to a parameter that has a top-level const.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// We can call func passing it either a const int or a plain int, so we call the const is ignored.</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> i)</span></span>&#123;<span class="comment">// func ca nread but not write to i&#125;</span></span><br></pre></td></tr></table></figure>
-<p>Hence we can’t distinguish between <code>void func(const int i)</code> and <code>void func(int i)</code> which means we can’t define both two functions at the same time.</p>
-<p><strong>Key Point</strong>: </p>
-<p>Use reference to const as possible as we can. Doing so we can forbit function’s caller to change its argument’s value. Moreover, using a reference instead of a reference to const unduly limits the type of arguments that can be used with the function.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad design: the first parameter should be a const string&amp;</span></span><br><span class="line"><span class="built_in">string</span>::<span class="function">size_type <span class="title">find_char</span><span class="params">(<span class="built_in">string</span> &amp;s, <span class="keyword">char</span> c, <span class="built_in">string</span>::size_type &amp;occurs)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>In the case, we can’t call <code>find_char(&quot;Hello World&quot;, &#39;o&#39;, ctr)</code>.</p>
-<h3 id="Array-Parameter"><a href="#Array-Parameter" class="headerlink" title="Array Parameter"></a>Array Parameter</h3><p><strong>Key Point</strong>: </p>
-<p>Array parameter will be converted to a pointer.</p>
-<p><strong>Array Reference Parameters</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f(int &amp;arr[10])     // arr is an array of references </span><br><span class="line">f(int (&amp;arr)[10])   // arr is a reference to an array</span><br></pre></td></tr></table></figure>
-<p><strong><font color="red">Note :</font></strong></p>
-<p>We need to define the size of the array like above example, so contrary to plain array parameter, it will check the size of array when passing the parameter.</p>
-
+</li>
+</ol>
+<h2 id="函数try语句块与构造函数"><a href="#函数try语句块与构造函数" class="headerlink" title="函数try语句块与构造函数"></a>函数try语句块与构造函数</h2><p>（…没时间，先不写）</p>
+<h2 id="noexcept异常说明"><a href="#noexcept异常说明" class="headerlink" title="noexcept异常说明"></a>noexcept异常说明</h2><p>（…没时间，先不写）</p>
+<h2 id="异常类层次"><a href="#异常类层次" class="headerlink" title="异常类层次"></a>异常类层次</h2><ol>
+<li><p>继承体系第二层将<code>exception</code>分成两个大类：运行时错误和逻辑错误，其中运行时错误表示在程序运行时才能检测到的错误，逻辑错误指我们可以在程序代码中发现的错误</p>
+</li>
+<li><p>自定义异常类型可以继承于标准库异常类<code>exception</code>，还可以写一个普通的类（不用说像Java一样，一定要继承于<code>Exception</code>类才行）</p>
+</li>
+</ol>
+<h1 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h1><ol>
+<li><p>目的：多个库都将名字（类、函数等）放置在全局命名空间中会引发命名空间污染，使用命名空间为防止名字冲突提供了更加可控的机制</p>
+</li>
+<li><p>例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> test&#123;</span><br><span class="line">    <span class="comment">// 相关声明</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> test&#123;</span><br><span class="line">    <span class="comment">// 对test命名空间的补充</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名空间的别名</span></span><br><span class="line"><span class="keyword">namespace</span> test = haha;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// using 声明</span></span><br><span class="line">    <span class="keyword">using</span> test::a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// using 指示</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="命名空间定义"><a href="#命名空间定义" class="headerlink" title="命名空间定义"></a>命名空间定义</h2><ol>
+<li><p>简介：包含关键词<code>namespace</code>，随后是命名空间的名字，在命名空间名字后面是一系列声明和定义（类、变量、函数、模板和其他命名空间）</p>
+</li>
+<li><p>注意：</p>
+<ol>
+<li>命名空间既可以定义在全局作用域中，也可以定义在其他命名空间中，但是不能定义在函数或者类的内部</li>
+<li>命名空间作用域后不需要分号</li>
+<li>不能将<code>include</code>某个头文件的语句放进自己定义的命名空间中，如果这样做了，会把头文件所有名字定义成该命名空间中的成员</li>
+</ol>
+</li>
+<li><p>命名空间可以是不连续的，这样的话，可以一个命名空间放在头文件中，用来放置声明，另外一个放在源文件中，用来放置定义，然后别的文件想用的话，只需要<code>include</code>头文件便可（接口与实现分离）</p>
+</li>
+<li><p>全局命名空间：隐式声明，使用<code>::member_name</code>去引用，<code>member_name</code>代表全局命名空间中的一个成员</p>
+</li>
+</ol>
+<h2 id="使用命名空间成员"><a href="#使用命名空间成员" class="headerlink" title="使用命名空间成员"></a>使用命名空间成员</h2><ol>
+<li><p>最简单的方法是使用<code>::</code>去一层层的使用</p>
+</li>
+<li><p>命名空间的别名：使用 <code>namespace test = haha;</code> 格式去起别名；注意！命名空间可以有多个别名，所有别名都等价！</p>
+</li>
+<li><p><code>using</code>声明有效范围从声明的地方开始，到<code>using</code>声明所在的作用域结束为止，都可以直接用声明的名字</p>
+</li>
+<li><p><code>using</code>指示可以直接使用整个命名空间内的所有成员</p>
+</li>
+</ol>
+<h2 id="类、命名空间与作用域"><a href="#类、命名空间与作用域" class="headerlink" title="类、命名空间与作用域"></a>类、命名空间与作用域</h2><h2 id="重载与命名空间"><a href="#重载与命名空间" class="headerlink" title="重载与命名空间"></a>重载与命名空间</h2>
       
     </div>
     
@@ -428,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/26/OOP-first/" rel="next" title="OOP-first">
-                <i class="fa fa-chevron-left"></i> OOP-first
+              <a href="/2018/05/23/OS_9/" rel="next" title="虚拟内存">
+                <i class="fa fa-chevron-left"></i> 虚拟内存
               </a>
             
           </div>
@@ -437,10 +458,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/02/python_1/" rel="prev" title="Python 语法糖">
-                Python 语法糖 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -574,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">1.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basics"><span class="nav-number">1.1.</span> <span class="nav-text">Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Calling-a-function"><span class="nav-number">1.1.1.</span> <span class="nav-text">Calling a function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Argument-and-Parameter"><span class="nav-number">1.1.2.</span> <span class="nav-text">Argument and Parameter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-Objects"><span class="nav-number">1.1.3.</span> <span class="nav-text">Local Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-variable"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Local variable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Automatic-objects"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Automatic objects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-static-object"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Local static object</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Argument-Passing"><span class="nav-number">1.2.</span> <span class="nav-text">Argument Passing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Passing-by-Value"><span class="nav-number">1.2.1.</span> <span class="nav-text">Passing by Value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Passing-by-Reference"><span class="nav-number">1.2.2.</span> <span class="nav-text">Passing by Reference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Const-Parameters-and-Arguments"><span class="nav-number">1.2.3.</span> <span class="nav-text">Const Parameters and Arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-Parameter"><span class="nav-number">1.2.4.</span> <span class="nav-text">Array Parameter</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-number">2.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抛出异常"><span class="nav-number">2.1.</span> <span class="nav-text">抛出异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获异常"><span class="nav-number">2.2.</span> <span class="nav-text">捕获异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数try语句块与构造函数"><span class="nav-number">2.3.</span> <span class="nav-text">函数try语句块与构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#noexcept异常说明"><span class="nav-number">2.4.</span> <span class="nav-text">noexcept异常说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常类层次"><span class="nav-number">2.5.</span> <span class="nav-text">异常类层次</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命名空间"><span class="nav-number">3.</span> <span class="nav-text">命名空间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间定义"><span class="nav-number">3.1.</span> <span class="nav-text">命名空间定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用命名空间成员"><span class="nav-number">3.2.</span> <span class="nav-text">使用命名空间成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类、命名空间与作用域"><span class="nav-number">3.3.</span> <span class="nav-text">类、命名空间与作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载与命名空间"><span class="nav-number">3.4.</span> <span class="nav-text">重载与命名空间</span></a></li></ol></li></ol></div>
             
 
           </div>

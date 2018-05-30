@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="C++," />
+  <meta name="keywords" content="操作系统," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="FunctionBasicsCalling a functionLike f(1,2), we can use call operator () to call a function, where f is a name and 1,1 is an argument list. Usage of a function call :   Initialize the function’s param">
-<meta name="keywords" content="C++">
+<meta name="description" content="背景 虚拟内存定义：在具有层次结构存储器的计算机系统中，采用自动实现部分装入和部分对换功能，为用户提供一个比物理主存容量大得多的，可寻址的一种“主存储器”。">
+<meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Function">
-<meta property="og:url" content="http://yoursite.com/2018/04/26/Function/index.html">
+<meta property="og:title" content="虚拟内存">
+<meta property="og:url" content="http://yoursite.com/2018/05/23/OS_9/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="FunctionBasicsCalling a functionLike f(1,2), we can use call operator () to call a function, where f is a name and 1,1 is an argument list. Usage of a function call :   Initialize the function’s param">
+<meta property="og:description" content="背景 虚拟内存定义：在具有层次结构存储器的计算机系统中，采用自动实现部分装入和部分对换功能，为用户提供一个比物理主存容量大得多的，可寻址的一种“主存储器”。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-03T04:30:56.421Z">
+<meta property="og:updated_time" content="2018-05-28T08:04:34.390Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Function">
-<meta name="twitter:description" content="FunctionBasicsCalling a functionLike f(1,2), we can use call operator () to call a function, where f is a name and 1,1 is an argument list. Usage of a function call :   Initialize the function’s param">
+<meta name="twitter:title" content="虚拟内存">
+<meta name="twitter:description" content="背景 虚拟内存定义：在具有层次结构存储器的计算机系统中，采用自动实现部分装入和部分对换功能，为用户提供一个比物理主存容量大得多的，可寻址的一种“主存储器”。">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/26/Function/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/23/OS_9/"/>
 
 
 
 
 
-  <title>Function | LALALALALA</title>
+  <title>虚拟内存 | LALALALALA</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/Function/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/OS_9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HongZicong">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Function</h1>
+          <h1 class="post-title" itemprop="name headline">虚拟内存</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-26T14:30:41+08:00">
-                2018-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-23T15:29:00+08:00">
+                2018-05-23
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
                   </a>
                 </span>
 
@@ -352,53 +352,29 @@
       
 
       
-        <h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><h3 id="Calling-a-function"><a href="#Calling-a-function" class="headerlink" title="Calling a function"></a>Calling a function</h3><p>Like <code>f(1,2)</code>, we can use call operator <code>()</code> to call a function, where <code>f</code> is a name and <code>1,1</code> is an argument list.</p>
-<p><strong>Usage</strong> of a <em>function call</em> : </p>
-<ol>
-<li>Initialize the function’s parameters from the corresponding argument</li>
-<li>Transfer control to <em>called function</em> from <em>calling function</em></li>
-</ol>
-<p><strong>Usage</strong> of a <em>return statement</em> : </p>
-<ol>
-<li>Return the value in the return</li>
-<li>Transfer control to <em>calling function</em> from <em>called function</em></li>
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ol>
+<li>虚拟内存定义：在具有层次结构存储器的计算机系统中，采用<font color="salmon">自动实现</font>部分装入和部分对换功能，为用户提供一个比物理主存容量大得多的，可寻址的一种“<font color="salmon">主存储器</font>”。</li>
 </ol>
 <a id="more"></a>
-<h3 id="Argument-and-Parameter"><a href="#Argument-and-Parameter" class="headerlink" title="Argument and Parameter"></a>Argument and Parameter</h3><p><strong>Relation</strong>: </p>
-<p>Arguments are the initiallizer for a function’s parameters.</p>
-<p><strong>Key Point</strong>: </p>
-<p>The order in which arguments are evaluated is not guaranteed.</p>
-<h3 id="Local-Objects"><a href="#Local-Objects" class="headerlink" title="Local Objects"></a>Local Objects</h3><h4 id="Local-variable"><a href="#Local-variable" class="headerlink" title="Local variable"></a>Local variable</h4><p>Parameters and variables defined inside a function body.</p>
-<h4 id="Automatic-objects"><a href="#Automatic-objects" class="headerlink" title="Automatic objects"></a>Automatic objects</h4><ol>
-<li><strong>Definition</strong>: Objects that exist only while a block is executing.</li>
-<li><strong>Usage</strong>: Automatic objects corresponding to local variables are initialized if they has an explicit initializer, otherwise they are <em>default initialized</em> (build-in type is unintialized and object is initialized according to the definition of class).</li>
+<h1 id="按需调页-Demand-Paging"><a href="#按需调页-Demand-Paging" class="headerlink" title="按需调页 Demand Paging"></a>按需调页 Demand Paging</h1><ol>
+<li><p>定义：在需要的时候才调入相应的页进入主存</p>
+</li>
+<li><p>懒惰交换 lazy swapper 和 交换程序 swapper 的区别：懒惰交换只有当需要单个页的时候才交换，而交换程序是对整个进程的所有页进行交换操作</p>
+</li>
 </ol>
-<h4 id="Local-static-object"><a href="#Local-static-object" class="headerlink" title="Local static object"></a>Local static object</h4><p><strong>Usage</strong>: </p>
-<p>If it has no explicit initializer, it is <em>value initialized</em> (build-in type are initialized to zero).</p>
-<hr>
-<h2 id="Argument-Passing"><a href="#Argument-Passing" class="headerlink" title="Argument Passing"></a>Argument Passing</h2><h3 id="Passing-by-Value"><a href="#Passing-by-Value" class="headerlink" title="Passing by Value"></a>Passing by Value</h3><p><strong>Example</strong>:</p>
-<p>pointer or ordinary type.</p>
-<h3 id="Passing-by-Reference"><a href="#Passing-by-Reference" class="headerlink" title="Passing by Reference"></a>Passing by Reference</h3><p><strong>Usage</strong>:</p>
-<ol>
-<li>Allow a function to change the value of one or more of its arguments.</li>
-<li>Avoid copies of objects.</li>
-<li>Return additional information via reference parameter.</li>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
+<li><p>有效-无效位：在页表中，如果相关页既合法又在内存中则标记为有效，否则标记为无效（有可能是不合法，也有可能是不在内存中）</p>
+</li>
+<li><p>页错误陷阱 page-fault trap：对标记为无效的访问会产生页错误陷阱，此时<font color="salmon">操作系统</font>会检查进程的内部页表，以确定引用是否合法，如果是非法的引用的话，则终止进程，如果是合法的话，便找一个空闲帧，将磁盘中的东西放进那个帧里，还有修改页表和内部页表，最后重新开始因陷阱中断的进程（这一段过程中，我们的进程是在休眠，感受不到操作系统在做的事情）。</p>
+</li>
 </ol>
-<h3 id="Const-Parameters-and-Arguments"><a href="#Const-Parameters-and-Arguments" class="headerlink" title="Const Parameters and Arguments"></a>Const Parameters and Arguments</h3><p><strong>Usage</strong>:</p>
-<p>Top level const on parameters are ignored. We can pass either a const or a nonconst object to a parameter that has a top-level const.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// We can call func passing it either a const int or a plain int, so we call the const is ignored.</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> i)</span></span>&#123;<span class="comment">// func ca nread but not write to i&#125;</span></span><br></pre></td></tr></table></figure>
-<p>Hence we can’t distinguish between <code>void func(const int i)</code> and <code>void func(int i)</code> which means we can’t define both two functions at the same time.</p>
-<p><strong>Key Point</strong>: </p>
-<p>Use reference to const as possible as we can. Doing so we can forbit function’s caller to change its argument’s value. Moreover, using a reference instead of a reference to const unduly limits the type of arguments that can be used with the function.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad design: the first parameter should be a const string&amp;</span></span><br><span class="line"><span class="built_in">string</span>::<span class="function">size_type <span class="title">find_char</span><span class="params">(<span class="built_in">string</span> &amp;s, <span class="keyword">char</span> c, <span class="built_in">string</span>::size_type &amp;occurs)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>In the case, we can’t call <code>find_char(&quot;Hello World&quot;, &#39;o&#39;, ctr)</code>.</p>
-<h3 id="Array-Parameter"><a href="#Array-Parameter" class="headerlink" title="Array Parameter"></a>Array Parameter</h3><p><strong>Key Point</strong>: </p>
-<p>Array parameter will be converted to a pointer.</p>
-<p><strong>Array Reference Parameters</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f(int &amp;arr[10])     // arr is an array of references </span><br><span class="line">f(int (&amp;arr)[10])   // arr is a reference to an array</span><br></pre></td></tr></table></figure>
-<p><strong><font color="red">Note :</font></strong></p>
-<p>We need to define the size of the array like above example, so contrary to plain array parameter, it will check the size of array when passing the parameter.</p>
-
+<h2 id="按需调页的性能"><a href="#按需调页的性能" class="headerlink" title="按需调页的性能"></a>按需调页的性能</h2><h1 id="写时复制-Copy-On-Write"><a href="#写时复制-Copy-On-Write" class="headerlink" title="写时复制 Copy-On-Write"></a>写时复制 Copy-On-Write</h1><ol>
+<li>定义：Copy-on-Write (COW) allows both parent and child processes to initially share the same pages in memory. If either process modifies a shared page, only then is the page copied.(一开始共用一个，修改的时候再一人一个，互不冲突)</li>
+</ol>
+<h1 id="页面置换-Page-Replacement"><a href="#页面置换-Page-Replacement" class="headerlink" title="页面置换 Page Replacement"></a>页面置换 Page Replacement</h1><h2 id="基本页置换"><a href="#基本页置换" class="headerlink" title="基本页置换"></a>基本页置换</h2><ol>
+<li>定义：有空闲帧的时候就用它，否则就是用页置换算法选择一个victim frame，将它写进磁盘中，改变页表和帧表，然后再将新页写入该空帧，最后重启用户进程。</li>
+</ol>
+<h2 id="FIFO页置换"><a href="#FIFO页置换" class="headerlink" title="FIFO页置换"></a>FIFO页置换</h2><h2 id="最优置换"><a href="#最优置换" class="headerlink" title="最优置换"></a>最优置换</h2>
       
     </div>
     
@@ -415,7 +391,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"># C++</a>
+            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
           
         </div>
       
@@ -428,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/26/OOP-first/" rel="next" title="OOP-first">
-                <i class="fa fa-chevron-left"></i> OOP-first
+              <a href="/2018/05/16/OS_8/" rel="next" title="主存">
+                <i class="fa fa-chevron-left"></i> 主存
               </a>
             
           </div>
@@ -438,8 +414,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/02/python_1/" rel="prev" title="Python 语法糖">
-                Python 语法糖 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/24/CPP_18/" rel="prev" title="用于大型程序的工具">
+                用于大型程序的工具 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -574,7 +550,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">1.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basics"><span class="nav-number">1.1.</span> <span class="nav-text">Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Calling-a-function"><span class="nav-number">1.1.1.</span> <span class="nav-text">Calling a function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Argument-and-Parameter"><span class="nav-number">1.1.2.</span> <span class="nav-text">Argument and Parameter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-Objects"><span class="nav-number">1.1.3.</span> <span class="nav-text">Local Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-variable"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Local variable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Automatic-objects"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Automatic objects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-static-object"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">Local static object</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Argument-Passing"><span class="nav-number">1.2.</span> <span class="nav-text">Argument Passing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Passing-by-Value"><span class="nav-number">1.2.1.</span> <span class="nav-text">Passing by Value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Passing-by-Reference"><span class="nav-number">1.2.2.</span> <span class="nav-text">Passing by Reference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Const-Parameters-and-Arguments"><span class="nav-number">1.2.3.</span> <span class="nav-text">Const Parameters and Arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-Parameter"><span class="nav-number">1.2.4.</span> <span class="nav-text">Array Parameter</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#按需调页-Demand-Paging"><span class="nav-number">2.</span> <span class="nav-text">按需调页 Demand Paging</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">2.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按需调页的性能"><span class="nav-number">2.2.</span> <span class="nav-text">按需调页的性能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写时复制-Copy-On-Write"><span class="nav-number">3.</span> <span class="nav-text">写时复制 Copy-On-Write</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#页面置换-Page-Replacement"><span class="nav-number">4.</span> <span class="nav-text">页面置换 Page Replacement</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本页置换"><span class="nav-number">4.1.</span> <span class="nav-text">基本页置换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FIFO页置换"><span class="nav-number">4.2.</span> <span class="nav-text">FIFO页置换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最优置换"><span class="nav-number">4.3.</span> <span class="nav-text">最优置换</span></a></li></ol></li></ol></div>
             
 
           </div>
