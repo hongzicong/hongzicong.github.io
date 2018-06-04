@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="背景 异常处理用来分离问题的检查与解决过程 命名空间用来防止名字冲突提供">
+<meta name="description" content="背景 异常处理用来分离问题的检查与解决过程 命名空间用来防止名字冲突提供 多重继承的派生类继承了所有父类的属性">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用于大型程序的工具">
 <meta property="og:url" content="http://yoursite.com/2018/05/24/CPP_18/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="背景 异常处理用来分离问题的检查与解决过程 命名空间用来防止名字冲突提供">
+<meta property="og:description" content="背景 异常处理用来分离问题的检查与解决过程 命名空间用来防止名字冲突提供 多重继承的派生类继承了所有父类的属性">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-24T03:40:56.930Z">
+<meta property="og:updated_time" content="2018-05-31T03:35:40.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用于大型程序的工具">
-<meta name="twitter:description" content="背景 异常处理用来分离问题的检查与解决过程 命名空间用来防止名字冲突提供">
+<meta name="twitter:description" content="背景 异常处理用来分离问题的检查与解决过程 命名空间用来防止名字冲突提供 多重继承的派生类继承了所有父类的属性">
 
 
 
@@ -355,19 +355,25 @@
         <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ol>
 <li>异常处理用来分离问题的检查与解决过程</li>
 <li>命名空间用来防止名字冲突提供</li>
+<li>多重继承的派生类继承了所有父类的属性</li>
 </ol>
 <a id="more"></a>
 <h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>目的：将问题的检查与解决过程分离开，程序一部分专门负责问题的检测，然后将解决问题的任务传递给另一部分</p>
 <h2 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h2><ol>
-<li><p>简介：<code>C++</code>中使用<code>throw</code>语句抛出异常，程序的执行权转移到与之匹配的<code>catch</code>语句中（可能在同一函数中，也可能在外面）</p>
+<li><p>简介：<code>C++</code>中使用<code>throw</code>语句抛出异常，程序的执行权转移到与之匹配的<code>catch</code>语句中（可能在同一函数中，也可能在外面）。</p>
 </li>
-<li><p>栈展开过程：如果<code>throw</code>在<code>try</code>语句块中，那么会寻找对应的<code>catch</code>语句中，如果匹配不到，则退出该函数，在调用当前函数的外层函数继续寻找，直到主函数，如果一直没有匹配到的话，则调用标准库函数<code>terminate</code>来终止程序进行</p>
+<li><p>栈展开过程：如果<code>throw</code>在<code>try</code>语句块中，那么会寻找对应的<code>catch</code>语句中，如果匹配不到，则退出该函数，在调用当前函数的外层函数继续寻找，直到主函数，如果一直没有匹配到的话，则调用标准库函数<code>terminate</code>来终止程序进行。</p>
 </li>
-<li><p>栈展开过程中局部对象（块里面的对象）被自动销毁，但是如果是动态分配的对象，记得要自己释放内存，否则会出现内存泄漏的情况</p>
+<li><p>栈展开过程中局部对象（块里面的对象）被自动销毁，但是如果是动态分配的对象，记得要自己在因为异常二跳出该函数前，释放内存，否则会出现内存泄漏的情况。</p>
 </li>
-<li><p>异常对象：<code>throw</code>对异常对象进行拷贝初始化，故<code>throw</code>语句中的表达式必须拥有<font color="skyblue">完全类型</font>，异常对象处于编译器管理的空间中（和别的对象不一样），当被处理完后，异常对象会被销毁</p>
+<li><p>异常对象：<code>throw</code>对异常对象进行拷贝初始化，故<code>throw</code>语句中的表达式必须拥有<font color="skyblue">完全类型</font>，异常对象处于编译器管理的空间中（和别的对象不一样），当被处理完后，异常对象才会被销毁。</p>
+</li>
+<li><p>当利用<code>throw</code>抛出指针的时候，要求在任何对应处理该异常的地方，指针所指的对象都必须存在。</p>
+</li>
+<li><p><code>throw</code>解引用一个基类指针的时候，如果该指针实际指向的是派生类对象，则抛出的对象将被切掉一部分，只有基类部分被抛出。</p>
 </li>
 </ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">range_error <span class="title">r</span><span class="params">(<span class="string">"error"</span>)</span></span>;</span><br><span class="line"><span class="keyword">throw</span> r;                <span class="comment">// the type is range_error</span></span><br><span class="line"></span><br><span class="line">exception *p = &amp;r;</span><br><span class="line"><span class="keyword">throw</span> *p;               <span class="comment">// the type is exception</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">throw</span> p;                <span class="comment">// NOT DO THAT! It will be a runtime error!</span></span><br></pre></td></tr></table></figure>
 <h2 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h2><ol>
 <li><p>性质：</p>
 <ol>
@@ -377,6 +383,9 @@
 </li>
 <li>使用<code>catch(...)</code>可以捕捉到所有的异常</li>
 </ol>
+</li>
+<li><p><code>catch</code>中的参数其实和函数的参数类似，如果<code>catch</code>的参数是非引用类型，则该参数是异常对象的一个副本，只有当是引用类型的时候，才可以改变该错误对象。</p>
+<p> ps. 通常情况下，最好将<code>catch</code>的参数定义为引用类型</p>
 </li>
 </ol>
 <h2 id="函数try语句块与构造函数"><a href="#函数try语句块与构造函数" class="headerlink" title="函数try语句块与构造函数"></a>函数try语句块与构造函数</h2><p>（…没时间，先不写）</p>
@@ -391,7 +400,7 @@
 <li><p>目的：多个库都将名字（类、函数等）放置在全局命名空间中会引发命名空间污染，使用命名空间为防止名字冲突提供了更加可控的机制</p>
 </li>
 <li><p>例子：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> test&#123;</span><br><span class="line">    <span class="comment">// 相关声明</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> test&#123;</span><br><span class="line">    <span class="comment">// 对test命名空间的补充</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名空间的别名</span></span><br><span class="line"><span class="keyword">namespace</span> test = haha;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// using 声明</span></span><br><span class="line">    <span class="keyword">using</span> test::a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// using 指示</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以将这个命名空间放在头文件中，专门用来放成员和声明</span></span><br><span class="line"><span class="keyword">namespace</span> test&#123;</span><br><span class="line">    <span class="comment">// 声明</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">A</span>;</span></span><br><span class="line">&#125; <span class="comment">// 命名空间结束不需要分号</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将这个命名空间的补充放在另外的源文件中，专门用来放定义</span></span><br><span class="line"><span class="keyword">namespace</span> test&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以在命名空间的外面定义</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span>:</span>:A&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名空间的别名</span></span><br><span class="line"><span class="keyword">namespace</span> test = haha;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// using 声明，在声明开始生效，到作用域结束为止</span></span><br><span class="line">    <span class="keyword">using</span> test::a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// using 指示</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="命名空间定义"><a href="#命名空间定义" class="headerlink" title="命名空间定义"></a>命名空间定义</h2><ol>
@@ -408,6 +417,12 @@
 </li>
 <li><p>全局命名空间：隐式声明，使用<code>::member_name</code>去引用，<code>member_name</code>代表全局命名空间中的一个成员</p>
 </li>
+<li><p>内联命名空间：该命名空间中的名字可以被外层命名空间直接使用（作用看书，书上的意思好像是将最新版本的代码声明为<code>inline</code>，旧版本的代码用普通的namespace，这样可以平时使用的最新版本，想用旧版本的话，就要加上完整的外层命名空间名称）</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只需要在命名空间第一次定义的地方使用inline就好了，后续可以写也可以不写</span></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">namespace</span> test&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> test&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>未命名的命名空间 unnamed namespace：拥有静态生命周期，在第一次使用前创建，并且直到程序结束才销毁，仅在该文件中有效，无法横跨多个不同的文件。</li>
 </ol>
 <h2 id="使用命名空间成员"><a href="#使用命名空间成员" class="headerlink" title="使用命名空间成员"></a>使用命名空间成员</h2><ol>
 <li><p>最简单的方法是使用<code>::</code>去一层层的使用</p>
@@ -419,7 +434,11 @@
 <li><p><code>using</code>指示可以直接使用整个命名空间内的所有成员</p>
 </li>
 </ol>
-<h2 id="类、命名空间与作用域"><a href="#类、命名空间与作用域" class="headerlink" title="类、命名空间与作用域"></a>类、命名空间与作用域</h2><h2 id="重载与命名空间"><a href="#重载与命名空间" class="headerlink" title="重载与命名空间"></a>重载与命名空间</h2>
+<h2 id="类、命名空间与作用域"><a href="#类、命名空间与作用域" class="headerlink" title="类、命名空间与作用域"></a>类、命名空间与作用域</h2><h2 id="重载与命名空间"><a href="#重载与命名空间" class="headerlink" title="重载与命名空间"></a>重载与命名空间</h2><h1 id="多重继承与虚继承"><a href="#多重继承与虚继承" class="headerlink" title="多重继承与虚继承"></a>多重继承与虚继承</h1><h2 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line">    A(<span class="keyword">int</span> a)&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>&#123;</span></span><br><span class="line">    B(<span class="keyword">double</span> b)&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有规定继承基类个数，但是同一个基类只能出现一次</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span> <span class="keyword">public</span> A, <span class="keyword">public</span> B&#123;</span><br><span class="line">    <span class="comment">// 显式：基类的构造顺序与派生列表中基类的出现顺序需要保持一致</span></span><br><span class="line">    C(<span class="keyword">int</span> a, <span class="keyword">double</span> b): A(a), B(b)&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 隐式：A和B使用默认构造函数初始化</span></span><br><span class="line">    C()&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>如果派生类从多个基类中继承了相同的构造函数（即形参列表完全相同），则程序会出现错误，此时需要这个类为该构造函数定义自己的版本。</li>
+</ol>
+<h2 id="类型转换与多个基类"><a href="#类型转换与多个基类" class="headerlink" title="类型转换与多个基类"></a>类型转换与多个基类</h2><h2 id="多继承下的类作用域"><a href="#多继承下的类作用域" class="headerlink" title="多继承下的类作用域"></a>多继承下的类作用域</h2><h2 id="虚继承"><a href="#虚继承" class="headerlink" title="虚继承"></a>虚继承</h2><h2 id="构造函数与虚继承"><a href="#构造函数与虚继承" class="headerlink" title="构造函数与虚继承"></a>构造函数与虚继承</h2>
       
     </div>
     
@@ -458,6 +477,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/30/OS_10/" rel="prev" title="文件系统接口">
+                文件系统接口 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -534,7 +557,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -591,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-number">2.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抛出异常"><span class="nav-number">2.1.</span> <span class="nav-text">抛出异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获异常"><span class="nav-number">2.2.</span> <span class="nav-text">捕获异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数try语句块与构造函数"><span class="nav-number">2.3.</span> <span class="nav-text">函数try语句块与构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#noexcept异常说明"><span class="nav-number">2.4.</span> <span class="nav-text">noexcept异常说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常类层次"><span class="nav-number">2.5.</span> <span class="nav-text">异常类层次</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命名空间"><span class="nav-number">3.</span> <span class="nav-text">命名空间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间定义"><span class="nav-number">3.1.</span> <span class="nav-text">命名空间定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用命名空间成员"><span class="nav-number">3.2.</span> <span class="nav-text">使用命名空间成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类、命名空间与作用域"><span class="nav-number">3.3.</span> <span class="nav-text">类、命名空间与作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载与命名空间"><span class="nav-number">3.4.</span> <span class="nav-text">重载与命名空间</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-number">2.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抛出异常"><span class="nav-number">2.1.</span> <span class="nav-text">抛出异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获异常"><span class="nav-number">2.2.</span> <span class="nav-text">捕获异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数try语句块与构造函数"><span class="nav-number">2.3.</span> <span class="nav-text">函数try语句块与构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#noexcept异常说明"><span class="nav-number">2.4.</span> <span class="nav-text">noexcept异常说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常类层次"><span class="nav-number">2.5.</span> <span class="nav-text">异常类层次</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命名空间"><span class="nav-number">3.</span> <span class="nav-text">命名空间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间定义"><span class="nav-number">3.1.</span> <span class="nav-text">命名空间定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用命名空间成员"><span class="nav-number">3.2.</span> <span class="nav-text">使用命名空间成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类、命名空间与作用域"><span class="nav-number">3.3.</span> <span class="nav-text">类、命名空间与作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载与命名空间"><span class="nav-number">3.4.</span> <span class="nav-text">重载与命名空间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多重继承与虚继承"><span class="nav-number">4.</span> <span class="nav-text">多重继承与虚继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多重继承"><span class="nav-number">4.1.</span> <span class="nav-text">多重继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换与多个基类"><span class="nav-number">4.2.</span> <span class="nav-text">类型转换与多个基类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多继承下的类作用域"><span class="nav-number">4.3.</span> <span class="nav-text">多继承下的类作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚继承"><span class="nav-number">4.4.</span> <span class="nav-text">虚继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数与虚继承"><span class="nav-number">4.5.</span> <span class="nav-text">构造函数与虚继承</span></a></li></ol></li></ol></div>
             
 
           </div>
