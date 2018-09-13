@@ -260,164 +260,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/go_1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HongZicong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LALALALALA">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/13/go_1/" itemprop="url">Golang 教程简述</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T18:48:00+08:00">
-                2018-09-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机语言/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机语言</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Golang-教程简述"><a href="#Golang-教程简述" class="headerlink" title="Golang 教程简述"></a>Golang 教程简述</h1><p>该教程总结《学习Go语言》，并利用样例程序来介绍Go</p>
-<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"Hello, world!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意点：</p>
-<ol>
-<li><p>所有Go文件必须以package语句开头</p>
-</li>
-<li><p>注释方式和C\C++相同</p>
-</li>
-<li><p>编译和运行代码</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% go build helloworld.go</span><br><span class="line">% ./helloworld</span><br></pre></td></tr></table></figure>
-<h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法一 用 = 声明</span></span><br><span class="line"><span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二 用 := 声明且赋值</span></span><br><span class="line">b := <span class="number">15</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个一起声明</span></span><br><span class="line"><span class="keyword">var</span>(</span><br><span class="line">    x <span class="keyword">int</span></span><br><span class="line">    y <span class="keyword">bool</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 平行赋值，不同类型也可以</span></span><br><span class="line">m, n := <span class="number">15</span>, <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>注意点：</p>
-<ol>
-<li>对于普通变量来说，声明但不使用（赋值并不算是使用）的话，会报错，对于名为_（下划线）的变量来说，声明但不使用却不会报错，因为它相当于一个垃圾桶，而且东西扔下去以后是无法再取得回来的</li>
-</ol>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line">a := <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不会报错</span></span><br><span class="line"><span class="keyword">var</span> _ <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line">_ := <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不会报错</span></span><br><span class="line">_, b := <span class="number">1</span>, <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">var</span> _ <span class="keyword">int</span></span><br><span class="line">_ = <span class="number">3</span></span><br><span class="line">fmt.Println(_)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/servicecomputing_1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -510,8 +352,7 @@
 
       
         
-          
-            <h1 id="使用-VirtualBox-提供私有云及配置"><a href="#使用-VirtualBox-提供私有云及配置" class="headerlink" title="使用 VirtualBox 提供私有云及配置"></a>使用 VirtualBox 提供私有云及配置</h1><h2 id="虚拟机系统"><a href="#虚拟机系统" class="headerlink" title="虚拟机系统"></a>虚拟机系统</h2><p>CentOS 7</p>
+          <h1 id="使用-VirtualBox-提供私有云及配置"><a href="#使用-VirtualBox-提供私有云及配置" class="headerlink" title="使用 VirtualBox 提供私有云及配置"></a>使用 VirtualBox 提供私有云及配置</h1><h2 id="虚拟机系统"><a href="#虚拟机系统" class="headerlink" title="虚拟机系统"></a>虚拟机系统</h2><p>CentOS 7</p>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
 <li>下载CentOS</li>
 </ol>
@@ -519,82 +360,159 @@
 <p><a href="https://www.centos.org/download/" target="_blank" rel="noopener">https://www.centos.org/download/</a></p>
 <p>清华大学开源软件镜像站</p>
 <p><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
-<ol start="2">
-<li>下载VirtualBox</li>
-</ol>
-<p>VirtualBox官网</p>
-<p><a href="https://www.virtualbox.org/" target="_blank" rel="noopener">https://www.virtualbox.org/</a></p>
-<ol start="3">
-<li>安装VirtualBox，创建虚拟机内部虚拟网络</li>
-</ol>
-<p>VirtualBox菜单 ：管理 -&gt; 主机网络管理器，创建一块虚拟网卡，网址分配 192.168.100.1/24</p>
-<p><img src="https://s1.ax1x.com/2018/09/10/iiOMct.png" alt="avatar"></p>
-<p>在主机 windows 命令行窗口输入 ipconfig 就可以看到 VirtualBox Host-Only Network #3: 的网卡</p>
-<p><img src="https://s1.ax1x.com/2018/09/10/iiOwj0.png" alt="avatar"></p>
-<ol start="4">
-<li>安装CentOS</li>
-</ol>
-<p>注意！！！记得在这里配置网络</p>
-<p>第二块网卡（enp0s8），点击配置，选 IPv4 设置，设置手动地址如下所示：</p>
-<p><img src="https://s1.ax1x.com/2018/09/12/iAp5Qg.png" alt="avatar"></p>
-<p>成功后如下图所示</p>
-<p><img src="https://s1.ax1x.com/2018/09/12/iApCPf.png" alt="avatar"></p>
-<ol start="5">
-<li>更新系统和配置网卡</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo yum update</span><br></pre></td></tr></table></figure>
-<p><img src="https://s1.ax1x.com/2018/09/12/iA9MTI.png" alt="avatar"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># nmtui</span><br></pre></td></tr></table></figure>
-<p><img src="https://s1.ax1x.com/2018/09/12/iA96cF.png" alt="avatar"></p>
-<p>两张网卡都设置为Automatically connect（目的是让每次系统开机时都会Active这两张网卡，不用再手动开启），如下图红框所示</p>
-<p><img src="https://s1.ax1x.com/2018/09/12/iA92nJ.png" alt="avatar"></p>
-<ol start="6">
-<li>关掉该虚拟机，然后配置VirtualBox的网络</li>
-</ol>
-<p>第一张网卡</p>
-<p><img src="https://s1.ax1x.com/2018/09/12/iApGL9.png" alt="avatar"></p>
-<p>第二张网卡</p>
-<p><img src="https://s1.ax1x.com/2018/09/12/iApYZR.png" alt="avatar"></p>
-<ol start="7">
-<li>为了得到虚拟机的ip，我们利用下面的指令下载一个包</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install net-tools</span><br></pre></td></tr></table></figure>
-<p>接着利用ifconfig得到虚拟机的ip地址，由于一开始设置为手动设置，且ip地址为192.168.100.3，所以ifconfig得到的结果也是它</p>
-<p><img src="https://s1.ax1x.com/2018/09/12/iACkHs.png" alt="avatar"></p>
-<ol start="8">
-<li>在主机上利用git来ssh虚拟机</li>
-</ol>
-<p><img src="https://s1.ax1x.com/2018/09/12/iACS9f.png" alt="avatar"></p>
-<ol start="9">
-<li>设置VirtualBox虚拟机远程访问模式</li>
-</ol>
-<p>在<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">VirtualBox官网</a>下载 Oracle VM VirtualBox Extension Pack</p>
-<p><img src="https://s1.ax1x.com/2018/09/10/iiXebT.png" alt="avatar"></p>
-<p>在VirtualBox中安装VirtualBox Extension Pack，一路按继续便可，中途没有别的选项</p>
-<p><img src="https://s1.ax1x.com/2018/09/10/iivrHf.png" alt="avatar"></p>
-<p>给虚拟机配置端口（注意：每个虚拟机的端口不能重复）</p>
-<p><img src="https://s1.ax1x.com/2018/09/10/iizOn1.png" alt="avatar"></p>
-<p>最终成功远程连接</p>
-<p><img src="https://s1.ax1x.com/2018/09/12/iACg8f.png" alt="avatar"></p>
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol>
-<li><p>什么是NAT？</p>
-<p>NAT是一种把内部私有网络地址（IP地址）翻译成合法网络IP地址的技术，可以让那些使用私有地址的内部网络连接到Internet或其它IP网络上。NAT路由器在将内部网络的数据包发送到公用网络时，在IP包的报头把私有地址转换成合法的IP地址。</p>
-<p>来自 <a href="https://blog.csdn.net/freeking101/article/details/77962312" target="_blank" rel="noopener">https://blog.csdn.net/freeking101/article/details/77962312</a></p>
-</li>
-<li><p>安装Linux发行版镜像时遇到的问题</p>
-<ul>
-<li><p>i386=Intel 80386。其实i386通常被用来作为对Intel（英特尔）32位微处理器的统称。</p>
-</li>
-<li><p>AMD64，又称“x86-64”或“x64”，是一种64位元的电脑处理器架构。它是建基于现有32位元的x86架构，由AMD公司所开发。</p>
-</li>
-</ul>
-</li>
-</ol>
-<ol start="3">
-<li>VirtualBox在每次启动时，都会给虚拟机动态分配IP，这样在用xshell等工具连接时，每次都要重新查看IP来进行连接，很不方便，此时就需要配置静态IP，一劳永逸。可以配置两块网卡，一块用于连接外部网络（NAT模式），一块用于与其它虚拟机通信（host-only）。</li>
-</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/13/servicecomputing_1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/go_1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HongZicong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LALALALALA">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/13/go_1/" itemprop="url">Golang 教程简述</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T18:48:00+08:00">
+                2018-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机语言/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Golang-教程简述"><a href="#Golang-教程简述" class="headerlink" title="Golang 教程简述"></a>Golang 教程简述</h1><p>简介：该教程总结《学习Go语言》，并利用样例程序来介绍Go</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/13/go_1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
