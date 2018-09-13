@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="数据库," />
+  <meta name="keywords" content="服务计算,课程博客," />
 
 
 
@@ -94,18 +94,34 @@
 
 
 
-<meta name="description" content="1 出现原因单层索引到多层索引的递进 2 索引顺序存取方法 ISAM 结构特点：静态  数据存储：ISAM索引的数据项存放在树的叶子页 leaf page 和串链到叶子页的其他溢出页中   2.1 数据更改 新建：Leaf (data) pages allocated sequentially, sorted by search key then index pages then overflow">
-<meta name="keywords" content="数据库">
+<meta name="description" content="使用 VirtualBox 提供私有云及配置虚拟机系统CentOS 7 步骤 下载CentOS  CentOS官网 https://www.centos.org/download/ 清华大学开源软件镜像站 https://mirrors.tuna.tsinghua.edu.cn/  下载VirtualBox  VirtualBox官网 https://www.virtualbox.org/  安装">
+<meta name="keywords" content="服务计算,课程博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树结构索引">
-<meta property="og:url" content="http://yoursite.com/2018/05/14/DBMS_10/index.html">
+<meta property="og:title" content="使用 VirtualBox 提供私有云及配置">
+<meta property="og:url" content="http://yoursite.com/2018/09/13/servicecomputing_1/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="1 出现原因单层索引到多层索引的递进 2 索引顺序存取方法 ISAM 结构特点：静态  数据存储：ISAM索引的数据项存放在树的叶子页 leaf page 和串链到叶子页的其他溢出页中   2.1 数据更改 新建：Leaf (data) pages allocated sequentially, sorted by search key then index pages then overflow">
+<meta property="og:description" content="使用 VirtualBox 提供私有云及配置虚拟机系统CentOS 7 步骤 下载CentOS  CentOS官网 https://www.centos.org/download/ 清华大学开源软件镜像站 https://mirrors.tuna.tsinghua.edu.cn/  下载VirtualBox  VirtualBox官网 https://www.virtualbox.org/  安装">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-15T09:21:13.488Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/10/iiOMct.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/10/iiOwj0.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/12/iAp5Qg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/12/iApCPf.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/12/iA9MTI.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/12/iA96cF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/12/iA92nJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/12/iApGL9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/12/iApYZR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/12/iACkHs.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/12/iACS9f.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/10/iiXebT.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/10/iivrHf.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/10/iizOn1.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/12/iACg8f.png">
+<meta property="og:updated_time" content="2018-09-13T10:49:23.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树结构索引">
-<meta name="twitter:description" content="1 出现原因单层索引到多层索引的递进 2 索引顺序存取方法 ISAM 结构特点：静态  数据存储：ISAM索引的数据项存放在树的叶子页 leaf page 和串链到叶子页的其他溢出页中   2.1 数据更改 新建：Leaf (data) pages allocated sequentially, sorted by search key then index pages then overflow">
+<meta name="twitter:title" content="使用 VirtualBox 提供私有云及配置">
+<meta name="twitter:description" content="使用 VirtualBox 提供私有云及配置虚拟机系统CentOS 7 步骤 下载CentOS  CentOS官网 https://www.centos.org/download/ 清华大学开源软件镜像站 https://mirrors.tuna.tsinghua.edu.cn/  下载VirtualBox  VirtualBox官网 https://www.virtualbox.org/  安装">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/09/10/iiOMct.png">
 
 
 
@@ -134,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/14/DBMS_10/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/13/servicecomputing_1/"/>
 
 
 
 
 
-  <title>树结构索引 | LALALALALA</title>
+  <title>使用 VirtualBox 提供私有云及配置 | LALALALALA</title>
   
 
 
@@ -263,7 +279,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/14/DBMS_10/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/servicecomputing_1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HongZicong">
@@ -280,7 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">树结构索引</h1>
+          <h1 class="post-title" itemprop="name headline">使用 VirtualBox 提供私有云及配置</h1>
         
 
         <div class="post-meta">
@@ -292,8 +308,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T14:58:00+08:00">
-                2018-05-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T18:48:00+08:00">
+                2018-09-13
               </time>
             
 
@@ -315,8 +331,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
+                  <a href="/categories/课程博客/" itemprop="url" rel="index">
+                    <span itemprop="name">课程博客</span>
                   </a>
                 </span>
 
@@ -352,65 +368,87 @@
       
 
       
-        <h1 id="1-出现原因"><a href="#1-出现原因" class="headerlink" title="1 出现原因"></a>1 出现原因</h1><p>单层索引到多层索引的递进</p>
-<h1 id="2-索引顺序存取方法-ISAM"><a href="#2-索引顺序存取方法-ISAM" class="headerlink" title="2 索引顺序存取方法 ISAM"></a>2 索引顺序存取方法 ISAM</h1><ol>
-<li><p>结构特点：静态</p>
+        <h1 id="使用-VirtualBox-提供私有云及配置"><a href="#使用-VirtualBox-提供私有云及配置" class="headerlink" title="使用 VirtualBox 提供私有云及配置"></a>使用 VirtualBox 提供私有云及配置</h1><h2 id="虚拟机系统"><a href="#虚拟机系统" class="headerlink" title="虚拟机系统"></a>虚拟机系统</h2><p>CentOS 7</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>下载CentOS</li>
+</ol>
+<p>CentOS官网</p>
+<p><a href="https://www.centos.org/download/" target="_blank" rel="noopener">https://www.centos.org/download/</a></p>
+<p>清华大学开源软件镜像站</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
+<ol start="2">
+<li>下载VirtualBox</li>
+</ol>
+<p>VirtualBox官网</p>
+<p><a href="https://www.virtualbox.org/" target="_blank" rel="noopener">https://www.virtualbox.org/</a></p>
+<ol start="3">
+<li>安装VirtualBox，创建虚拟机内部虚拟网络</li>
+</ol>
+<p>VirtualBox菜单 ：管理 -&gt; 主机网络管理器，创建一块虚拟网卡，网址分配 192.168.100.1/24</p>
+<p><img src="https://s1.ax1x.com/2018/09/10/iiOMct.png" alt="avatar"></p>
+<p>在主机 windows 命令行窗口输入 ipconfig 就可以看到 VirtualBox Host-Only Network #3: 的网卡</p>
+<p><img src="https://s1.ax1x.com/2018/09/10/iiOwj0.png" alt="avatar"></p>
+<ol start="4">
+<li>安装CentOS</li>
+</ol>
+<p>注意！！！记得在这里配置网络</p>
+<p>第二块网卡（enp0s8），点击配置，选 IPv4 设置，设置手动地址如下所示：</p>
+<p><img src="https://s1.ax1x.com/2018/09/12/iAp5Qg.png" alt="avatar"></p>
+<p>成功后如下图所示</p>
+<p><img src="https://s1.ax1x.com/2018/09/12/iApCPf.png" alt="avatar"></p>
+<ol start="5">
+<li>更新系统和配置网卡</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo yum update</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2018/09/12/iA9MTI.png" alt="avatar"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># nmtui</span><br></pre></td></tr></table></figure>
+<p><img src="https://s1.ax1x.com/2018/09/12/iA96cF.png" alt="avatar"></p>
+<p>两张网卡都设置为Automatically connect（目的是让每次系统开机时都会Active这两张网卡，不用再手动开启），如下图红框所示</p>
+<p><img src="https://s1.ax1x.com/2018/09/12/iA92nJ.png" alt="avatar"></p>
+<ol start="6">
+<li>关掉该虚拟机，然后配置VirtualBox的网络</li>
+</ol>
+<p>第一张网卡</p>
+<p><img src="https://s1.ax1x.com/2018/09/12/iApGL9.png" alt="avatar"></p>
+<p>第二张网卡</p>
+<p><img src="https://s1.ax1x.com/2018/09/12/iApYZR.png" alt="avatar"></p>
+<ol start="7">
+<li>为了得到虚拟机的ip，我们利用下面的指令下载一个包</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install net-tools</span><br></pre></td></tr></table></figure>
+<p>接着利用ifconfig得到虚拟机的ip地址，由于一开始设置为手动设置，且ip地址为192.168.100.3，所以ifconfig得到的结果也是它</p>
+<p><img src="https://s1.ax1x.com/2018/09/12/iACkHs.png" alt="avatar"></p>
+<ol start="8">
+<li>在主机上利用git来ssh虚拟机</li>
+</ol>
+<p><img src="https://s1.ax1x.com/2018/09/12/iACS9f.png" alt="avatar"></p>
+<ol start="9">
+<li>设置VirtualBox虚拟机远程访问模式</li>
+</ol>
+<p>在<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">VirtualBox官网</a>下载 Oracle VM VirtualBox Extension Pack</p>
+<p><img src="https://s1.ax1x.com/2018/09/10/iiXebT.png" alt="avatar"></p>
+<p>在VirtualBox中安装VirtualBox Extension Pack，一路按继续便可，中途没有别的选项</p>
+<p><img src="https://s1.ax1x.com/2018/09/10/iivrHf.png" alt="avatar"></p>
+<p>给虚拟机配置端口（注意：每个虚拟机的端口不能重复）</p>
+<p><img src="https://s1.ax1x.com/2018/09/10/iizOn1.png" alt="avatar"></p>
+<p>最终成功远程连接</p>
+<p><img src="https://s1.ax1x.com/2018/09/12/iACg8f.png" alt="avatar"></p>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol>
+<li><p>什么是NAT？</p>
+<p>NAT是一种把内部私有网络地址（IP地址）翻译成合法网络IP地址的技术，可以让那些使用私有地址的内部网络连接到Internet或其它IP网络上。NAT路由器在将内部网络的数据包发送到公用网络时，在IP包的报头把私有地址转换成合法的IP地址。</p>
+<p>来自 <a href="https://blog.csdn.net/freeking101/article/details/77962312" target="_blank" rel="noopener">https://blog.csdn.net/freeking101/article/details/77962312</a></p>
 </li>
-<li><p>数据存储：ISAM索引的数据项存放在树的叶子页 leaf page 和串链到叶子页的其他溢出页中</p>
+<li><p>安装Linux发行版镜像时遇到的问题</p>
+<ul>
+<li><p>i386=Intel 80386。其实i386通常被用来作为对Intel（英特尔）32位微处理器的统称。</p>
+</li>
+<li><p>AMD64，又称“x86-64”或“x64”，是一种64位元的电脑处理器架构。它是建基于现有32位元的x86架构，由AMD公司所开发。</p>
+</li>
+</ul>
 </li>
 </ol>
-<h2 id="2-1-数据更改"><a href="#2-1-数据更改" class="headerlink" title="2.1 数据更改"></a>2.1 数据更改</h2><ol>
-<li><p>新建：Leaf (data) pages allocated sequentially, sorted by search key then index pages then overflow pages.</p>
-</li>
-<li><p>查询：Start at root and use key comparisons to go to leaf.</p>
-</li>
-<li><p>插入：Find leaf that data entry belongs to, and put it there. Overflow page if necessary.</p>
-</li>
-<li><p>删除：Seek and destroy!  If deleting a tuple empties an overflow page, de-allocate it and remove from linked-list.</p>
-</li>
-<li><p>注意点：</p>
-<ol>
-<li>静态树结构中的插入和删除不改变索引页的数据项和主叶子页的数量，这样的话在并发访问时，不用对索引页加锁，所以相比起B+树，当数据分布和大小稳定且溢出链很少时，ISAM的效果更好</li>
-<li>插入数据时，每个叶子页里面的都是不用管顺序关系，有空位就放进去</li>
-<li>因为页的数目在创建树时是已知的，并且在随后的插入和删除也不改变，所以不需要指向下一叶子页的指针</li>
-</ol>
-</li>
-</ol>
-<h1 id="3-B-树"><a href="#3-B-树" class="headerlink" title="3 B+树"></a>3 B+树</h1><p>问题：静态结构会随着文件的增长产生很长的溢出链，从而导致性能变差</p>
-<h2 id="3-1-结构特点"><a href="#3-1-结构特点" class="headerlink" title="3.1 结构特点"></a>3.1 结构特点</h2><ol>
-<li><p>秩 order：每个节点中的数据项都必须在 $[\frac{order}{2},order]$之间，所以可以保证最小50%的占有率</p>
-</li>
-<li><p>平衡树：Each path from the root to any leaf has the same length</p>
-</li>
-</ol>
-<h2 id="3-2-功能"><a href="#3-2-功能" class="headerlink" title="3.2 功能"></a>3.2 功能</h2><ol>
-<li><p>查询：</p>
-<ol>
-<li>Equality Search</li>
-<li>Range Search：先找到第一个满足的项，接着利用sibling pointers去找到满足整个范围的项</li>
-</ol>
-</li>
-<li><p>插入：</p>
-<ol>
-<li>选择子树</li>
-<li>若有位置则插入就好</li>
-<li>如果节点满了，就需要分裂，分裂成两部分，大小分别为 d 和 d + 1</li>
-<li>中间码被推上去，然后继续分裂，如果一直往上，使root被分裂则会使树高度加一</li>
-<li>注意：叶子页的分裂会生成新的索引项，而索引页的分裂不会生成新的索引项</li>
-</ol>
-</li>
-<li><p>删除：</p>
-<ol>
-<li>查询</li>
-<li>删除</li>
-<li><p>如果不满足二分之一，则需要重分布，向别人借一个，删掉原索引项，借谁的就将谁的新的第一个作为索引项，一直往上，使root删掉则会使树高度减一（情况总共分为：叶子页的重分布，索引页的重分布，叶子页的合并，索引页的合并）</p>
-<p>ps.有个疑问：为什么索引页重分布的时候不是按借别人一个，而是按n和n+1去分</p>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="3-3-块加载B-树"><a href="#3-3-块加载B-树" class="headerlink" title="3.3 块加载B+树"></a>3.3 块加载B+树</h2><ol>
-<li>前提：当数据记录集合已经存在，将要在某个字段上创建B+树索引</li>
+<ol start="3">
+<li>VirtualBox在每次启动时，都会给虚拟机动态分配IP，这样在用xshell等工具连接时，每次都要重新查看IP来进行连接，很不方便，此时就需要配置静态IP，一劳永逸。可以配置两块网卡，一块用于连接外部网络（NAT模式），一块用于与其它虚拟机通信（host-only）。</li>
 </ol>
 
       
@@ -429,7 +467,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+            <a href="/tags/服务计算/" rel="tag"># 服务计算</a>
+          
+            <a href="/tags/课程博客/" rel="tag"># 课程博客</a>
           
         </div>
       
@@ -442,8 +482,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/12/OS_3/" rel="next" title="进程">
-                <i class="fa fa-chevron-left"></i> 进程
+              <a href="/2018/09/07/Leetcode_1/" rel="next" title="Leetcode 1">
+                <i class="fa fa-chevron-left"></i> Leetcode 1
               </a>
             
           </div>
@@ -452,8 +492,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/15/DBMS_11/" rel="prev" title="基于哈希的索引">
-                基于哈希的索引 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/13/go_1/" rel="prev" title="Golang 教程简述">
+                Golang 教程简述 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -588,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-出现原因"><span class="nav-number">1.</span> <span class="nav-text">1 出现原因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-索引顺序存取方法-ISAM"><span class="nav-number">2.</span> <span class="nav-text">2 索引顺序存取方法 ISAM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-数据更改"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 数据更改</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-B-树"><span class="nav-number">3.</span> <span class="nav-text">3 B+树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-结构特点"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 结构特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-功能"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-块加载B-树"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 块加载B+树</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-VirtualBox-提供私有云及配置"><span class="nav-number">1.</span> <span class="nav-text">使用 VirtualBox 提供私有云及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机系统"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟机系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">1.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">1.3.</span> <span class="nav-text">常见问题</span></a></li></ol></li></ol></div>
             
 
           </div>
