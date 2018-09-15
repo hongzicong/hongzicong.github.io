@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="数据库," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -94,18 +94,19 @@
 
 
 
-<meta name="description" content="1 静态哈希 索引文件由一系列的桶组成，每个桶有一个主页，还有一些溢出页  桶的数量一定   2 动态哈希">
-<meta name="keywords" content="数据库">
+<meta name="description" content="有关比特币你可能不知道的地方前言了解比特币也有一段时间了(其实就两个星期吧)，打算开始写一系列有关比特币的博客，这一系列的会包含许多比特币中的难点，也会分析比特币Go版的源码，可能会有写错或者理解错的地方，很希望有人会看我写的博客并提出来这些错误。 引出问题由于比特币的历史账本十分多，占用内存也很多，所以对于普通用户而言，为了验证自己的交易，需要下载整条链到本地显然不太现实，故在BIP:37引入一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于哈希的索引">
-<meta property="og:url" content="http://yoursite.com/2018/05/15/DBMS_11/index.html">
+<meta property="og:title" content="LALALALALA">
+<meta property="og:url" content="http://yoursite.com/2018/09/13/bitcoin_1/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="1 静态哈希 索引文件由一系列的桶组成，每个桶有一个主页，还有一些溢出页  桶的数量一定   2 动态哈希">
+<meta property="og:description" content="有关比特币你可能不知道的地方前言了解比特币也有一段时间了(其实就两个星期吧)，打算开始写一系列有关比特币的博客，这一系列的会包含许多比特币中的难点，也会分析比特币Go版的源码，可能会有写错或者理解错的地方，很希望有人会看我写的博客并提出来这些错误。 引出问题由于比特币的历史账本十分多，占用内存也很多，所以对于普通用户而言，为了验证自己的交易，需要下载整条链到本地显然不太现实，故在BIP:37引入一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-15T10:59:05.995Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/13/iE94it.png">
+<meta property="og:updated_time" content="2018-09-14T01:24:49.282Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于哈希的索引">
-<meta name="twitter:description" content="1 静态哈希 索引文件由一系列的桶组成，每个桶有一个主页，还有一些溢出页  桶的数量一定   2 动态哈希">
+<meta name="twitter:title" content="LALALALALA">
+<meta name="twitter:description" content="有关比特币你可能不知道的地方前言了解比特币也有一段时间了(其实就两个星期吧)，打算开始写一系列有关比特币的博客，这一系列的会包含许多比特币中的难点，也会分析比特币Go版的源码，可能会有写错或者理解错的地方，很希望有人会看我写的博客并提出来这些错误。 引出问题由于比特币的历史账本十分多，占用内存也很多，所以对于普通用户而言，为了验证自己的交易，需要下载整条链到本地显然不太现实，故在BIP:37引入一">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/09/13/iE94it.png">
 
 
 
@@ -134,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/15/DBMS_11/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/13/bitcoin_1/"/>
 
 
 
 
 
-  <title>基于哈希的索引 | LALALALALA</title>
+  <title> | LALALALALA</title>
   
 
 
@@ -263,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/15/DBMS_11/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/bitcoin_1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HongZicong">
@@ -280,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">基于哈希的索引</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -292,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T17:23:00+08:00">
-                2018-05-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T19:09:46+08:00">
+                2018-09-13
               </time>
             
 
@@ -302,28 +303,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -352,13 +331,27 @@
       
 
       
-        <h1 id="1-静态哈希"><a href="#1-静态哈希" class="headerlink" title="1 静态哈希"></a>1 静态哈希</h1><ol>
-<li><p>索引文件由一系列的桶组成，每个桶有一个主页，还有一些溢出页</p>
+        <h1 id="有关比特币你可能不知道的地方"><a href="#有关比特币你可能不知道的地方" class="headerlink" title="有关比特币你可能不知道的地方"></a>有关比特币你可能不知道的地方</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>了解比特币也有一段时间了(其实就两个星期吧)，打算开始写一系列有关比特币的博客，这一系列的会包含许多比特币中的难点，也会分析比特币Go版的源码，可能会有写错或者理解错的地方，很希望有人会看我写的博客并提出来这些错误。</p>
+<h2 id="引出问题"><a href="#引出问题" class="headerlink" title="引出问题"></a>引出问题</h2><p>由于比特币的历史账本十分多，占用内存也很多，所以对于普通用户而言，为了验证自己的交易，需要下载整条链到本地显然不太现实，故在<a href="https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki" target="_blank" rel="noopener">BIP:37</a>引入一种技术称为 simplified payment verification(SPV)。</p>
+<p>SPV简单来说就是只存储区块头，当需要包含某个交易的块时，再问附近的重节点（存储有整条链的用户）拿，这样能防止重节点有欺诈行为（因为有区块头可以验证，所以无法伪造）。</p>
+<p>但如果经常直接向重节点要区块，会存在隐私泄露的问题，因为重节点可以通过多个区块中交易的交集来推测出你的地址。</p>
+<h2 id="Bloom-Filter"><a href="#Bloom-Filter" class="headerlink" title="Bloom Filter"></a>Bloom Filter</h2><p>定义：Bloom Filter 是一种基于概率的数据结构，用来判别一个元素是否在一个集合中，但是会有一定的误判率，因为它只能够告诉你这个元素究竟是<font color="#dd0000">不在集合内</font>还是<font color="#dd0000">可能在集合内</font>。(就是因为它无法说明某个元素是否一定在集合内，所以会出现误判率)</p>
+<p>解释：下图有一个大小为18的数组(初始化每位为0)，h1、h2、h3是三个不同的哈希函数(输出为0到17)，我们有一个集合 {x, y, z}，将x值分别输入h1、h2、h3，得到三个数字，将数组中对应的位置变为1，接着以相同方式，将y、z值都也输入h1、h2、h3，并将对应位置变为1。将数组和h1、h2、h3传给别人，别人就可以判断某个元素ω是否在集合中(图中的ω就不属于这个集合，因为它有个哈希值是1与数组中的不匹配)</p>
+<p><img src="https://s1.ax1x.com/2018/09/13/iE94it.png" alt="avatar"></p>
+<p>缺点：</p>
+<ol>
+<li>误报：因为该filter无法说明某个元素是否一定在集合内</li>
+<li>禁止删除：如果允许删除某个元素，会影响整个filter，因为这个被删除的元素有可能与别的元素有重叠的部分(可通过将数组中的每个元素变为计数器，但这样会浪费大量空间)</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><p>论文 <a href="http://www.cs.cmu.edu/~binfan/papers/conext14_cuckoofilter.pdf" target="_blank" rel="noopener">Cuckoo Filter: Practically Better Than Bloom</a></p>
 </li>
-<li><p>桶的数量一定</p>
+<li><p>维基百科 <a href="https://en.wikipedia.org/wiki/Bloom_filter" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Bloom_filter</a></p>
 </li>
 </ol>
-<h1 id="2-动态哈希"><a href="#2-动态哈希" class="headerlink" title="2 动态哈希"></a>2 动态哈希</h1>
+<p><a href="https://shuwoom.com/?p=857" target="_blank" rel="noopener">https://shuwoom.com/?p=857</a></p>
+<p><a href="https://blog.csdn.net/ITleaks/article/details/79926174" target="_blank" rel="noopener">https://blog.csdn.net/ITleaks/article/details/79926174</a></p>
+
       
     </div>
     
@@ -373,12 +366,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/数据库/" rel="tag"># 数据库</a>
-          
-        </div>
-      
 
       
       
@@ -388,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/14/DBMS_10/" rel="next" title="树结构索引">
-                <i class="fa fa-chevron-left"></i> 树结构索引
+              <a href="/2018/09/13/servicecomputing_1/" rel="next" title="使用 VirtualBox 提供私有云及配置">
+                <i class="fa fa-chevron-left"></i> 使用 VirtualBox 提供私有云及配置
               </a>
             
           </div>
@@ -398,8 +385,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/16/OS_8/" rel="prev" title="主存">
-                主存 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/15/Leetcode_2/" rel="prev" title="Leetcode 2">
+                Leetcode 2 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -534,7 +521,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-静态哈希"><span class="nav-number">1.</span> <span class="nav-text">1 静态哈希</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-动态哈希"><span class="nav-number">2.</span> <span class="nav-text">2 动态哈希</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#有关比特币你可能不知道的地方"><span class="nav-number">1.</span> <span class="nav-text">有关比特币你可能不知道的地方</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引出问题"><span class="nav-number">1.2.</span> <span class="nav-text">引出问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bloom-Filter"><span class="nav-number">1.3.</span> <span class="nav-text">Bloom Filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.4.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
 
           </div>
