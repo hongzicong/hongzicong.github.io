@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="LALALALALA">
 <meta property="og:description" content="1 背景使用 count 去解决生产者消费者问题时，如果生产者进程和消费者进程并发执行，则有可能无法保持数据一致性。因为两个程序都有自己的局部寄存器，当要改变 count 时，他们会取出 count 到各自的寄存器中，然后修改，再存进内存中，这样会使数据和与其不同。 定义：以上现象定义为竞争条件 race condition，即多个进程并发访问和操作同一数据且执行结果与访问发生的特定顺序有关。 2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-23T07:29:07.965Z">
+<meta property="og:updated_time" content="2018-09-20T14:09:32.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程同步">
 <meta name="twitter:description" content="1 背景使用 count 去解决生产者消费者问题时，如果生产者进程和消费者进程并发执行，则有可能无法保持数据一致性。因为两个程序都有自己的局部寄存器，当要改变 count 时，他们会取出 count 到各自的寄存器中，然后修改，再存进内存中，这样会使数据和与其不同。 定义：以上现象定义为竞争条件 race condition，即多个进程并发访问和操作同一数据且执行结果与访问发生的特定顺序有关。 2">
@@ -407,7 +407,7 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">boolean waiting[n];</span><br><span class="line">boolean lock;</span><br><span class="line"></span><br><span class="line">do&#123;</span><br><span class="line"></span><br><span class="line">    waiting[i] = True;</span><br><span class="line">    key = True;</span><br><span class="line"></span><br><span class="line">    // 只有当 waiting[i] 或者 key 等于 False 时，才能进入临界区</span><br><span class="line">    while(waiting[i] &amp;&amp; key) </span><br><span class="line">        // TestAndSet 将 lock 设置为 True，接着返回 lock 原本的值</span><br><span class="line">        // 将 lock 锁住，然后如果 lock 本来没锁的话，可以接着运行</span><br><span class="line">        key = TestAndSet(&amp;lock);</span><br><span class="line">    // process i 不再等待</span><br><span class="line">    waiting[i] = False;</span><br><span class="line"></span><br><span class="line">    // 临界区</span><br><span class="line"></span><br><span class="line">    // 寻找想进入临界区的进程</span><br><span class="line">    j = (i + 1) % n;</span><br><span class="line">    while((j != i) &amp;&amp; !waiting[j])</span><br><span class="line">        j = (j + 1) % n;</span><br><span class="line"></span><br><span class="line">    // 没有进程想进入临界区</span><br><span class="line">    if(j == i)</span><br><span class="line">        lock = False</span><br><span class="line">    else</span><br><span class="line">    // 直接轮给下一个进程</span><br><span class="line">        waiting[j] = False</span><br><span class="line"></span><br><span class="line">    // 剩余区</span><br><span class="line"></span><br><span class="line">&#125;while(True);</span><br></pre></td></tr></table></figure>
 <ol start="5">
-<li><p>忙等待 \ 自旋等待现象 </p>
+<li><p>忙等待 \ 自旋等待现象 busy waiting</p>
 </li>
 <li><p>优点：不用进行上下文等待</p>
 </li>
@@ -422,8 +422,8 @@
 <li><p>操作：</p>
 <ul>
 <li>semaphore：一个进程在某一特殊点上被迫停止执行直到接收到一个对应的特殊资源值，这个资源值称为信号量</li>
-<li>wait()：当进程需要使用资源时，信号量减少（P操作）</li>
-<li><p>signal()：当进程释放资源时，信号量增加（V操作）</p>
+<li>wait() or acquire()：当进程需要使用资源时，信号量减少（P操作） </li>
+<li><p>signal() or release()：当进程释放资源时，信号量增加（V操作）</p>
 <p>ps. 两个操作都是原子操作</p>
 </li>
 </ul>
@@ -586,7 +586,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
