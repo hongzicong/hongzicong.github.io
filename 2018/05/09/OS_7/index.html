@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="1 前言1.1 目标 To develop a description of deadlocks, which prevent sets of concurrent processes from completing their tasks.  To present a number of different methods for preventing or avoiding deadlocks">
+<meta name="description" content="前言目标 To develop a description of deadlocks, which prevent sets of concurrent processes from completing their tasks.  To present a number of different methods for preventing or avoiding deadlocks in a">
 <meta name="keywords" content="操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="死锁">
 <meta property="og:url" content="http://yoursite.com/2018/05/09/OS_7/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="1 前言1.1 目标 To develop a description of deadlocks, which prevent sets of concurrent processes from completing their tasks.  To present a number of different methods for preventing or avoiding deadlocks">
+<meta property="og:description" content="前言目标 To develop a description of deadlocks, which prevent sets of concurrent processes from completing their tasks.  To present a number of different methods for preventing or avoiding deadlocks in a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-23T07:28:59.596Z">
+<meta property="og:updated_time" content="2018-09-25T08:28:26.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="死锁">
-<meta name="twitter:description" content="1 前言1.1 目标 To develop a description of deadlocks, which prevent sets of concurrent processes from completing their tasks.  To present a number of different methods for preventing or avoiding deadlocks">
+<meta name="twitter:description" content="前言目标 To develop a description of deadlocks, which prevent sets of concurrent processes from completing their tasks.  To present a number of different methods for preventing or avoiding deadlocks in a">
 
 
 
@@ -352,13 +352,13 @@
       
 
       
-        <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><h2 id="1-1-目标"><a href="#1-1-目标" class="headerlink" title="1.1 目标"></a>1.1 目标</h2><ol>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ol>
 <li><p>To develop a description of deadlocks, which prevent sets of concurrent processes from completing their tasks.</p>
 </li>
 <li><p>To present a number of different methods for preventing or avoiding deadlocks in a computer system.</p>
 </li>
 </ol>
-<h2 id="1-2-初步了解"><a href="#1-2-初步了解" class="headerlink" title="1.2 初步了解"></a>1.2 初步了解</h2><font color="red">死锁发生必要条件</font>
+<h2 id="初步了解"><a href="#初步了解" class="headerlink" title="初步了解"></a>初步了解</h2><font color="red">死锁发生必要条件</font>
 
 <pre><code>1. 互斥
 
@@ -376,7 +376,7 @@ No preemption: a resource can be released only voluntarily by the process holdin
 
 ps.必须四个同时满足才会发生死锁
 </code></pre><a id="more"></a>
-<h1 id="2-系统模型-System-Model"><a href="#2-系统模型-System-Model" class="headerlink" title="2 系统模型 System Model"></a>2 系统模型 System Model</h1><h2 id="2-1-系统描述"><a href="#2-1-系统描述" class="headerlink" title="2.1 系统描述"></a>2.1 系统描述</h2><ul>
+<h1 id="系统模型-System-Model"><a href="#系统模型-System-Model" class="headerlink" title="系统模型 System Model"></a>系统模型 System Model</h1><h2 id="系统描述"><a href="#系统描述" class="headerlink" title="系统描述"></a>系统描述</h2><ul>
 <li><p>资源类型 $R_1, R_2, \cdots, R_m$</p>
 <ul>
 <li>内存空间</li>
@@ -395,7 +395,7 @@ ps.必须四个同时满足才会发生死锁
 </ul>
 </li>
 </ul>
-<h2 id="2-2-资源分配图-Resource-Allocation-Graph"><a href="#2-2-资源分配图-Resource-Allocation-Graph" class="headerlink" title="2.2 资源分配图 Resource-Allocation Graph"></a>2.2 资源分配图 Resource-Allocation Graph</h2><ol>
+<h2 id="资源分配图-Resource-Allocation-Graph"><a href="#资源分配图-Resource-Allocation-Graph" class="headerlink" title="资源分配图 Resource-Allocation Graph"></a>资源分配图 Resource-Allocation Graph</h2><ol>
 <li><p>定义：顶点 Vertex 和 边 Edge 的有向图</p>
 </li>
 <li><p>详细：</p>
@@ -410,7 +410,7 @@ ps.必须四个同时满足才会发生死锁
 <li>环中每一类资源如果只有一个实例时，会发生死锁，如果有多个资源的话，则是有可能发生死锁。</li>
 <li>如果在图中，有进程在使用完资源后可以释放该资源，解开环的话，就不是死锁状态，死锁状态是不能解开的。</li>
 </ol>
-<h1 id="3-死锁处理"><a href="#3-死锁处理" class="headerlink" title="3 死锁处理"></a>3 死锁处理</h1><h2 id="3-1-分类"><a href="#3-1-分类" class="headerlink" title="3.1 分类"></a>3.1 分类</h2><ol>
+<h1 id="死锁处理"><a href="#死锁处理" class="headerlink" title="死锁处理"></a>死锁处理</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ol>
 <li><p>Ensure that the system will never enter a deadlock state.</p>
 </li>
 <li><p>Allow the system to enter a deadlock state and then recover.</p>
@@ -418,7 +418,7 @@ ps.必须四个同时满足才会发生死锁
 <li><p>Ignore the problem and pretend that deadlocks never occur in the system; used by most operating systems, including UNIX.</p>
 </li>
 </ol>
-<h1 id="4-死锁预防-Deadlock-Prevention"><a href="#4-死锁预防-Deadlock-Prevention" class="headerlink" title="4 死锁预防 Deadlock Prevention"></a>4 死锁预防 Deadlock Prevention</h1><p>是一组方法，从四个必要条件去解决死锁问题，保证死锁不会发生（第一类处理方法），通过限制申请资源去预防死锁</p>
+<h1 id="死锁预防-Deadlock-Prevention"><a href="#死锁预防-Deadlock-Prevention" class="headerlink" title="死锁预防 Deadlock Prevention"></a>死锁预防 Deadlock Prevention</h1><p>是一组方法，从四个必要条件去解决死锁问题，保证死锁不会发生（第一类处理方法），通过限制申请资源去预防死锁</p>
 <ol>
 <li><p>Mutual Exclusion：可以令资源都为共享去避免，但是通常不可行，因为有些资源只能是非共享的</p>
 </li>
@@ -441,13 +441,13 @@ ps.必须四个同时满足才会发生死锁
 <li><p>Circular wait：impose a total ordering of all resource types, and require that each process requests resources in an increasing order of enumeration</p>
 </li>
 </ol>
-<h1 id="5-死锁避免-Deadlock-Avoidance"><a href="#5-死锁避免-Deadlock-Avoidance" class="headerlink" title="5 死锁避免 Deadlock Avoidance"></a>5 死锁避免 Deadlock Avoidance</h1><ol>
+<h1 id="死锁避免-Deadlock-Avoidance"><a href="#死锁避免-Deadlock-Avoidance" class="headerlink" title="死锁避免 Deadlock Avoidance"></a>死锁避免 Deadlock Avoidance</h1><ol>
 <li><p>定义：根据每个进程可能的申请每种资源类型实例的最大需求的事先信息，构造出一个算法以确保不会进入死锁状态</p>
 </li>
 <li><p>资源分配状态 Resource-allocation state 是由可用资源 the numebr of available resources 和已分配资源 the number of allocated resources，及进程最大需求 the maximum demands of the processes 所决定</p>
 </li>
 </ol>
-<h2 id="5-1-安全状态"><a href="#5-1-安全状态" class="headerlink" title="5.1 安全状态"></a>5.1 安全状态</h2><ol>
+<h2 id="安全状态"><a href="#安全状态" class="headerlink" title="安全状态"></a>安全状态</h2><ol>
 <li><p>安全状态算法：When a process requests an available resource, system must decide if immediate allocation leaves the system in a safe state.</p>
 </li>
 <li><p>安全状态：A sequence &lt;$P_1,P_2,\cdots,P_n$&gt; that for each $P_i$, the resources that $P_i$ can still request can be satisfied by <font color="salmon">currently available resources + resources held by all the $P_j$, with j &lt; i</font>. 即 $P_1$ 能申请的资源等于系统现在空余的资源，所以他申请，用完后释放掉，没人可以困住它， $P_2$ 则可以申请的资源等于 $P_1$ 目前占有的资源加上系统空余的资源，那么最不济的情况当 $P_1$ 释放后，也不会被困住</p>
@@ -462,7 +462,7 @@ ps.必须四个同时满足才会发生死锁
 <li><p>缺点：资源使用率更加低，因为有时候明明有空缺的资源，为了安全都不能被使用</p>
 </li>
 </ol>
-<h2 id="5-2-资源分配图算法"><a href="#5-2-资源分配图算法" class="headerlink" title="5.2 资源分配图算法"></a>5.2 资源分配图算法</h2><ol>
+<h2 id="资源分配图算法"><a href="#资源分配图算法" class="headerlink" title="资源分配图算法"></a>资源分配图算法</h2><ol>
 <li><p>面对于单实例的情况</p>
 </li>
 <li><p>需求边 request edge（虚线表示），会转变成分配边  </p>
@@ -474,7 +474,7 @@ ps.必须四个同时满足才会发生死锁
 <li><p>需要$n^2$次操作，其中n是系统的进程数量（利用图求环的算法）</p>
 </li>
 </ol>
-<h2 id="5-3-银行家算法"><a href="#5-3-银行家算法" class="headerlink" title="5.3 银行家算法"></a>5.3 银行家算法</h2><ol>
+<h2 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h2><ol>
 <li><p>出现原因：资源分配图算法对于多实例情况不适用</p>
 </li>
 <li><p>结构：</p>
@@ -512,14 +512,14 @@ ps.必须四个同时满足才会发生死锁
 </ol>
 </li>
 </ol>
-<h1 id="6-死锁检测-Deadlock-Detection"><a href="#6-死锁检测-Deadlock-Detection" class="headerlink" title="6 死锁检测 Deadlock Detection"></a>6 死锁检测 Deadlock Detection</h1><ol>
+<h1 id="死锁检测-Deadlock-Detection"><a href="#死锁检测-Deadlock-Detection" class="headerlink" title="死锁检测 Deadlock Detection"></a>死锁检测 Deadlock Detection</h1><ol>
 <li>原因：如果不采用死锁预防和死锁避免算法，可能会出现死锁，这个时候系统应该提供：<ol>
 <li>检测系统是否发生死锁现象的算法</li>
 <li>从死锁状态中恢复算法</li>
 </ol>
 </li>
 </ol>
-<h2 id="6-1-单实例情况"><a href="#6-1-单实例情况" class="headerlink" title="6.1 单实例情况"></a>6.1 单实例情况</h2><ol>
+<h2 id="单实例情况"><a href="#单实例情况" class="headerlink" title="单实例情况"></a>单实例情况</h2><ol>
 <li><p>等待图 wait-for graph</p>
 </li>
 <li><p>利用资源分配图删除资源点后可以得到等待图</p>
@@ -527,24 +527,24 @@ ps.必须四个同时满足才会发生死锁
 <li><p>当存在环的时候，系统存在死锁，检查环的算法需要$n^2$的时间复杂度</p>
 </li>
 </ol>
-<h2 id="6-2-多实例情况"><a href="#6-2-多实例情况" class="headerlink" title="6.2 多实例情况"></a>6.2 多实例情况</h2><ol>
+<h2 id="多实例情况"><a href="#多实例情况" class="headerlink" title="多实例情况"></a>多实例情况</h2><ol>
 <li>检测方法：使用银行家算法后，要是不能清空，那么剩下的进程都在死锁状态,需要$O(m \times n^2)$的时间复杂度</li>
 </ol>
-<h2 id="6-3-调用"><a href="#6-3-调用" class="headerlink" title="6.3 调用"></a>6.3 调用</h2><ol>
+<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><ol>
 <li>决定因素：<ol>
 <li>死锁发生的频率：如果经常发生死锁，则需要经常调用死锁检测</li>
 <li>死锁发生受影响进程的数量</li>
 </ol>
 </li>
 </ol>
-<h1 id="7-死锁恢复-Recovery-from-Deadlock"><a href="#7-死锁恢复-Recovery-from-Deadlock" class="headerlink" title="7 死锁恢复 Recovery from Deadlock"></a>7 死锁恢复 Recovery from Deadlock</h1><h2 id="7-1-进程终止"><a href="#7-1-进程终止" class="headerlink" title="7.1 进程终止"></a>7.1 进程终止</h2><ol>
+<h1 id="死锁恢复-Recovery-from-Deadlock"><a href="#死锁恢复-Recovery-from-Deadlock" class="headerlink" title="死锁恢复 Recovery from Deadlock"></a>死锁恢复 Recovery from Deadlock</h1><h2 id="进程终止"><a href="#进程终止" class="headerlink" title="进程终止"></a>进程终止</h2><ol>
 <li>分类：<ol>
 <li>终止所有死锁进程</li>
 <li>一次只终止一个进程直到取消死循环为止：需要考虑以什么的顺序去取消，比如进程的优先级、进程已经运行的时间等</li>
 </ol>
 </li>
 </ol>
-<h2 id="7-2-资源抢占"><a href="#7-2-资源抢占" class="headerlink" title="7.2 资源抢占"></a>7.2 资源抢占</h2><ol>
+<h2 id="资源抢占"><a href="#资源抢占" class="headerlink" title="资源抢占"></a>资源抢占</h2><ol>
 <li><p>定义：从进程中抢占资源给其他进程使用</p>
 </li>
 <li><p>需要考虑的问题：</p>
@@ -731,7 +731,7 @@ ps.必须四个同时满足才会发生死锁
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-前言"><span class="nav-number">1.</span> <span class="nav-text">1 前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-目标"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-初步了解"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 初步了解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-系统模型-System-Model"><span class="nav-number">2.</span> <span class="nav-text">2 系统模型 System Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-系统描述"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 系统描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-资源分配图-Resource-Allocation-Graph"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 资源分配图 Resource-Allocation Graph</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-死锁处理"><span class="nav-number">3.</span> <span class="nav-text">3 死锁处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-分类"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-死锁预防-Deadlock-Prevention"><span class="nav-number">4.</span> <span class="nav-text">4 死锁预防 Deadlock Prevention</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-死锁避免-Deadlock-Avoidance"><span class="nav-number">5.</span> <span class="nav-text">5 死锁避免 Deadlock Avoidance</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-安全状态"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 安全状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-资源分配图算法"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 资源分配图算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-银行家算法"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 银行家算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-死锁检测-Deadlock-Detection"><span class="nav-number">6.</span> <span class="nav-text">6 死锁检测 Deadlock Detection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-单实例情况"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 单实例情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-多实例情况"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 多实例情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-调用"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 调用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-死锁恢复-Recovery-from-Deadlock"><span class="nav-number">7.</span> <span class="nav-text">7 死锁恢复 Recovery from Deadlock</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-进程终止"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 进程终止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-资源抢占"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 资源抢占</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初步了解"><span class="nav-number">1.2.</span> <span class="nav-text">初步了解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统模型-System-Model"><span class="nav-number">2.</span> <span class="nav-text">系统模型 System Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统描述"><span class="nav-number">2.1.</span> <span class="nav-text">系统描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源分配图-Resource-Allocation-Graph"><span class="nav-number">2.2.</span> <span class="nav-text">资源分配图 Resource-Allocation Graph</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#死锁处理"><span class="nav-number">3.</span> <span class="nav-text">死锁处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">3.1.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#死锁预防-Deadlock-Prevention"><span class="nav-number">4.</span> <span class="nav-text">死锁预防 Deadlock Prevention</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#死锁避免-Deadlock-Avoidance"><span class="nav-number">5.</span> <span class="nav-text">死锁避免 Deadlock Avoidance</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安全状态"><span class="nav-number">5.1.</span> <span class="nav-text">安全状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源分配图算法"><span class="nav-number">5.2.</span> <span class="nav-text">资源分配图算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#银行家算法"><span class="nav-number">5.3.</span> <span class="nav-text">银行家算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#死锁检测-Deadlock-Detection"><span class="nav-number">6.</span> <span class="nav-text">死锁检测 Deadlock Detection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单实例情况"><span class="nav-number">6.1.</span> <span class="nav-text">单实例情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多实例情况"><span class="nav-number">6.2.</span> <span class="nav-text">多实例情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用"><span class="nav-number">6.3.</span> <span class="nav-text">调用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#死锁恢复-Recovery-from-Deadlock"><span class="nav-number">7.</span> <span class="nav-text">死锁恢复 Recovery from Deadlock</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程终止"><span class="nav-number">7.1.</span> <span class="nav-text">进程终止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源抢占"><span class="nav-number">7.2.</span> <span class="nav-text">资源抢占</span></a></li></ol></li></ol></div>
             
 
           </div>

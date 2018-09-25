@@ -919,13 +919,13 @@
 
       
         
-          <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><h2 id="1-1-目标"><a href="#1-1-目标" class="headerlink" title="1.1 目标"></a>1.1 目标</h2><ol>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ol>
 <li><p>To develop a description of deadlocks, which prevent sets of concurrent processes from completing their tasks.</p>
 </li>
 <li><p>To present a number of different methods for preventing or avoiding deadlocks in a computer system.</p>
 </li>
 </ol>
-<h2 id="1-2-初步了解"><a href="#1-2-初步了解" class="headerlink" title="1.2 初步了解"></a>1.2 初步了解</h2><font color="red">死锁发生必要条件</font>
+<h2 id="初步了解"><a href="#初步了解" class="headerlink" title="初步了解"></a>初步了解</h2><font color="red">死锁发生必要条件</font>
 
 <pre><code>1. 互斥
 
@@ -1088,9 +1088,9 @@ ps.必须四个同时满足才会发生死锁
 
       
         
-          <h1 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h1><p>使用 <code>count</code> 去解决生产者消费者问题时，如果生产者进程和消费者进程并发执行，则有可能无法保持数据一致性。因为两个程序都有自己的局部寄存器，当要改变 <code>count</code> 时，他们会取出 <code>count</code> 到各自的寄存器中，然后修改，再存进内存中，这样会使数据和与其不同。</p>
+          <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>使用 <code>count</code> 去解决生产者消费者问题时，如果生产者进程和消费者进程并发执行，则有可能无法保持数据一致性。因为两个程序都有自己的局部寄存器，当要改变 <code>count</code> 时，他们会取出 <code>count</code> 到各自的寄存器中，然后修改，再存进内存中，这样会使数据和与其不同。</p>
 <p>定义：以上现象定义为竞争条件 race condition，即多个进程并发访问和操作同一数据且执行结果与访问发生的特定顺序有关。</p>
-<h1 id="2-临界区问题"><a href="#2-临界区问题" class="headerlink" title="2 临界区问题"></a>2 临界区问题</h1><ol>
+<h1 id="临界区问题"><a href="#临界区问题" class="headerlink" title="临界区问题"></a>临界区问题</h1><ol>
 <li><p>定义：设计一个以便进程协作的协议</p>
 <ul>
 <li>进入区 entry section：请求允许进入其临界区</li>
