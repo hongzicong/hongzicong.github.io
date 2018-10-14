@@ -98,11 +98,11 @@
 <meta name="keywords" content="计算机语言,Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Golang 教程简述">
-<meta property="og:url" content="http://yoursite.com/2018/09/13/go_1/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/09/13/Go_1/index.html">
 <meta property="og:site_name" content="LALALALALA">
 <meta property="og:description" content="Golang 教程简述简介：该教程总结《学习Go语言》，并利用样例程序来介绍Go">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-13T10:56:29.467Z">
+<meta property="og:updated_time" content="2018-10-08T01:13:35.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Golang 教程简述">
 <meta name="twitter:description" content="Golang 教程简述简介：该教程总结《学习Go语言》，并利用样例程序来介绍Go">
@@ -134,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/13/go_1/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/13/Go_1/"/>
 
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/go_1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/Go_1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HongZicong">
@@ -365,12 +365,64 @@
 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% go build helloworld.go</span><br><span class="line">% ./helloworld</span><br></pre></td></tr></table></figure>
-<h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法一 用 = 声明</span></span><br><span class="line"><span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二 用 := 声明且赋值</span></span><br><span class="line">b := <span class="number">15</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个一起声明</span></span><br><span class="line"><span class="keyword">var</span>(</span><br><span class="line">    x <span class="keyword">int</span></span><br><span class="line">    y <span class="keyword">bool</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 平行赋值，不同类型也可以</span></span><br><span class="line">m, n := <span class="number">15</span>, <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>注意点：</p>
+<h2 id="变量、类型和关键字"><a href="#变量、类型和关键字" class="headerlink" title="变量、类型和关键字"></a>变量、类型和关键字</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法一 声明与赋值分开</span></span><br><span class="line"><span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line">a = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二 用 := 同时声明和赋值</span></span><br><span class="line">b := <span class="number">15</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个一起声明</span></span><br><span class="line"><span class="keyword">var</span>(</span><br><span class="line">    x <span class="keyword">int</span></span><br><span class="line">    y <span class="keyword">bool</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 平行赋值，不同类型也可以</span></span><br><span class="line">m, n := <span class="number">15</span>, <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <ol>
-<li>对于普通变量来说，声明但不使用（赋值并不算是使用）的话，会报错，对于名为_（下划线）的变量来说，声明但不使用却不会报错，因为它相当于一个垃圾桶，而且东西扔下去以后是无法再取得回来的</li>
+<li>对于普通变量来说，声明不使用（注意！赋值并不算是使用）的话，会报错，但对于名为<em>（下划线）的变量来说，声明不使用却不会报错，因为它相当于一个垃圾桶，而且`</em>`是无法再被使用的</li>
 </ol>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line">a := <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不会报错</span></span><br><span class="line"><span class="keyword">var</span> _ <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line">_ := <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不会报错</span></span><br><span class="line">_, b := <span class="number">1</span>, <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">var</span> _ <span class="keyword">int</span></span><br><span class="line">_ = <span class="number">3</span></span><br><span class="line">fmt.Println(_)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p><code>int</code> 和 <code>uint</code> 根据你的硬件决定适当的长度。意味着在32位硬件上，是32位的；在64位硬件上是64 位的。而完整的整数类型列表（符号和无符号）是 <code>int8</code> ， <code>int16</code> ， <code>int32</code> ， <code>int64</code> 和 <code>byte</code> ， <code>uint8</code> ， <code>uint16</code> ， <code>uint32</code> ， <code>uint64</code>。 <code>byte</code> 是 <code>uint8</code> 的别名。浮点类型的值有 <code>float32</code> 和 <code>float64</code> （注意没有 <code>float</code> 类型）。64位的整数和浮点数总是64位的，即便是在32位的架构上。</p>
+</li>
+<li><p>不同的类型不能随便相互加减乘除。</p>
+</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="keyword">int</span></span><br><span class="line"><span class="keyword">var</span> b <span class="keyword">int32</span></span><br><span class="line">a = <span class="number">15</span></span><br><span class="line">b = a + a       <span class="comment">// 混合这些类型是非法的</span></span><br><span class="line">b = b + <span class="number">5</span>       <span class="comment">// 5 是一个（未定义类型的）整数常量，所以没问题</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>常量利用 <code>const</code> 进行声明，可以声明后不使用。</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> x = <span class="number">42</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    a = <span class="literal">iota</span>    <span class="comment">// a = 0</span></span><br><span class="line">    b = <span class="literal">iota</span>    <span class="comment">// b = 1</span></span><br><span class="line">)  </span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span>(</span><br><span class="line">    a = <span class="literal">iota</span>    <span class="comment">// a = 0</span></span><br><span class="line">    b           <span class="comment">// b = 1, implicitly b = iota</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span>(</span><br><span class="line">    str <span class="keyword">string</span> = <span class="string">"Hello world!"</span> <span class="comment">// you can declare constant explicitly</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>字符串不可变</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s <span class="keyword">string</span> = <span class="string">"hello"</span></span><br><span class="line">s[<span class="number">0</span>] = <span class="string">'c'</span>      <span class="comment">// 修改第一个字符为’c’，报错</span></span><br></pre></td></tr></table></figure>
+<p>实现字符串可变只能这么做</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s := <span class="string">"hello"</span></span><br><span class="line">c := []<span class="keyword">rune</span>(s)</span><br><span class="line">c[<span class="number">0</span>] = <span class="string">'c'</span></span><br><span class="line">s2 := <span class="keyword">string</span> (c)</span><br><span class="line">fmt.Printf(<span class="string">"%s\n"</span>, s2)</span><br></pre></td></tr></table></figure>
+<h2 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h2><ol>
+<li>语句体必须总是包含在大括号中</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x &gt; <span class="number">0</span> &#123;      <span class="comment">// &#123; 是强制的，且必须放在同一行，因为golang会给每一行自动加 ;</span></span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><code>if</code> 和 <code>switch</code> 接受初始化语句，但声明的是局部变量</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x := <span class="number">1</span>; x &lt; <span class="number">3</span> &#123;</span><br><span class="line">    fmt.Println(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="defer、return、返回值之间的顺序"><a href="#defer、return、返回值之间的顺序" class="headerlink" title="defer、return、返回值之间的顺序"></a>defer、return、返回值之间的顺序</h2><p><a href="https://studygolang.com/articles/4809" target="_blank" rel="noopener">原文地址</a></p>
+<ol>
+<li>无名返回值</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"return:"</span>, a()) <span class="comment">// 打印结果为 return: 0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">a</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		i++</span><br><span class="line">		fmt.Println(<span class="string">"defer2:"</span>, i) <span class="comment">// 打印结果为 defer: 2</span></span><br><span class="line">	&#125;()</span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		i++</span><br><span class="line">		fmt.Println(<span class="string">"defer1:"</span>, i) <span class="comment">// 打印结果为 defer: 1</span></span><br><span class="line">	&#125;()</span><br><span class="line">	<span class="keyword">return</span> i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>有名返回值</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"return:"</span>, b()) <span class="comment">// 打印结果为 return: 2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">b</span><span class="params">()</span> <span class="params">(i <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		i++</span><br><span class="line">		fmt.Println(<span class="string">"defer2:"</span>, i) <span class="comment">// 打印结果为 defer: 2</span></span><br><span class="line">	&#125;()</span><br><span class="line">	<span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		i++</span><br><span class="line">		fmt.Println(<span class="string">"defer1:"</span>, i) <span class="comment">// 打印结果为 defer: 1</span></span><br><span class="line">	&#125;()</span><br><span class="line">	<span class="keyword">return</span> i <span class="comment">// 或者直接 return 效果相同</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>解释：</p>
+<ol>
+<li><p><code>a()int</code> 函数的返回值没有被提前声名，其值来自于其他变量的赋值，而 <code>defer</code> 中修改的也是其他变量，而非返回值本身，因此函数退出时返回值并没有被改变。</p>
+</li>
+<li><p><code>b()(i int)</code> 函数的返回值被提前声名，也就意味着 <code>defer</code> 中是可以调用到真实返回值的，因此 <code>defer</code> 在 <code>return</code> 赋值返回值 <code>i</code> 之后，再一次地修改了 <code>i</code> 的值，最终函数退出后的返回值才会是<code>defer</code>修改过的值。</p>
+</li>
+</ol>
+</li>
+<li><p>结论：</p>
+<ol>
+<li><p>多个defer的执行顺序为“后进先出”；</p>
+</li>
+<li><p>defer、return、返回值三者的执行逻辑应该是：return最先将结果写入返回值中；接着defer开始执行一些收尾工作；最后函数携带当前返回值退出。</p>
+</li>
+</ol>
+</li>
+</ol>
+
       
     </div>
     
@@ -402,8 +454,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/07/Leetcode_1/" rel="next" title="Leetcode 1">
-                <i class="fa fa-chevron-left"></i> Leetcode 1
+              <a href="/2018/09/13/servicecomputing_1/" rel="next" title="使用 VirtualBox 提供私有云及配置">
+                <i class="fa fa-chevron-left"></i> 使用 VirtualBox 提供私有云及配置
               </a>
             
           </div>
@@ -412,8 +464,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/13/servicecomputing_1/" rel="prev" title="使用 VirtualBox 提供私有云及配置">
-                使用 VirtualBox 提供私有云及配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/13/bitcoin_1/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -491,7 +543,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -548,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Golang-教程简述"><span class="nav-number">1.</span> <span class="nav-text">Golang 教程简述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-World"><span class="nav-number">1.1.</span> <span class="nav-text">Hello World</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声明变量"><span class="nav-number">1.2.</span> <span class="nav-text">声明变量</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Golang-教程简述"><span class="nav-number">1.</span> <span class="nav-text">Golang 教程简述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-World"><span class="nav-number">1.1.</span> <span class="nav-text">Hello World</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量、类型和关键字"><span class="nav-number">1.2.</span> <span class="nav-text">变量、类型和关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制结构"><span class="nav-number">1.3.</span> <span class="nav-text">控制结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#defer、return、返回值之间的顺序"><span class="nav-number">1.4.</span> <span class="nav-text">defer、return、返回值之间的顺序</span></a></li></ol></li></ol></div>
             
 
           </div>
