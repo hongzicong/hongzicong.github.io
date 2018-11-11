@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="LALALALALA">
 <meta property="og:description" content="Python 语法糖Else on Loops and try statementA try statement’s else clause runs when no exception occurs, and a loop’s else clause runs when no break occurs. Example 12345678for n in range(2, 10):    for">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-13T10:51:59.033Z">
+<meta property="og:updated_time" content="2018-11-07T13:54:39.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 语法糖">
 <meta name="twitter:description" content="Python 语法糖Else on Loops and try statementA try statement’s else clause runs when no exception occurs, and a loop’s else clause runs when no break occurs. Example 12345678for n in range(2, 10):    for">
@@ -358,6 +358,15 @@
 <a id="more"></a>
 <h2 id="range-combines-with-len"><a href="#range-combines-with-len" class="headerlink" title="range() combines with len()"></a>range() combines with len()</h2><p>Example</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="string">'Mary'</span>, <span class="string">'had'</span>, <span class="string">'a'</span>, <span class="string">'little'</span>, <span class="string">'lamb'</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">    print(i, a[i])</span><br></pre></td></tr></table></figure>
+<h2 id="not-and-or"><a href="#not-and-or" class="headerlink" title="not, and, or"></a>not, and, or</h2><p>Priority: not &gt; and &gt; or</p>
+<h2 id="Python包中init-py作用"><a href="#Python包中init-py作用" class="headerlink" title="Python包中init.py作用"></a>Python包中<strong>init</strong>.py作用</h2><p>在创建包的过程中，IDE都会在包根目录下创建一个<strong>init</strong>.py文件，该py文件默认是空的，作用如下：</p>
+<ol>
+<li>package的标识，如果没有该文件，该目录就不会认为是package；</li>
+<li>定义package中的<strong>all</strong>变量，用来模糊导入。</li>
+</ol>
+<p>注意：因为<strong>init</strong>.py仍然是个py文件，所以还可以用来写python模块，但是不建议这么写，尽量保证<strong>init</strong>.py足够轻。</p>
+<p><a href="https://www.cnblogs.com/AlwinXu/p/5598543.html" target="_blank" rel="noopener">参考</a></p>
+
       
     </div>
     
@@ -478,7 +487,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -535,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-语法糖"><span class="nav-number">1.</span> <span class="nav-text">Python 语法糖</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Else-on-Loops-and-try-statement"><span class="nav-number">1.1.</span> <span class="nav-text">Else on Loops and try statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#range-combines-with-len"><span class="nav-number">1.2.</span> <span class="nav-text">range() combines with len()</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-语法糖"><span class="nav-number">1.</span> <span class="nav-text">Python 语法糖</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Else-on-Loops-and-try-statement"><span class="nav-number">1.1.</span> <span class="nav-text">Else on Loops and try statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#range-combines-with-len"><span class="nav-number">1.2.</span> <span class="nav-text">range() combines with len()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#not-and-or"><span class="nav-number">1.3.</span> <span class="nav-text">not, and, or</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python包中init-py作用"><span class="nav-number">1.4.</span> <span class="nav-text">Python包中init.py作用</span></a></li></ol></li></ol></div>
             
 
           </div>

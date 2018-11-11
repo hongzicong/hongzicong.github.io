@@ -260,6 +260,225 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/12/OS_3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HongZicong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LALALALALA">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/12/OS_3/" itemprop="url">进程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-12T21:35:00+08:00">
+                2018-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="进程概念"><a href="#进程概念" class="headerlink" title="进程概念"></a>进程概念</h2><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><ol>
+<li><p>非正式的定义：在运行中的程序（程序是死的，进程是活的）</p>
+</li>
+<li><p>正式的定义：进程包含程序代码（文字段），程序正在运行中的活动（程序计数器和寄存器的值），栈（用来存储临时数据），数据段（用来存储全局变量）和堆（用来动态分配内存）</p>
+</li>
+</ol>
+<h3 id="进程状态"><a href="#进程状态" class="headerlink" title="进程状态"></a>进程状态</h3><ol>
+<li><p>New      新建：The process is being created</p>
+</li>
+<li><p>Running  运行：Instructions are being executed</p>
+</li>
+<li><p>Waiting  等待：The process is waiting for some event to occur (such as an I/O completion or reception of a signal)</p>
+</li>
+<li><p>Ready    就绪：The process is waiting to be assigned to a processor</p>
+</li>
+<li><p>Terminated 终止：The process has finished execution</p>
+</li>
+</ol>
+<h3 id="Process-Control-Block-进程控制块"><a href="#Process-Control-Block-进程控制块" class="headerlink" title="Process Control Block 进程控制块"></a>Process Control Block 进程控制块</h3><ol>
+<li>每个进程在操作系统中都是以process control block（PCB）的形式存在</li>
+</ol>
+<h2 id="Process-Schduling-进程调度"><a href="#Process-Schduling-进程调度" class="headerlink" title="Process Schduling 进程调度"></a>Process Schduling 进程调度</h2><p>必要性：分时系统用来在进程之间快速切换CPU，以便用户能与多个进程进行交互，这就需要进程调度来选择进程在CPU中运行</p>
+<h3 id="调度队列"><a href="#调度队列" class="headerlink" title="调度队列"></a>调度队列</h3><p>分类：</p>
+<ol>
+<li><p>Job queue – set of all processes in the system</p>
+</li>
+<li><p>Ready queue – set of all processes residing in main memory, ready and waiting to execute</p>
+</li>
+<li><p>Device queues – set of processes waiting for an I/O device</p>
+</li>
+</ol>
+<h3 id="Schedulers-调度程序"><a href="#Schedulers-调度程序" class="headerlink" title="Schedulers 调度程序"></a>Schedulers 调度程序</h3><p>作用：用来将进程在不同调度队列间迁移</p>
+<p>分类：</p>
+<ol>
+<li><p>Long-term scheduler (or job scheduler) 长期调度程序：selects processes from the pool and loads them into memory for execution</p>
+</li>
+<li><p>Short-term scheduler (or CPU scheduler) 短期调度程序：selects from among the processes that are ready to execute and allocates the CPU to one of them</p>
+</li>
+</ol>
+<p>区别：</p>
+<ol>
+<li><p>长期调度程序执行得不频繁（因为系统中新进程的创建不频繁）</p>
+</li>
+<li><p>短期调度程序执行得很频繁且速度很快</p>
+</li>
+</ol>
+<p>进程分为</p>
+<h2 id="生产者和消费者问题"><a href="#生产者和消费者问题" class="headerlink" title="生产者和消费者问题"></a>生产者和消费者问题</h2><ol>
+<li><p>简介：生产者进程产生信息以供消费者进程消费</p>
+</li>
+<li><p>例子：</p>
+<ol>
+<li>编译器产生的汇编代码，汇编器将汇编代码产生目标代码</li>
+<li>服务器产生html文件和图像，请求资源的客户Web浏览器进行消费</li>
+</ol>
+</li>
+<li><p>为了使这两个进程可以并行执行，采用共享内存，而共享内存又分为两种：</p>
+<ol>
+<li>无限缓存：无限大小，消费者可能需要等待新的项，生产者可以无限生产新的项</li>
+<li>有限缓存：缓冲大小一定，如果缓冲为0，消费者要等，如果缓冲满了，生产者需要等待</li>
+</ol>
+</li>
+<li><p>如果使用flag的话，肯定会空出一位出来</p>
+</li>
+<li><p>分析：</p>
+<ol>
+<li>当 <code>(in + 1) % BUFFER_SIZE == out</code> 的时候，就满了</li>
+<li>当 <code>in == out</code> 的时候，就为空</li>
+<li>当加入一个缓冲时，<code>in += 1</code></li>
+<li>当减少一个缓冲时，<code>out -= 1</code></li>
+</ol>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> in = <span class="number">0</span>;                 \\ 第一个空位的位置</span><br><span class="line"><span class="keyword">int</span> out = <span class="number">0</span>;                \\ 第一个非空位的位置</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> BUFFER_SIZE = <span class="number">5</span>;  \\ 缓冲区的大小</span><br><span class="line"></span><br><span class="line"><span class="comment">// producer</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="comment">/* Produce an item */</span></span><br><span class="line">    <span class="keyword">while</span> (((in = (in + <span class="number">1</span>) % BUFFER_SIZE) == out)</span><br><span class="line">        ; <span class="comment">/* do nothing -- no free buffers */</span></span><br><span class="line">    buffer[in] = item;</span><br><span class="line">    in = (in + <span class="number">1</span>) % BUFFER SIZE;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// consumer</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">while</span> (in == out)</span><br><span class="line">        ; <span class="comment">// do nothing -- nothing to consume</span></span><br><span class="line">    <span class="comment">// remove an item from the buffer</span></span><br><span class="line">    item = buffer[out];</span><br><span class="line">    out = (out + <span class="number">1</span>) % BUFFER SIZE;</span><br><span class="line">    <span class="keyword">return</span> item;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>in</code> 指的位置是空的，比如假设 <code>out</code> 是0，当 <code>in</code> 是4时，判断该缓冲区满，但实际上 <code>in</code> 指的位置是空的，所以缓冲区实际上只有4个，如果我们再加一个，会导致 <code>in</code> 变为0，此时被判断成缓冲区是空的。</p>
+<ol start="6">
+<li>改进：设置一个 <code>count</code> 去记录非空位的大小</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/09/OS_7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1248,7 +1467,7 @@ ps.必须四个同时满足才会发生死锁
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
