@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="简介定义A high performance, open-source universal RPC framework">
+<meta name="description" content="简介定义A high performance, open-source universal RPC framework 特点 Simple service definition: Define your service using Protocol Buffers, a powerful binary serialization toolset and language.  Works acros">
 <meta name="keywords" content="Go,服务计算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gPRC 的极易(x)开发">
 <meta property="og:url" content="http://yoursite.com/2019/01/17/Go_5/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="简介定义A high performance, open-source universal RPC framework">
+<meta property="og:description" content="简介定义A high performance, open-source universal RPC framework 特点 Simple service definition: Define your service using Protocol Buffers, a powerful binary serialization toolset and language.  Works acros">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-17T12:41:20.270Z">
+<meta property="og:updated_time" content="2019-01-17T13:19:14.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gPRC 的极易(x)开发">
-<meta name="twitter:description" content="简介定义A high performance, open-source universal RPC framework">
+<meta name="twitter:description" content="简介定义A high performance, open-source universal RPC framework 特点 Simple service definition: Define your service using Protocol Buffers, a powerful binary serialization toolset and language.  Works acros">
 
 
 
@@ -353,7 +353,6 @@
 
       
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>A high performance, open-source universal RPC framework</p>
-<a id="more"></a>
 <h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
 <li><p>Simple service definition: Define your service using Protocol Buffers, a powerful binary serialization toolset and language.</p>
 </li>
@@ -367,6 +366,7 @@
 <h2 id="What-is-PRC"><a href="#What-is-PRC" class="headerlink" title="What is PRC?"></a>What is PRC?</h2><p>RPC（Remote Procedure Call）远程过程调用，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。</p>
 <p>gRPC也是定义一个服务，指定其能够被远程调用的方法，包含参数和返回类型。在服务端实现这个接口，并运行一个 gRPC 服务器来处理客户端调用，在客户端拥有一个存根能够像服务端一样的方法。</p>
 <h2 id="What-is-Protocol-Buffers"><a href="#What-is-Protocol-Buffers" class="headerlink" title="What is Protocol Buffers?"></a>What is Protocol Buffers?</h2><p>Google 开源的一套成熟的结构数据序列化机制。</p>
+<a id="more"></a>
 <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装 gPRC 和 Protocol Buffers v3</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ go get -u google.golang.org/grpc</span><br><span class="line">$ go get -u github.com/golang/protobuf/protoc-gen-go</span><br></pre></td></tr></table></figure>
 <h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>刚刚安装的 gPRC 中包含有例子，可以在中 <code>$GOPATH/src/google.golang.org/grpc/examples</code> 找到。</p>
@@ -376,7 +376,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ go run greeter_server/main.go</span><br></pre></td></tr></table></figure>
 <p>客户端</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ go run greeter_client/main.go</span><br></pre></td></tr></table></figure>
-<h2 id="解释例子"><a href="#解释例子" class="headerlink" title="解释例子"></a>解释例子</h2><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<p>如果运行成功的话，可以在客户端看到 <code>Greeting: Hello world</code>。</p>
+<h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h3 id="greeter-server-main-go"><a href="#greeter-server-main-go" class="headerlink" title="greeter_server/main.go"></a>greeter_server/main.go</h3><p>声明并实现了 gRPC 的服务 SayHello</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SayHello implements helloworld.GreeterServer</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *server)</span> <span class="title">SayHello</span><span class="params">(ctx context.Context, in *pb.HelloRequest)</span> <span class="params">(*pb.HelloReply, error)</span></span> &#123;</span><br><span class="line">	log.Printf(<span class="string">"Received: %v"</span>, in.Name)</span><br><span class="line">	<span class="keyword">return</span> &amp;pb.HelloReply&#123;Message: <span class="string">"Hello "</span> + in.Name&#125;, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="greeter-client-main-go"><a href="#greeter-client-main-go" class="headerlink" title="greeter_client/main.go"></a>greeter_client/main.go</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 连接 gPRC 服务</span></span><br><span class="line">conn, err := grpc.Dial(address, grpc.WithInsecure())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个 protobuf 客户端</span></span><br><span class="line">c := pb.NewGreeterClient(conn)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用 protobuf 的 SayHello 服务</span></span><br><span class="line">r, err := c.SayHello(ctx, &amp;pb.HelloRequest&#123;Name: name&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
 <li><p><a href="https://grpc.io/" target="_blank" rel="noopener">官方资料</a></p>
 </li>
 <li><p><a href="https://grpc.io/docs/quickstart/go.html" target="_blank" rel="noopener">官方golang gPRC教程</a></p>
@@ -562,7 +566,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-PRC"><span class="nav-number">1.3.</span> <span class="nav-text">What is PRC?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Protocol-Buffers"><span class="nav-number">1.4.</span> <span class="nav-text">What is Protocol Buffers?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#入门"><span class="nav-number">2.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">2.2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译例子"><span class="nav-number">2.3.</span> <span class="nav-text">编译例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行例子"><span class="nav-number">2.4.</span> <span class="nav-text">运行例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解释例子"><span class="nav-number">2.5.</span> <span class="nav-text">解释例子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-PRC"><span class="nav-number">1.3.</span> <span class="nav-text">What is PRC?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Protocol-Buffers"><span class="nav-number">1.4.</span> <span class="nav-text">What is Protocol Buffers?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#入门"><span class="nav-number">2.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">2.2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译例子"><span class="nav-number">2.3.</span> <span class="nav-text">编译例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行例子"><span class="nav-number">2.4.</span> <span class="nav-text">运行例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-number">2.5.</span> <span class="nav-text">代码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#greeter-server-main-go"><span class="nav-number">2.5.1.</span> <span class="nav-text">greeter_server/main.go</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#greeter-client-main-go"><span class="nav-number">2.5.2.</span> <span class="nav-text">greeter_client/main.go</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
