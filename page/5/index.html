@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/OOP-first/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/26/Function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HongZicong">
@@ -279,7 +279,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/26/OOP-first/" itemprop="url">C++ 面向对象</a></h1>
+                <a class="post-title-link" href="/2018/04/26/Function/" itemprop="url">Function</a></h1>
         
 
         <div class="post-meta">
@@ -314,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机语言/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机语言</span>
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
                   </a>
                 </span>
 
@@ -352,24 +352,20 @@
 
       
         
-          <h1 id="Inheritance-继承"><a href="#Inheritance-继承" class="headerlink" title="Inheritance 继承"></a>Inheritance 继承</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// base class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> s;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A():s(<span class="number">0</span>)&#123; &#125;</span><br><span class="line"></span><br><span class="line">    A(<span class="keyword">int</span> i):s(i)&#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 纯虚函数，所以类A是抽象基类</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">b</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">virtual</span> ~A() = <span class="keyword">default</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// derived class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> :</span> <span class="keyword">public</span> A&#123;     <span class="comment">// public 代表能直接将这个对象绑定到基类的引用或者指针上</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    B(<span class="keyword">int</span> i):A(i)&#123; &#125;    <span class="comment">// 这样才能制定使用某个基类的构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    c++ 11 中使用override来显式注明覆盖继承的virtual函数</span></span><br><span class="line"><span class="comment">    如果派生类中某个函数名字和虚函数一样，但形参不同，并没有覆盖掉基类的版本</span></span><br><span class="line"><span class="comment">    如果使用override可以防止看错，让编译器给我们报错</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">b</span><span class="params">()</span> override</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不能被继承的类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="title">final</span> :</span> <span class="keyword">public</span> A&#123;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="公有、私有和受保护继承"><a href="#公有、私有和受保护继承" class="headerlink" title="公有、私有和受保护继承"></a>公有、私有和受保护继承</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ol>
-<li><p>对基类成员的访问权限只与基类的访问说明符有关，和派生访问说明符没有关系。</p>
-</li>
-<li><p>派生访问说明符的作用在于控制<font color="pink">派生类用户</font>（包括派生类的派生类在内）对于基类成员的访问权限。</p>
-<ul>
-<li><p><code>public</code>：派生类用户可以按照基类的访问说明符去访问基类的成员</p>
-</li>
-<li><p><code>protected</code>：派生类用户无法访问任何基类的成员，但是派生类的成员和友元可以访问</p>
-</li>
-<li><p><code>private</code>：派生类用户无法访问任何基类的成员</p>
-</li>
-</ul>
-</li>
+          <h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><h3 id="Calling-a-function"><a href="#Calling-a-function" class="headerlink" title="Calling a function"></a>Calling a function</h3><p>Like <code>f(1,2)</code>, we can use call operator <code>()</code> to call a function, where <code>f</code> is a name and <code>1,1</code> is an argument list.</p>
+<p><strong>Usage</strong> of a <em>function call</em> : </p>
+<ol>
+<li>Initialize the function’s parameters from the corresponding argument</li>
+<li>Transfer control to <em>called function</em> from <em>calling function</em></li>
+</ol>
+<p><strong>Usage</strong> of a <em>return statement</em> : </p>
+<ol>
+<li>Return the value in the return</li>
+<li>Transfer control to <em>calling function</em> from <em>called function</em></li>
 </ol>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/26/OOP-first/#more" rel="contents">
+            <a class="btn" href="/2018/04/26/Function/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
