@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="软件系统分析与设计指南,课程博客," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="软件系统分析与设计指南 第六周作业简答题用例的概念 用例是一系列描述参与者使用系统来达到目的相关的成功与失败的场景。  它不是图画，而是文本。所以对用例建模时，主要是写文本而并非画图。  用例与面向对象无任何关系。  用例是经典OOA/D的关键需求输入。  用例作为功能性或行为性的需求表现了系统要做的事情。   用例和场景的关系？什么是主场景或 happy path？场景是参与者与系统之间的行为与">
+<meta name="keywords" content="软件系统分析与设计指南,课程博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件系统分析与设计指南 第六周作业">
+<meta property="og:url" content="http://yoursite.com/2019/05/24/Software_Analysis_4/index.html">
+<meta property="og:site_name" content="LALALALALA">
+<meta property="og:description" content="软件系统分析与设计指南 第六周作业简答题用例的概念 用例是一系列描述参与者使用系统来达到目的相关的成功与失败的场景。  它不是图画，而是文本。所以对用例建模时，主要是写文本而并非画图。  用例与面向对象无任何关系。  用例是经典OOA/D的关键需求输入。  用例作为功能性或行为性的需求表现了系统要做的事情。   用例和场景的关系？什么是主场景或 happy path？场景是参与者与系统之间的行为与">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-26T13:42:04.270Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件系统分析与设计指南 第六周作业">
+<meta name="twitter:description" content="软件系统分析与设计指南 第六周作业简答题用例的概念 用例是一系列描述参与者使用系统来达到目的相关的成功与失败的场景。  它不是图画，而是文本。所以对用例建模时，主要是写文本而并非画图。  用例与面向对象无任何关系。  用例是经典OOA/D的关键需求输入。  用例作为功能性或行为性的需求表现了系统要做的事情。   用例和场景的关系？什么是主场景或 happy path？场景是参与者与系统之间的行为与">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/24/Software_Analysis_4/"/>
+
+
+
+
+
+  <title>软件系统分析与设计指南 第六周作业 | LALALALALA</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LALALALALA</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/Software_Analysis_4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HongZicong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LALALALALA">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">软件系统分析与设计指南 第六周作业</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T19:00:00+08:00">
+                2019-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/课程博客/" itemprop="url" rel="index">
+                    <span itemprop="name">课程博客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="软件系统分析与设计指南-第六周作业"><a href="#软件系统分析与设计指南-第六周作业" class="headerlink" title="软件系统分析与设计指南 第六周作业"></a>软件系统分析与设计指南 第六周作业</h1><h1 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h1><h2 id="用例的概念"><a href="#用例的概念" class="headerlink" title="用例的概念"></a>用例的概念</h2><ul>
+<li><p>用例是一系列描述参与者使用系统来达到目的相关的成功与失败的场景。</p>
+</li>
+<li><p>它不是图画，而是文本。所以对用例建模时，主要是写文本而并非画图。</p>
+</li>
+<li><p>用例与面向对象无任何关系。</p>
+</li>
+<li><p>用例是经典OOA/D的关键需求输入。</p>
+</li>
+<li><p>用例作为功能性或行为性的需求表现了系统要做的事情。</p>
+</li>
+</ul>
+<h2 id="用例和场景的关系？什么是主场景或-happy-path？"><a href="#用例和场景的关系？什么是主场景或-happy-path？" class="headerlink" title="用例和场景的关系？什么是主场景或 happy path？"></a>用例和场景的关系？什么是主场景或 happy path？</h2><p>场景是参与者与系统之间的行为与会话，也被称作用例实例。</p>
+<p>用例是一系列场景，包含了主场景和一些可选场景。其中主场景是最主要的系统交互，而可选场景在实现用户过程中较少使用与意外故事。</p>
+<h2 id="用例有哪些形式？"><a href="#用例有哪些形式？" class="headerlink" title="用例有哪些形式？"></a>用例有哪些形式？</h2><ul>
+<li><p>Brief（high level）</p>
+<ul>
+<li><p>简短的一段总结，通常是主要的成功场景</p>
+</li>
+<li><p>在早期的需求分析中，来获得对于主题和范围的快速认识。只需要几分钟来实现。</p>
+</li>
+</ul>
+</li>
+<li><p>Casual（简便格式）</p>
+<ul>
+<li>非正式的段落格式，用多个段落来包含多个不同的场景。</li>
+</ul>
+</li>
+<li><p>Fully</p>
+<ul>
+<li>需要对每个步骤和变化都详细的写明，有前提和成功的保证。</li>
+</ul>
+</li>
+</ul>
+<h2 id="对于复杂业务，为什么编制完整用例非常难？"><a href="#对于复杂业务，为什么编制完整用例非常难？" class="headerlink" title="对于复杂业务，为什么编制完整用例非常难？"></a>对于复杂业务，为什么编制完整用例非常难？</h2><p>由于在复杂业务的初期，很难通过简单的需求讨论和短时间的开发迭代得知该业务整体的所有需求，此时用例的完整性就难以保证。</p>
+<h2 id="什么是用例图？"><a href="#什么是用例图？" class="headerlink" title="什么是用例图？"></a>什么是用例图？</h2><p>用例图是由参与者、用例、边界，以及它们之间的关系构成的视图，可以用来描述系统功能及如何来使用系统。</p>
+<h2 id="用例图的基本符号与元素？"><a href="#用例图的基本符号与元素？" class="headerlink" title="用例图的基本符号与元素？"></a>用例图的基本符号与元素？</h2><table>
+<thead>
+<tr>
+<th>基本符号</th>
+<th>元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>矩形</td>
+<td>系统</td>
+</tr>
+<tr>
+<td>人</td>
+<td>参与者</td>
+</tr>
+<tr>
+<td>椭圆</td>
+<td>用例</td>
+</tr>
+<tr>
+<td>连线</td>
+<td>用来连接参与者和用例，表示他们之间有交互</td>
+</tr>
+<tr>
+<td>箭头</td>
+<td>用例之间的包含/扩展/泛化关系</td>
+</tr>
+</tbody>
+</table>
+<h2 id="用例图的画法与步骤"><a href="#用例图的画法与步骤" class="headerlink" title="用例图的画法与步骤"></a>用例图的画法与步骤</h2><ol>
+<li><p>新建用例图；</p>
+</li>
+<li><p>确认系统的边界，系统名称及系统范围；</p>
+</li>
+<li><p>绘制参与者，放在所有系统边界之外，并确定它的名称，参与者分为主要参与者（使用系统的主要功能），协作参与者（提供服务）和幕后参与者（对用例的行为感兴趣）；</p>
+</li>
+<li><p>绘制用例，先识别用户级别的用例，再识别子功能级别的用例；</p>
+</li>
+<li><p>将参与者与相关用例连接（使用无方向连线，表示两者之间是双向交互的协议）；</p>
+</li>
+<li><p>使用包含/扩展/泛化关系来结构化用例；</p>
+</li>
+<li><p>确定外部接口，例如API的调用。</p>
+</li>
+</ol>
+<h2 id="用例图给利益相关人与开发者的价值有哪些？"><a href="#用例图给利益相关人与开发者的价值有哪些？" class="headerlink" title="用例图给利益相关人与开发者的价值有哪些？"></a>用例图给利益相关人与开发者的价值有哪些？</h2><ol>
+<li><p>给予利益相关者更加清晰看到系统用途与系统功能的体验；</p>
+</li>
+<li><p>使得开发者可以更加思路清晰地设计软件。</p>
+</li>
+</ol>
+<h1 id="建模联系题（用例模型）"><a href="#建模联系题（用例模型）" class="headerlink" title="建模联系题（用例模型）"></a>建模联系题（用例模型）</h1><h2 id="选择2-3个你熟悉的类似业务的在线服务系统（或移动-APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求："><a href="#选择2-3个你熟悉的类似业务的在线服务系统（或移动-APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：" class="headerlink" title="选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求："></a>选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：</h2><ul>
+<li><p>请使用用户的视角，描述用户目标或系统提供的服务</p>
+</li>
+<li><p>粒度达到子用例级别，并用 include 和 exclude 关联它们</p>
+</li>
+<li><p>请用色彩标注出你认为创新（区别于竞争对手的）用例或子用例</p>
+</li>
+<li><p>尽可能识别外部系统和服务</p>
+</li>
+</ul>
+<h2 id="然后，回答下列问题："><a href="#然后，回答下列问题：" class="headerlink" title="然后，回答下列问题："></a>然后，回答下列问题：</h2><ul>
+<li><p>为什么相似系统的用例图是相似的？</p>
+</li>
+<li><p>如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术</p>
+</li>
+<li><p>如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用</p>
+</li>
+<li><p>请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求（backlog）开发计划表</p>
+</li>
+<li><p>根据任务4，参考 使用用例点估算软件成本，给出项目用例点的估算</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件系统分析与设计指南/" rel="tag"># 软件系统分析与设计指南</a>
+          
+            <a href="/tags/课程博客/" rel="tag"># 课程博客</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/15/Software_Analysis_3/" rel="next" title="软件系统分析与设计指南 第三周作业">
+                <i class="fa fa-chevron-left"></i> 软件系统分析与设计指南 第三周作业
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/26/Software_Analysis_5/" rel="prev" title="软件系统分析与设计指南 第七周作业">
+                软件系统分析与设计指南 第七周作业 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="HongZicong" />
+          <p class="site-author-name" itemprop="name">HongZicong</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#软件系统分析与设计指南-第六周作业"><span class="nav-number">1.</span> <span class="nav-text">软件系统分析与设计指南 第六周作业</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简答题"><span class="nav-number">2.</span> <span class="nav-text">简答题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用例的概念"><span class="nav-number">2.1.</span> <span class="nav-text">用例的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用例和场景的关系？什么是主场景或-happy-path？"><span class="nav-number">2.2.</span> <span class="nav-text">用例和场景的关系？什么是主场景或 happy path？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用例有哪些形式？"><span class="nav-number">2.3.</span> <span class="nav-text">用例有哪些形式？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于复杂业务，为什么编制完整用例非常难？"><span class="nav-number">2.4.</span> <span class="nav-text">对于复杂业务，为什么编制完整用例非常难？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是用例图？"><span class="nav-number">2.5.</span> <span class="nav-text">什么是用例图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用例图的基本符号与元素？"><span class="nav-number">2.6.</span> <span class="nav-text">用例图的基本符号与元素？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用例图的画法与步骤"><span class="nav-number">2.7.</span> <span class="nav-text">用例图的画法与步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用例图给利益相关人与开发者的价值有哪些？"><span class="nav-number">2.8.</span> <span class="nav-text">用例图给利益相关人与开发者的价值有哪些？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#建模联系题（用例模型）"><span class="nav-number">3.</span> <span class="nav-text">建模联系题（用例模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择2-3个你熟悉的类似业务的在线服务系统（或移动-APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求："><span class="nav-number">3.1.</span> <span class="nav-text">选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#然后，回答下列问题："><span class="nav-number">3.2.</span> <span class="nav-text">然后，回答下列问题：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HongZicong</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
