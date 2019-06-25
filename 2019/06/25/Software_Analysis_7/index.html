@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Solidity," />
+  <meta name="keywords" content="软件系统分析与设计指南,课程博客," />
 
 
 
@@ -94,18 +94,20 @@
 
 
 
-<meta name="description" content="public、external、internal、private用法：声明变量或者函数的访问（get）权限 区别：  public 类型的状态变量和函数的权限最大，可供外部、子合约、合约内部访问。  internal 和 private 类似，不过如果某个合约继承自其父合约，可以访问父合约中定义的 internal 函数。  external 与 public 类似，只不过这些函数只能在合约之外调">
-<meta name="keywords" content="Solidity">
+<meta name="description" content="Docker 部署 MySQL-Cluster">
+<meta name="keywords" content="软件系统分析与设计指南,课程博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Solidity 日常使用总结">
-<meta property="og:url" content="http://yoursite.com/2018/11/23/solidity_1/index.html">
+<meta property="og:title" content="软件系统分析与设计指南 技术总结">
+<meta property="og:url" content="http://yoursite.com/2019/06/25/Software_Analysis_7/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="public、external、internal、private用法：声明变量或者函数的访问（get）权限 区别：  public 类型的状态变量和函数的权限最大，可供外部、子合约、合约内部访问。  internal 和 private 类似，不过如果某个合约继承自其父合约，可以访问父合约中定义的 internal 函数。  external 与 public 类似，只不过这些函数只能在合约之外调">
+<meta property="og:description" content="Docker 部署 MySQL-Cluster">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-17T12:24:19.142Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/06/25/ZVEP9s.png">
+<meta property="og:updated_time" content="2019-06-25T02:51:30.377Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Solidity 日常使用总结">
-<meta name="twitter:description" content="public、external、internal、private用法：声明变量或者函数的访问（get）权限 区别：  public 类型的状态变量和函数的权限最大，可供外部、子合约、合约内部访问。  internal 和 private 类似，不过如果某个合约继承自其父合约，可以访问父合约中定义的 internal 函数。  external 与 public 类似，只不过这些函数只能在合约之外调">
+<meta name="twitter:title" content="软件系统分析与设计指南 技术总结">
+<meta name="twitter:description" content="Docker 部署 MySQL-Cluster">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/06/25/ZVEP9s.png">
 
 
 
@@ -134,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/23/solidity_1/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/06/25/Software_Analysis_7/"/>
 
 
 
 
 
-  <title>Solidity 日常使用总结 | LALALALALA</title>
+  <title>软件系统分析与设计指南 技术总结 | LALALALALA</title>
   
 
 
@@ -263,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/solidity_1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/Software_Analysis_7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HongZicong">
@@ -280,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Solidity 日常使用总结</h1>
+          <h1 class="post-title" itemprop="name headline">软件系统分析与设计指南 技术总结</h1>
         
 
         <div class="post-meta">
@@ -292,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T22:53:00+08:00">
-                2018-11-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T19:00:00+08:00">
+                2019-06-25
               </time>
             
 
@@ -315,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Solidity/" itemprop="url" rel="index">
-                    <span itemprop="name">Solidity</span>
+                  <a href="/categories/课程博客/" itemprop="url" rel="index">
+                    <span itemprop="name">课程博客</span>
                   </a>
                 </span>
 
@@ -352,76 +354,66 @@
       
 
       
-        <h1 id="public、external、internal、private"><a href="#public、external、internal、private" class="headerlink" title="public、external、internal、private"></a>public、external、internal、private</h1><p>用法：声明变量或者函数的访问（get）权限</p>
-<p>区别：</p>
+        <h1 id="Docker-部署-MySQL-Cluster"><a href="#Docker-部署-MySQL-Cluster" class="headerlink" title="Docker 部署 MySQL-Cluster"></a>Docker 部署 MySQL-Cluster</h1><a id="more"></a>
+<h1 id="依赖工具"><a href="#依赖工具" class="headerlink" title="依赖工具"></a>依赖工具</h1><h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p>版本：18.09.6</p>
+<p>简介：</p>
 <ul>
-<li><p>public 类型的状态变量和函数的权限最大，可供外部、子合约、合约内部访问。</p>
+<li><p>Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
 </li>
-<li><p>internal 和 private 类似，不过如果某个合约继承自其父合约，可以访问父合约中定义的 internal 函数。</p>
-</li>
-<li><p>external 与 public 类似，只不过这些函数只能在合约之外调用，它们不能被合约内的其他函数调用。</p>
-</li>
-<li><p>private修饰的变量和函数，只能在其所在的合约中调用和访问，即使是其子合约也没有权限访问。</p>
+<li><p>容器是完全使用沙箱机制，相互之间不会有任何接口，更重要的是容器性能开销极低。</p>
 </li>
 </ul>
-<p>注意：</p>
+<h2 id="MySQL-Cluster"><a href="#MySQL-Cluster" class="headerlink" title="MySQL Cluster"></a>MySQL Cluster</h2><p>版本：docker mysql/mysql-cluster</p>
+<p>简介：</p>
 <ul>
-<li><p>函数声明默认为 public 类型。</p>
+<li><p>MySQL Cluster构建于NDB存储引擎之上，提供高度可伸缩、实时、符合ACID的事务数据库，结合了99.999%的可用性和开放源码的低TCO。</p>
 </li>
-<li><p>状态变量声明默认 internal 类型，只有显示声明为public类型的状态变量才会自动生成一个和状态变量同名的 Getter 函数以供外部获取当前状态变量的值。</p>
-</li>
-<li><p>可见性标识符的定义位置，对于状态变量来说是在类型后面，对于函数是在参数列表和返回关键字中间。</p>
+<li><p>MySQL Cluster是围绕分布式、多主、服务架构设计的，所以没有单点故障，它在商品硬件上横向扩展，以提供通过SQL和NoSQL接口访问的读写密集型工作负载。</p>
 </li>
 </ul>
-<p><a href="https://blog.csdn.net/liyuechun520/article/details/78408608" target="_blank" rel="noopener">参考1</a></p>
-<p><a href="https://solidity-cn.readthedocs.io/zh/develop/contracts.html#visibility-and-getters" target="_blank" rel="noopener">参考2</a></p>
-<a id="more"></a>
-<h1 id="View-函数"><a href="#View-函数" class="headerlink" title="View 函数"></a>View 函数</h1><p>可以将函数声明为 view 类型，这种情况下要承诺不修改状态。</p>
-<p>以下语句被认为是修改状态：</p>
-<ol>
-<li><p>写入状态变量。 </p>
+<h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><p>NDB 集群框架</p>
+<p><img src="https://s2.ax1x.com/2019/06/25/ZVEP9s.png" alt="ndb"></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>查看 Docker 网络</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker network ls</span><br></pre></td></tr></table></figure>
+<p>启动容器时，可以使用 –network 标志来指定容器应连接的网络。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --network=&lt;NETWORK&gt;</span><br></pre></td></tr></table></figure>
+<p>运行容器（dockermysql为容器的名字，bash为容器内名字）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="built_in">exec</span> -it dockermysql bash</span><br></pre></td></tr></table></figure>
+<p>查看正在运行的容器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps</span><br></pre></td></tr></table></figure>
+<p>查看所有的容器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps -a</span><br></pre></td></tr></table></figure>
+<p>安装 mysql-cluster 镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull mysql/mysql-cluster</span><br></pre></td></tr></table></figure>
+<p>新建局域网</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker network create cluster --subnet=192.168.0.0/16</span><br></pre></td></tr></table></figure>
+<p>然后就可以启动了，先启动 management node</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d --net=cluster --name=management1 --ip=192.168.0.2 mysql/mysql-cluster ndb_mgmd</span><br></pre></td></tr></table></figure>
+<p>然后启动 data nodes</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d --net=cluster --name=ndb1 --ip=192.168.0.3 mysql/mysql-cluster ndbd</span><br><span class="line">$ docker run -d --net=cluster --name=ndb2 --ip=192.168.0.4 mysql/mysql-cluster ndbd</span><br></pre></td></tr></table></figure>
+<p>再启动 MySQL server node</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -d -p 23333:3306 --net=cluster --name=mysql1 --ip=192.168.0.10 -e MYSQL_RANDOM_ROOT_PASSWORD=<span class="literal">true</span> mysql/mysql-cluster mysqld</span><br></pre></td></tr></table></figure>
+<p>得到 MySQL 密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker logs mysql1 2&gt;&amp;1 | grep PASSWORD</span><br><span class="line">$ docker <span class="built_in">exec</span> -it mysql1 mysql -uroot -p</span><br><span class="line">Enter password: or7ah0H9evimWOJeNxoHOs3n[@t</span><br></pre></td></tr></table></figure>
+<p>利用 management node 来管理 cluster</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -it --net=cluster mysql/mysql-cluster ndb_mgm</span><br><span class="line">ndb_mgm&gt; show</span><br></pre></td></tr></table></figure>
+<p>利用 MySQL server node 来使用 cluster</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ docker <span class="built_in">exec</span> -it mysql1 mysql -uroot -p</span><br><span class="line"></span><br><span class="line">mysql&gt; create database nexus; use nexus;</span><br><span class="line"></span><br><span class="line">mysql&gt; create table replicant ... engine=NDBCLUSTER;</span><br></pre></td></tr></table></figure>
+<p>注意：创建表的时候必须选择表的引擎为NDBCLUSTER，否则表不会进行同步</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><p><a href="https://www.cnblogs.com/yufeng218/p/8370670.html" target="_blank" rel="noopener">Centos7上安装docker</a></p>
 </li>
-<li><p>发射事件。</p>
+<li><p><a href="https://mysqlmed.wordpress.com/2017/09/04/mysql-cluster-in-docker-quick-step-by-step/" target="_blank" rel="noopener">MySQL cluster in Docker (English)</a></p>
 </li>
-<li><p>创建其他合约。 </p>
+<li><p><a href="https://www.jianshu.com/p/cc837360c9e7" target="_blank" rel="noopener">MySQL cluster in Docker (Chinese)</a></p>
 </li>
-<li><p>使用 selfdestruct </p>
+<li><p><a href="https://www.cnblogs.com/zuxing/articles/8780661.html" target="_blank" rel="noopener">Docker：网络模式详解</a></p>
 </li>
-<li><p>通过调用发送 Ether </p>
+<li><p><a href="https://hub.docker.com/r/mysql/mysql-cluster/" target="_blank" rel="noopener">MySQL Cluster Docker Image Reference</a></p>
 </li>
-<li><p>调用其他函数不被标记view或者pure </p>
-</li>
-<li><p>使用低等级调用 </p>
-</li>
-<li><p>使用包含某些操作码的内联汇编。</p>
+<li><p><a href="https://blog.csdn.net/weixin_42459563/article/details/80924634" target="_blank" rel="noopener">Docker部署MySQL并远程连接</a></p>
 </li>
 </ol>
-<p>注意：</p>
-<ul>
-<li>承诺不是确保</li>
-</ul>
-<p><a href="https://blog.csdn.net/diandianxiyu_geek/article/details/77981249" target="_blank" rel="noopener">参考</a></p>
-<h1 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h1><p>函数可以声明为pure，它们承诺不会从该状态中读取或修改该状态。</p>
-<p>除了上述状态修改语句的列表外，以下是从状态读取的：</p>
-<ol>
-<li><p>从状态变量读取。 </p>
-</li>
-<li><p>访问this.balance或\<address>.balance。 </address></p>
-</li>
-<li><p>访问block，tx，msg的任何成员（除了msg.sig和msg.data）。 </p>
-</li>
-<li><p>调用任何未标记为pure的功能。 </p>
-</li>
-<li><p>使用包含某些操作码的内联汇编。</p>
-</li>
-</ol>
-<p>注意：</p>
-<ul>
-<li>承诺不是确保</li>
-</ul>
-<p><a href="https://blog.csdn.net/diandianxiyu_geek/article/details/77981249" target="_blank" rel="noopener">参考</a></p>
-<h1 id="Payable"><a href="#Payable" class="headerlink" title="Payable"></a>Payable</h1><p>payable 函数是一种可以接收以太币的特殊函数，可以让调用者付钱给它。</p>
-<p>里面的钱可以利用 address.transfer(this.balance) 拿出</p>
 
       
     </div>
@@ -439,7 +431,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Solidity/" rel="tag"># Solidity</a>
+            <a href="/tags/软件系统分析与设计指南/" rel="tag"># 软件系统分析与设计指南</a>
+          
+            <a href="/tags/课程博客/" rel="tag"># 课程博客</a>
           
         </div>
       
@@ -452,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/18/Leetcode_11/" rel="next" title="Leetcode 11">
-                <i class="fa fa-chevron-left"></i> Leetcode 11
+              <a href="/2019/05/26/Software_Analysis_5/" rel="next" title="软件系统分析与设计指南 第七周作业">
+                <i class="fa fa-chevron-left"></i> 软件系统分析与设计指南 第七周作业
               </a>
             
           </div>
@@ -461,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/25/Leetcode_12/" rel="prev" title="Leetcode 12">
-                Leetcode 12 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -598,7 +588,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#public、external、internal、private"><span class="nav-number">1.</span> <span class="nav-text">public、external、internal、private</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#View-函数"><span class="nav-number">2.</span> <span class="nav-text">View 函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#纯函数"><span class="nav-number">3.</span> <span class="nav-text">纯函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Payable"><span class="nav-number">4.</span> <span class="nav-text">Payable</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-部署-MySQL-Cluster"><span class="nav-number">1.</span> <span class="nav-text">Docker 部署 MySQL-Cluster</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖工具"><span class="nav-number">2.</span> <span class="nav-text">依赖工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">2.1.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-Cluster"><span class="nav-number">2.2.</span> <span class="nav-text">MySQL Cluster</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计"><span class="nav-number">3.</span> <span class="nav-text">设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
