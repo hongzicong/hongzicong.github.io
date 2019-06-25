@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="Docker 部署 MySQL-Cluster">
+<meta name="description" content="简介 MySQL NDB Cluster是一个适用于分布式计算环境的高可用性、高冗余版本的MySQL。  NDB集群由一组计算机组成，称为主机，每个计算机运行一个或多个进程。这些进程称为节点，可能包括MySQL服务器（用于访问NDB数据）、数据节点（用于存储数据）、一个或多个管理服务器，以及可能的其他专门的数据访问程序。  直接将各个节点部署在主机上，不利于迁移和复制，利用 Docker 我们可以">
 <meta name="keywords" content="软件系统分析与设计指南,课程博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件系统分析与设计指南 技术总结">
+<meta property="og:title" content="Docker 部署 MySQL-Cluster">
 <meta property="og:url" content="http://yoursite.com/2019/06/25/Software_Analysis_7/index.html">
 <meta property="og:site_name" content="LALALALALA">
-<meta property="og:description" content="Docker 部署 MySQL-Cluster">
+<meta property="og:description" content="简介 MySQL NDB Cluster是一个适用于分布式计算环境的高可用性、高冗余版本的MySQL。  NDB集群由一组计算机组成，称为主机，每个计算机运行一个或多个进程。这些进程称为节点，可能包括MySQL服务器（用于访问NDB数据）、数据节点（用于存储数据）、一个或多个管理服务器，以及可能的其他专门的数据访问程序。  直接将各个节点部署在主机上，不利于迁移和复制，利用 Docker 我们可以">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/06/25/ZVEP9s.png">
-<meta property="og:updated_time" content="2019-06-25T02:51:30.377Z">
+<meta property="og:updated_time" content="2019-06-25T03:06:28.803Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="软件系统分析与设计指南 技术总结">
-<meta name="twitter:description" content="Docker 部署 MySQL-Cluster">
+<meta name="twitter:title" content="Docker 部署 MySQL-Cluster">
+<meta name="twitter:description" content="简介 MySQL NDB Cluster是一个适用于分布式计算环境的高可用性、高冗余版本的MySQL。  NDB集群由一组计算机组成，称为主机，每个计算机运行一个或多个进程。这些进程称为节点，可能包括MySQL服务器（用于访问NDB数据）、数据节点（用于存储数据）、一个或多个管理服务器，以及可能的其他专门的数据访问程序。  直接将各个节点部署在主机上，不利于迁移和复制，利用 Docker 我们可以">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/06/25/ZVEP9s.png">
 
 
@@ -142,7 +142,7 @@
 
 
 
-  <title>软件系统分析与设计指南 技术总结 | LALALALALA</title>
+  <title>Docker 部署 MySQL-Cluster | LALALALALA</title>
   
 
 
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">软件系统分析与设计指南 技术总结</h1>
+          <h1 class="post-title" itemprop="name headline">Docker 部署 MySQL-Cluster</h1>
         
 
         <div class="post-meta">
@@ -354,7 +354,15 @@
       
 
       
-        <h1 id="Docker-部署-MySQL-Cluster"><a href="#Docker-部署-MySQL-Cluster" class="headerlink" title="Docker 部署 MySQL-Cluster"></a>Docker 部署 MySQL-Cluster</h1><a id="more"></a>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><ul>
+<li><p>MySQL NDB Cluster是一个适用于分布式计算环境的高可用性、高冗余版本的MySQL。</p>
+</li>
+<li><p>NDB集群由一组计算机组成，称为主机，每个计算机运行一个或多个进程。这些进程称为节点，可能包括MySQL服务器（用于访问NDB数据）、数据节点（用于存储数据）、一个或多个管理服务器，以及可能的其他专门的数据访问程序。</p>
+</li>
+<li><p>直接将各个节点部署在主机上，不利于迁移和复制，利用 Docker 我们可以将节点放在容器，实现虚拟化和可移植化。</p>
+</li>
+</ul>
+<a id="more"></a>
 <h1 id="依赖工具"><a href="#依赖工具" class="headerlink" title="依赖工具"></a>依赖工具</h1><h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p>版本：18.09.6</p>
 <p>简介：</p>
 <ul>
@@ -373,6 +381,16 @@
 </ul>
 <h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><p>NDB 集群框架</p>
 <p><img src="https://s2.ax1x.com/2019/06/25/ZVEP9s.png" alt="ndb"></p>
+<p>根据上图所示，集群节点有三种类型：</p>
+<ol>
+<li><p>Management node：这种类型节点的作用是管理NDB集群中的其他节点，执行诸如提供配置数据、启动和停止节点以及运行备份等功能。因为这个节点类型管理其他节点的配置，所以应该首先启动这种类型的节点，在任何其他节点之前。执行ndb_mgmd命令启动该节点。</p>
+</li>
+<li><p>Data node：这种类型节点的作用是存储集群数据。一个副本足以用于数据存储，但不提供冗余;因此，建议使用2（或更多）副本来提供冗余，从而获得高可用性。执行ndbd或ndbmtd（多线程）命令启动该节点。NDB集群表通常存储在内存中，而不是在磁盘上（这就是为什么我们将NDB集群称为内存中的数据库）。然而，一些NDB集群数据可以存储在磁盘上。</p>
+</li>
+<li><p>SQL node：在NDB Cluster中SQL节点是一个使用NDBCLUSTER存储引擎的传统MySQL服务器。期望在生产环境中使用三个节点的设置是不现实的。这样的配置不提供冗余;为了从NDB集群的高可用性特性中获益，您必须使用多个数据和SQL节点。还强烈推荐使用多个管理节点。</p>
+</li>
+</ol>
+<p><strong>注意：</strong> 在最小的NDB集群配置中，至少会有三个节点</p>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>查看 Docker 网络</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker network ls</span><br></pre></td></tr></table></figure>
 <p>启动容器时，可以使用 –network 标志来指定容器应连接的网络。</p>
@@ -412,6 +430,8 @@
 <li><p><a href="https://hub.docker.com/r/mysql/mysql-cluster/" target="_blank" rel="noopener">MySQL Cluster Docker Image Reference</a></p>
 </li>
 <li><p><a href="https://blog.csdn.net/weixin_42459563/article/details/80924634" target="_blank" rel="noopener">Docker部署MySQL并远程连接</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/c989ee86d7cf" target="_blank" rel="noopener">MySQL NDB Cluster概述</a></p>
 </li>
 </ol>
 
@@ -588,7 +608,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-部署-MySQL-Cluster"><span class="nav-number">1.</span> <span class="nav-text">Docker 部署 MySQL-Cluster</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖工具"><span class="nav-number">2.</span> <span class="nav-text">依赖工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">2.1.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-Cluster"><span class="nav-number">2.2.</span> <span class="nav-text">MySQL Cluster</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计"><span class="nav-number">3.</span> <span class="nav-text">设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖工具"><span class="nav-number">2.</span> <span class="nav-text">依赖工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-number">2.1.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-Cluster"><span class="nav-number">2.2.</span> <span class="nav-text">MySQL Cluster</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计"><span class="nav-number">3.</span> <span class="nav-text">设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

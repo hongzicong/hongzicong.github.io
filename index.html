@@ -279,7 +279,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/25/Software_Analysis_7/" itemprop="url">软件系统分析与设计指南 技术总结</a></h1>
+                <a class="post-title-link" href="/2019/06/25/Software_Analysis_7/" itemprop="url">Docker 部署 MySQL-Cluster</a></h1>
         
 
         <div class="post-meta">
@@ -352,7 +352,14 @@
 
       
         
-          <h1 id="Docker-部署-MySQL-Cluster"><a href="#Docker-部署-MySQL-Cluster" class="headerlink" title="Docker 部署 MySQL-Cluster"></a>Docker 部署 MySQL-Cluster</h1>
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><ul>
+<li><p>MySQL NDB Cluster是一个适用于分布式计算环境的高可用性、高冗余版本的MySQL。</p>
+</li>
+<li><p>NDB集群由一组计算机组成，称为主机，每个计算机运行一个或多个进程。这些进程称为节点，可能包括MySQL服务器（用于访问NDB数据）、数据节点（用于存储数据）、一个或多个管理服务器，以及可能的其他专门的数据访问程序。</p>
+</li>
+<li><p>直接将各个节点部署在主机上，不利于迁移和复制，利用 Docker 我们可以将节点放在容器，实现虚拟化和可移植化。</p>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/06/25/Software_Analysis_7/#more" rel="contents">
