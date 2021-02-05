@@ -1,0 +1,8 @@
+@inproceedings{guo2016improved,
+  title={An improved incremental training approach for large scaled dataset based on support vector machine},
+  author={Guo, Jingcai},
+  booktitle={2016 IEEE/ACM 3rd International Conference on Big Data Computing Applications and Technologies (BDCAT)},
+  pages={149--157},
+  year={2016},
+  organization={IEEE}
+}

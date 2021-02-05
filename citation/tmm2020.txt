@@ -1,0 +1,7 @@
+@article{guo2020novel,
+  title={A Novel Perspective to Zero-shot Learning: Towards an Alignment of Manifold Structures via Semantic Feature Expansion},
+  author={Guo, Jingcai and Guo, Song},
+  journal={IEEE Transactions on Multimedia},
+  year={2020},
+  publisher={IEEE}
+}

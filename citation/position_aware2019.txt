@@ -1,0 +1,6 @@
+@article{ma2019position,
+  title={Position-Aware Convolutional Networks for Traffic Prediction},
+  author={Ma, Shiheng and Guo, Jingcai and Guo, Song and Guo, Minyi},
+  journal={arXiv preprint arXiv:1904.06187},
+  year={2019}
+}
